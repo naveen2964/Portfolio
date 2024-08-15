@@ -1,0 +1,1395 @@
+/* Font import and global reset */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Code', sans-serif;
+}
+
+/* Body styling */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #1b1b32;
+  color: #fff;
+}
+
+body {
+  cursor: url('cursorr.png'), auto;
+}
+
+.button {
+  cursor: url('clicks.png'), pointer;
+}
+
+#header-content {
+  display: none;
+}
+
+/* Glassmorphic Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Loader */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1b1b32;
+  z-index: 1000;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  visibility: visible;
+  opacity: 1;
+}
+
+#loader.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+#loader {
+  transition: opacity 0.5s ease;
+}
+
+.spinner {
+  border: 5px solid #1b1b32;
+  border-top: 5px solid #a29bfe;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: transparent;
+  position: fixed;
+  width: 80%; /* Adjust width as needed */
+  left: 10%; /* Center the navbar horizontally */
+  top: 40px; /* Moves the navbar down from the top */
+  z-index: 1000;
+}
+
+/* Initial hidden state */
+.navbar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar:hover {
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  color: #18162f;
+}
+
+
+.navbar .nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar .nav-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Header */
+.header-content {
+  height: 95vh; /* Decrease the height to 80% of the viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  color: #a29bfe;
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphic background */
+  backdrop-filter: blur(40px);
+  border-radius: 15px;
+  padding: 20px 40px; /* Increase padding for better spacing */
+  margin: 20px; /* Adjust margin to reduce space around the box */
+}
+
+
+.header-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.header-content p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.header-content .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #a29bfe;
+  background-color: transparent;
+  border: 2px solid #a29bfe;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.header-content .btn:hover {
+  background-color: #a29bfe;
+  color: #1b1b32;
+}
+
+/* About Section */
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 30px;
+  background-color: #1b1b32;
+  margin: 40px;
+  height: 500px; /* Adjust this value as needed */
+}
+
+.img-container {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+}
+
+.img-container img {
+  max-width: 60%; /* Set a smaller default size */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 15px;
+  transform: translateX(-140px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.img-container img:hover {
+  transform: scale(1.1); /* Slightly enlarge the image on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Add shadow on hover */
+}
+
+.text {
+  flex: 1;
+  max-width: 50%; /* Adjust as needed */
+  padding: 0 20px; /* Add padding for spacing */
+  color: #fff; /* Ensure text is visible */
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 1rem;
+}
+
+/* Skills Section */
+/* Skills Section */
+.skills {
+  padding: 40px 30px;
+  background-color: #1b1b32;
+  margin: 20px;
+  text-align: center;
+}
+
+.skills h2 {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item img {
+  width: 80px; /* Adjust as needed */
+  height: 80px; /* Adjust as needed */
+  transition: transform 0.3s ease;
+  margin: 30px;
+}
+
+.skill-item p {
+  margin-top: 10px;
+  background-color: #4A4A4A;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 0px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item img:hover {
+  transform: scale(1.2); /* Enlarge the logo on hover */
+}
+
+.skill-item p:hover {
+  transform: scale(1.1); /* Slightly enlarge the text on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Add shadow on hover */
+}
+
+
+
+/* Portfolio Section */
+/* Portfolio Section */
+.portfolio {
+  padding: 50px 30px;
+  background-color: #15002b; /* Dark violet background */
+  margin: 20px;
+  height: auto;
+  overflow: hidden; /* Change to hidden to avoid overflow issues */
+  position: relative;
+  z-index: 1;
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.portfolio::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(75, 0, 130, 0.6), rgba(139, 0, 139, 0.6)); /* Darker gradient overlay */
+  mix-blend-mode: overlay;
+  z-index: -1;
+  border-radius: 20px;
+}
+
+.portfolio h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #e6e6fa; /* Light violet text color for contrast */
+  font-size: 2.5em;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 2px;
+}
+
+.portfolio-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.portfolio-item {
+  display: flex;
+  align-items: center; /* Center align items vertically */
+  justify-content: center; /* Center items horizontally */
+  gap: 40px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 400px; /* Fixed height for consistency */
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-item-content,
+.portfolio-item-description {
+  box-sizing: border-box;
+  height: 100%; /* Ensure both have the same height */
+}
+
+.portfolio-item-content {
+  width: 50%;
+  overflow-x: auto; /* Allow horizontal scrolling */
+  white-space: nowrap; /* Prevent images from wrapping */
+  position: relative;
+  display: flex;
+  align-items: center; /* Center images vertically */
+  overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+.portfolio-item-content img {
+  display: inline-block; /* Align images in a row */
+  width: auto; /* Maintain aspect ratio */
+  height: 100%; /* Ensure images cover the container height */
+  max-width: 100%; /* Prevent images from exceeding container width */
+  border-radius: 20px; /* Consistent border radius */
+  margin-right: 10px; /* Spacing between images */
+  object-fit: cover; /* Ensure images cover the container while maintaining aspect ratio */
+  outline: none;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+.portfolio-item-content.scrollable-images:hover img {
+  animation: shake 0.5s ease-in-out; /* Apply the shake animation */
+}
+
+.portfolio-item-description {
+  width: 50%;
+  background: rgba(55, 0, 107, 0.4); /* Darker glassmorphic effect */
+  color: #e6e6fa;
+  padding: 50px; /* Increased padding for more space */
+  border-radius: 15px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the content vertically */
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.portfolio-item-description h3 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  font-family: 'Source Serif Pro', serif;
+}
+
+.portfolio-item-description p {
+  font-size: 1.2em;
+  line-height: 1.6em;
+}
+
+/* Alternate layout for odd items */
+.portfolio-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.portfolio-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Adding hover effect for portfolio-item-description */
+.portfolio-item-description::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(55, 0, 107, 0.2); /* Subtle hover effect */
+  border-radius: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.portfolio-item:hover .portfolio-item-description::after {
+  opacity: 1;
+}
+
+/* Glassmorphism for entire section */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.shadow-effect {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Reverting text styling */
+.portfolio h2 {
+  font-family: inherit; /* Use default or original font */
+  font-size: 2em; /* Original size */
+}
+
+.portfolio-item-description h3 {
+  font-family: inherit; /* Use default or original font */
+  font-size: 1.5em; /* Original size */
+}
+
+.portfolio-item-description p {
+  font-size: 1em; /* Original size */
+  line-height: 1.5em; /* Original line-height */
+}
+
+/* Navigation buttons for images */
+.nav-btn {
+  background-color: rgba(75, 0, 130, 0.6); /* Violet background */
+  border: none;
+  color: #ffffff;
+  font-size: 1.5em;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10; /* Ensure buttons are above other elements */
+  border-radius: 50%;
+}
+
+/* Adjust positioning for left and right buttons */
+.nav-btn.prev {
+  left: 10px; /* Position on the left side of the container */
+}
+
+.nav-btn.next {
+  right: 725px; /* Position on the right side of the container */
+}
+
+.nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Darken on hover */
+}
+
+
+
+/* Timeline Styles */
+/* Timeline Section */
+.timeline {
+  padding: 40px;
+  position: relative;
+  margin-top: 50px;
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-item:hover .timeline-content {
+  background: rgba(138, 43, 226, 0.6);
+}
+
+.timeline-icon {
+  width: 20px;
+  height: 20px;
+  background-color: #8A2BE2;
+  border-radius: 50%;
+  margin-right: 20px;
+  position: relative;
+}
+
+.timeline-icon:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background-color: rgba(138, 43, 226, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s ease;
+}
+
+.timeline-item:hover .timeline-icon:after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.timeline-content {
+  padding: 15px 20px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease;
+  position: relative;
+}
+
+.timeline-content h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #8A2BE2;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.timeline-content p {
+  margin: 10px 0 0;
+  color: #ddd;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content h3 {
+  color: #fff;
+}
+
+.timeline-item:hover .timeline-content p {
+  color: #eee;
+}
+
+/* Timeline Line */
+/* Timeline Section */
+.timeline {
+  padding: 40px;
+  position: relative;
+  margin-top: 100px;
+  margin: 20px;
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-icon {
+  width: 20px;
+  height: 20px;
+  background-color: #8A2BE2;
+  border-radius: 50%;
+  margin-right: 20px;
+  position: relative;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease;
+}
+
+.timeline-icon:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background-color: rgba(138, 43, 226, 0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+.timeline-item:hover .timeline-icon:after {
+  transform: translate(-50%, -50%) scale(1.2);
+  background-color: rgba(138, 43, 226, 0.3);
+}
+
+.timeline-content {
+  padding: 15px 20px;
+  border-radius: 15px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.timeline-item:hover .timeline-content {
+  background: linear-gradient(145deg, rgba(138, 43, 226, 0.25), rgba(138, 43, 226, 0.15));
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-content h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #8A2BE2;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.timeline-content p {
+  margin: 10px 0 0;
+  color: #ddd;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content h3 {
+  color: #fff;
+}
+
+.timeline-item:hover .timeline-content p {
+  color: #f0f0f0;
+}
+
+/* Timeline Line */
+.timeline-container:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #8A2BE2, #BA55D3);
+  transition: height 0.4s ease;
+}
+
+@media (max-width: 768px) {
+  .timeline-item {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .timeline-icon {
+      margin: 0 0 10px;
+  }
+
+  .timeline-container:before {
+      left: 0;
+      height: 100%;
+  }
+}
+
+
+/* Contact Section */
+/* Container for Social Media and Contact Sections */
+/* Social Media Section */
+.social-media {
+  padding: 60px;
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphic background */
+  backdrop-filter: blur(10px); /* Glassmorphic blur effect */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.social-media h2 {
+  text-align: center;
+  margin-bottom: 80px;  
+  color: #e6e6fa; /* Light text color */
+  font-size: 2em;
+  font-family: 'Oswald', sans-serif; /* Font style */
+  letter-spacing: 1px;
+
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Increase the space between icons */
+}
+
+.social-links a {
+  display: block;
+  width: 60px; /* Slightly larger icons for better visibility */
+  height: 60px;
+}
+
+.social-links img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+}
+
+.social-links a:hover img {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* Enhanced shadow effect on hover */
+}
+
+/* Contact Section */
+.contact {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphic background */
+  backdrop-filter: blur(10px); /* Glassmorphic blur effect */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #e6e6fa; /* Light text color */
+  font-size: 2.5em;
+  font-family: 'Oswald', sans-serif; /* Font style */
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Text shadow */
+}
+
+.contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between form elements */
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact .contact-form input,
+.contact .contact-form textarea {
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #a29bfe;
+  background-color: #1b1b32;
+  color: #fff;
+  font-size: 1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact .contact-form input:focus,
+.contact .contact-form textarea:focus {
+  border-color: #8a3ffc;
+  box-shadow: 0 0 8px rgba(138, 63, 248, 0.5);
+  outline: none;
+}
+
+.contact .contact-form button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #a29bfe, #8a3ffc);
+  color: #1b1b32;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact .contact-form button:hover {
+  background: linear-gradient(135deg, #8a3ffc, #6a1b9a);
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact {
+    padding: 20px;
+  }
+
+  .contact h2 {
+    font-size: 2em;
+  }
+
+  .contact .contact-form input,
+  .contact .contact-form textarea {
+    font-size: 0.9em;
+  }
+
+  .contact .contact-form button {
+    font-size: 1em;
+  }
+}
+
+
+  
+  /* Footer */
+  .footer {
+    background-color: #1b1b32;
+    padding: 20px 30px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer p {
+    margin: 0;
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .navbar .nav-links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .header-content h1 {
+      font-size: 2rem;
+    }
+  
+    .about .text {
+      max-width: 100%;
+    }
+  
+    .portfolio-item {
+      width: 100%;
+    }
+  
+    .signin .content {
+      max-width: 100%;
+    }
+  }
+  
+  /* Additional Animations for Scroll Effect */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .section {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  
+  .section-visible {
+    opacity: 1;
+  }
+
+  /* Toggle Button */
+.toggle-button {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom edge */
+    right: 20px;  /* Distance from the right edge */
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: #a29bfe;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above other elements */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .toggle-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #6d28d9;
+  }
+  
+  /* Dark Mode Toggle Button */
+  body.dark-mode .toggle-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #bb86fc;
+  }
+  
+/* Add spacing between sections */
+section {
+  margin-bottom: 40px; /* Adds space below each section */
+}
+
+/* About Section */
+.about {
+  margin-bottom: 60px; /* Increased space below the About section */
+}
+
+/* Portfolio Section */
+.portfolio {
+  margin-bottom: 60px; /* Increased space below the Portfolio section */
+}
+
+/* Contact Section */
+.contact {
+  margin-bottom: 60px; /* Increased space below the Contact section */
+}
+
+/* Sign-In Section */
+.signin {
+  margin-bottom: 60px; /* Increased space below the Sign-In section */
+}
+
+/* Footer */
+.footer {
+  margin-top: 40px; /* Adds space above the footer */
+}
+
+/* Background gradient animation */
+@keyframes gradient-animation {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+/* Ensure that the particles background is always behind other content */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure particles.js is behind other content */
+}
+
+/* Basic styling for the loader */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 9999; /* Ensure loader is above all content */
+}
+
+/* Loader animation */
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Basic styling for main content */
+#main-content {
+  display: none; /* Hidden by default, shown when loaded */
+}
+
+/* Add glassmorphism and other styles here */
+
+
+
+
+body {
+  background: linear-gradient(45deg, #1b1b32, #8a3ffc);
+  background-size: 400% 400%;
+  animation: gradient-animation 15s ease infinite;
+}
+
+/* For a more advanced effect, consider using a library like particles.js */
+
+  /* Glassmorphic Effect for All Sections */
+/* Glassmorphic Effect for All Sections */
+
+section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 40px 30px;
+  margin-bottom: 60px; /* Space below each section */
+}
+
+/* Adjust individual section styles if needed */
+.about, .portfolio, .contact, .signin {
+  padding: 40px 30px;
+}
+
+/* Remove extra margin from sections if needed */
+footer {
+  margin-top: 40px; /* Adds space above the footer */
+}
+
+
+/* Navbar and Footer remain unchanged */
+.navbar,
+.footer {
+  background-color: transparent;
+}
+
+/* Adjusting spacing and margin if needed */
+.footer {
+  margin-top: 40px; /* Adds space above the footer */
+}
+
+/* Example of the main content styling */
+#main-content {
+  display: none; /* Hidden by default, shown when loaded */
+}
+
+/* Ensure all sections are visible */
+section {
+  opacity: 1; /* Ensure sections are visible by default */
+}
+
+/* Header */
+.header-content {
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphic background */
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Glassmorphic shadow */
+  backdrop-filter: blur(10px); /* Glassmorphic blur effect */
+  -webkit-backdrop-filter: blur(10px); /* For WebKit browsers */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Glassmorphic border */
+  padding: 40px 30px;
+  color: #a29bfe; /* Text color */
+  text-align: center;
+}
+
+/* Header text and button styling */
+.header-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.header-content p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.header-content .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fcfcfc;
+  background-color: transparent;
+  border: 2px solid #a29bfe;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.header-content .btn:hover {
+  background-color: #ffffff;
+  color: #1b1b32;
+}
+.about {
+  margin-top: 60px; /* Adjust this value to create the desired gap */
+  padding: 40px 30px;
+  background-color: rgba(27, 27, 50, 0.6); /* Glassmorphic effect */
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Example of GPU-accelerated animation */
+.element {
+  transform: translateZ(0);
+  transition: transform 0.3s ease-in-out;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevents horizontal overflow */
+}
+
+.container {
+  min-height: 100vh; /* Ensures container always covers full viewport height */
+}
+@media (max-width: 600px) {
+  .section {
+    padding: 20px;
+    font-size: 1em;
+  }
+}
+.fixed-element {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.layer {
+  z-index: 10;
+}
+.background {
+  background-size: cover;
+  background-position: center;
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Make sure it's behind other content */
+}
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9); /* Background to cover the content */
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+
+#loader {
+  transition: opacity 0.5s ease;
+}
+
+/* Ensure body and html take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: auto; /* Allow scrolling */
+}
+
+/* Particles background */
+#particles-js {
+  position: fixed; /* Fixed to ensure it stays in place */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure it is behind other content */
+}
+
+/* Main content styling */
+#main-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure sections have appropriate background */
+section {
+  background: rgba(255, 255, 255, 0.8); /* Example background */
+  padding: 20px;
+  margin: 10px 0;
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.section-visible {
+  opacity: 1;
+}
+
+/* Define the fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typing Effect */
+.typing {
+  font-size: 2rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 4px solid #8a3ffc; /* Cursor effect */
+  animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #8a3ffc; }
+}
+
+
+body {
+  background-color: #0d1b2a; /* Very dark blue background for coding theme */
+  color: #e0e0e0; /* Light text color for contrast */
+}
+
+body.dark-mode {
+  background-color: #1c1c1c; /* Darker background for dark mode */
+}
+
+body.light-mode {
+  background-color: #f0f4f8; /* Light blue background for light mode */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #90cdf4; /* Light blue for headings */
+}
+
+p, a {
+  color: #e0e0e0; /* Light gray for general text */
+}
+
+a:hover {
+  color: #63b3ed; /* Brighter blue for links on hover */
+}
+
+.button {
+  background-color: #3182ce; /* Modern blue for buttons */
+  color: #fff; /* White text for contrast */
+}
+
+.button:hover {
+  background-color: #2b6cb0; /* Darker blue on hover */
+}
+
+.navbar {
+  background-color: rgba(13, 27, 42, 0.8); /* Semi-transparent dark blue */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slightly darker shadow */
+}
+
+.navbar .logo {
+  color: #e0e0e0; /* Light text color for logo */
+}
+
+.navbar .nav-links a {
+  color: #e0e0e0; /* Light text color for nav links */
+}
+
+.navbar .nav-links a:hover {
+  background-color: rgba(99, 179, 237, 0.3); /* Light blue hover effect */
+}
+
+.glass {
+  background: rgba(13, 27, 42, 0.7); /* Dark blue glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+.portfolio {
+  background-color: #0b2239; /* Darker blue background */
+}
+
+.portfolio h2 {
+  color: #90cdf4; /* Light blue for headings */
+}
+
+.portfolio-item-content {
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+}
+
+.portfolio-item-description {
+  background: rgba(0, 51, 102, 0.6); /* Darker blue glassmorphic effect */
+  color: #90cdf4; /* Light text color */
+}
+
+.timeline-item {
+  background: rgba(13, 27, 42, 0.7); /* Dark blue glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+}
+
+.timeline-icon {
+  background-color: #3182ce; /* Blue icon */
+}
+
+.timeline-content {
+  background: rgba(13, 27, 42, 0.7); /* Dark blue glass effect */
+}
+
+#loader {
+  background-color: #0d1b2a; /* Match loader background with body */
+}
+
+.spinner {
+  border-top: 5px solid #90cdf4; /* Light blue spinner */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Space between logo and nav links */
+  align-items: center; /* Center items vertically */
+  padding: 10px 20px; /* Adjust padding as needed */
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background for glass effect */
+  backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
+  border-radius: 10px; /* Rounded corners for the glass effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.logo {
+  font-size: 24px; /* Adjust the font size for your logo */
+  color: #e0e0e0; /* Light color for visibility */
+  font-weight: bold; /* Bold text for emphasis */
+  margin: 0; /* Remove default margins */
+}
+
+.logo img {
+  height: 40px; /* Adjust the height to fit your navbar */
+  width: auto; /* Maintain aspect ratio */
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px; /* Space between links */
+}
+
+.nav-links a {
+  color: #e0e0e0; /* Light text color for links */
+  text-decoration: none; /* Remove underline */
+  font-size: 16px; /* Adjust font size as needed */
+}
+
+.nav-links a:hover {
+  color: #8a3ffc; /* Bright Violet on hover */
+}
+
+
+

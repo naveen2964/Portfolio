@@ -357,6 +357,13 @@ html {
   margin-right: 10px; /* Spacing between images */
   object-fit: cover; /* Ensure images cover the container while maintaining aspect ratio */
   outline: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+/* Image hover effect */
+.portfolio-item-content img:hover {
+  transform: scale(1.05); /* Slightly enlarge image */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
 }
 
 @keyframes shake {
@@ -456,7 +463,7 @@ html {
 .nav-btn {
   background-color: rgba(75, 0, 130, 0.6); /* Violet background */
   border: none;
-  color: #ffffff;
+  color: #e6e6fa;
   font-size: 1.5em;
   padding: 10px;
   cursor: pointer;
@@ -466,19 +473,106 @@ html {
   z-index: 10; /* Ensure buttons are above other elements */
   border-radius: 50%;
 }
-
-/* Adjust positioning for left and right buttons */
-.nav-btn.prev {
-  left: 10px; /* Position on the left side of the container */
+.portfolio-item {
+  display: flex;
+  align-items: stretch; /* Ensure equal height for all children */
+  gap: 20px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
-.nav-btn.next {
-  right: 725px; /* Position on the right side of the container */
+.portfolio-item-content,
+.portfolio-item-description {
+  flex: 1; /* Ensure both sections take equal space */
+  box-sizing: border-box;
 }
 
-.nav-btn:hover {
-  background-color: rgba(0, 0, 0, 0.8); /* Darken on hover */
+.portfolio-item-content {
+  overflow: hidden;
 }
+
+.portfolio-item-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+  border-radius: 20px;
+}
+.portfolio-item-content {
+  position: relative; /* Ensure links are positioned correctly */
+}
+
+.portfolio-item-content a {
+  display: block; /* Make the whole area of the link clickable */
+  width: 100%;
+  height: 100%;
+  text-decoration: none; /* Remove underline from links */
+}
+/* Ensure images fit their containers */
+.portfolio-item-content img {
+  display: block; /* Remove extra space below the image */
+  width: 100%; /* Ensure image spans the full width of the container */
+  height: 100%; /* Ensure image spans the full height of the container */
+  object-fit: cover; /* Cover the container without distortion */
+  border-radius: 20px; /* Consistent border radius */
+}
+
+/* If needed, set explicit size for image container */
+.portfolio-item-content {
+  width: 50%;
+  overflow: hidden; /* Prevent overflow */
+  position: relative;
+}
+
+/* Ensure the container has a defined height */
+.portfolio-item {
+  height: 400px; /* Fixed height to match description box */
+}
+
+
+.portfolio-item-content img {
+  display: block;
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 20px;
+}
+
+
+.portfolio-item-description {
+  background: rgba(55, 0, 107, 0.4); /* Darker glassmorphic effect */
+  color: #e6e6fa;
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the content vertically */
+}
+
+.portfolio-item-description h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.portfolio-item-description p {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+img {
+  outline: none;
+}
+
+img {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
 
 
 
@@ -705,7 +799,7 @@ html {
 /* Container for Social Media and Contact Sections */
 /* Social Media Section */
 .social-media {
-  padding: 60px;
+  padding: 80px;
   background: rgba(255, 255, 255, 0.1); /* Glassmorphic background */
   backdrop-filter: blur(10px); /* Glassmorphic blur effect */
   border-radius: 15px;
@@ -717,12 +811,11 @@ html {
 
 .social-media h2 {
   text-align: center;
-  margin-bottom: 80px;  
+  margin-bottom: 20px;
   color: #e6e6fa; /* Light text color */
   font-size: 2em;
   font-family: 'Oswald', sans-serif; /* Font style */
   letter-spacing: 1px;
-
 }
 
 .social-links {
@@ -1090,7 +1183,7 @@ section {
 .header-content .btn {
   display: inline-block;
   padding: 10px 20px;
-  color: #fcfcfc;
+  color: #a29bfe;
   background-color: transparent;
   border: 2px solid #a29bfe;
   border-radius: 25px;
@@ -1098,7 +1191,7 @@ section {
 }
 
 .header-content .btn:hover {
-  background-color: #ffffff;
+  background-color: #a29bfe;
   color: #1b1b32;
 }
 .about {

@@ -275,16 +275,13 @@ html {
 
 
 /* Portfolio Section */
-/* Portfolio Section */
 .portfolio {
-  padding: 50px 30px;
-  background-color: #15002b; /* Dark violet background */
-  margin: 20px;
-  height: auto;
-  overflow: hidden; /* Change to hidden to avoid overflow issues */
+  padding: 60px 30px;
+  background: #15002b; /* Dark violet background */
+  margin: 20px auto;
+  border-radius: 20px;
   position: relative;
-  z-index: 1;
-  scroll-behavior: smooth; /* Smooth scrolling */
+  overflow: hidden; /* Hide overflow */
 }
 
 .portfolio::before {
@@ -294,283 +291,89 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(75, 0, 130, 0.6), rgba(139, 0, 139, 0.6)); /* Darker gradient overlay */
-  mix-blend-mode: overlay;
+  background: linear-gradient(135deg, rgba(75, 0, 130, 0.5), rgba(139, 0, 139, 0.5)); /* Gradient overlay */
   z-index: -1;
   border-radius: 20px;
 }
 
 .portfolio h2 {
   text-align: center;
-  margin-bottom: 40px;
-  color: #e6e6fa; /* Light violet text color for contrast */
+  color: #e6e6fa;
   font-size: 2.5em;
   font-family: 'Oswald', sans-serif;
-  letter-spacing: 2px;
+  margin-bottom: 30px;
 }
 
 .portfolio-grid {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
 }
 
 .portfolio-item {
   display: flex;
-  align-items: center; /* Center align items vertically */
-  justify-content: center; /* Center items horizontally */
-  gap: 40px;
-  width: 100%;
-  max-width: 1400px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1200px;
   margin: 0 auto;
-  height: 400px; /* Fixed height for consistency */
-  box-sizing: border-box;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  border-radius: 20px;
+  height: 350px; /* Adjust height for consistency */
+  border-radius: 15px;
   overflow: hidden;
   position: relative;
-  z-index: 1;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.portfolio-item-content,
-.portfolio-item-description {
-  box-sizing: border-box;
-  height: 100%; /* Ensure both have the same height */
+.portfolio-item:hover {
+  transform: scale(1.02); /* Slight scale effect */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .portfolio-item-content {
-  width: 50%;
-  overflow-x: auto; /* Allow horizontal scrolling */
-  white-space: nowrap; /* Prevent images from wrapping */
-  position: relative;
-  display: flex;
-  align-items: center; /* Center images vertically */
-  overflow: hidden; /* Ensure content doesn't overflow */
+  flex: 1;
+  overflow: hidden;
 }
 
 .portfolio-item-content img {
-  display: inline-block; /* Align images in a row */
-  width: auto; /* Maintain aspect ratio */
-  height: 100%; /* Ensure images cover the container height */
-  max-width: 100%; /* Prevent images from exceeding container width */
-  border-radius: 20px; /* Consistent border radius */
-  margin-right: 10px; /* Spacing between images */
-  object-fit: cover; /* Ensure images cover the container while maintaining aspect ratio */
-  outline: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s, filter 0.3s;
 }
 
-/* Image hover effect */
 .portfolio-item-content img:hover {
-  transform: scale(1.05); /* Slightly enlarge image */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
-}
-
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-10px); }
-  50% { transform: translateX(10px); }
-  75% { transform: translateX(-10px); }
-  100% { transform: translateX(0); }
-}
-
-.portfolio-item-content.scrollable-images:hover img {
-  animation: shake 0.5s ease-in-out; /* Apply the shake animation */
+  transform: scale(1.05);
+  filter: brightness(80%);
 }
 
 .portfolio-item-description {
-  width: 50%;
-  background: rgba(55, 0, 107, 0.4); /* Darker glassmorphic effect */
+  flex: 1;
+  background: rgba(55, 0, 107, 0.4); /* Glassmorphic effect */
   color: #e6e6fa;
-  padding: 50px; /* Increased padding for more space */
+  padding: 20px;
   border-radius: 15px;
-  text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center the content vertically */
-  box-sizing: border-box;
-  position: relative;
-  z-index: 2;
+  justify-content: center;
 }
 
 .portfolio-item-description h3 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  font-family: 'Source Serif Pro', serif;
+  font-size: 1.8em;
+  margin-bottom: 15px;
 }
 
 .portfolio-item-description p {
-  font-size: 1.2em;
-  line-height: 1.6em;
+  font-size: 1em;
+  line-height: 1.4em;
 }
 
-/* Alternate layout for odd items */
 .portfolio-item:nth-child(odd) {
   flex-direction: row;
 }
 
 .portfolio-item:nth-child(even) {
   flex-direction: row-reverse;
-}
-
-/* Adding hover effect for portfolio-item-description */
-.portfolio-item-description::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(55, 0, 107, 0.2); /* Subtle hover effect */
-  border-radius: 15px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.portfolio-item:hover .portfolio-item-description::after {
-  opacity: 1;
-}
-
-/* Glassmorphism for entire section */
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
-}
-
-.shadow-effect {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Reverting text styling */
-.portfolio h2 {
-  font-family: inherit; /* Use default or original font */
-  font-size: 2em; /* Original size */
-}
-
-.portfolio-item-description h3 {
-  font-family: inherit; /* Use default or original font */
-  font-size: 1.5em; /* Original size */
-}
-
-.portfolio-item-description p {
-  font-size: 1em; /* Original size */
-  line-height: 1.5em; /* Original line-height */
-}
-
-/* Navigation buttons for images */
-.nav-btn {
-  background-color: rgba(75, 0, 130, 0.6); /* Violet background */
-  border: none;
-  color: #e6e6fa;
-  font-size: 1.5em;
-  padding: 10px;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10; /* Ensure buttons are above other elements */
-  border-radius: 50%;
-}
-.portfolio-item {
-  display: flex;
-  align-items: stretch; /* Ensure equal height for all children */
-  gap: 20px;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  border-radius: 20px;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-}
-
-.portfolio-item-content,
-.portfolio-item-description {
-  flex: 1; /* Ensure both sections take equal space */
-  box-sizing: border-box;
-}
-
-.portfolio-item-content {
-  overflow: hidden;
-}
-
-.portfolio-item-content img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Maintain aspect ratio and cover the container */
-  border-radius: 20px;
-}
-.portfolio-item-content {
-  position: relative; /* Ensure links are positioned correctly */
-}
-
-.portfolio-item-content a {
-  display: block; /* Make the whole area of the link clickable */
-  width: 100%;
-  height: 100%;
-  text-decoration: none; /* Remove underline from links */
-}
-/* Ensure images fit their containers */
-.portfolio-item-content img {
-  display: block; /* Remove extra space below the image */
-  width: 100%; /* Ensure image spans the full width of the container */
-  height: 100%; /* Ensure image spans the full height of the container */
-  object-fit: cover; /* Cover the container without distortion */
-  border-radius: 20px; /* Consistent border radius */
-}
-
-/* If needed, set explicit size for image container */
-.portfolio-item-content {
-  width: 50%;
-  overflow: hidden; /* Prevent overflow */
-  position: relative;
-}
-
-/* Ensure the container has a defined height */
-.portfolio-item {
-  height: 400px; /* Fixed height to match description box */
-}
-
-
-.portfolio-item-content img {
-  display: block;
-  width: 100%;
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 20px;
-}
-
-
-.portfolio-item-description {
-  background: rgba(55, 0, 107, 0.4); /* Darker glassmorphic effect */
-  color: #e6e6fa;
-  padding: 20px; /* Adjust padding as needed */
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center the content vertically */
-}
-
-.portfolio-item-description h3 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.portfolio-item-description p {
-  font-size: 1em;
-  line-height: 1.5em;
-}
-
-img {
-  outline: none;
-}
-
-img {
-  border: none;
-  outline: none;
-  box-shadow: none;
 }
 
 

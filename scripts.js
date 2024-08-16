@@ -175,7 +175,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Navbar Toggle Functionality
+// Navbar Toggle Functionality for Mobile
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 
@@ -185,3 +185,19 @@ if (navToggle && navLinks) {
     navToggle.classList.toggle('active');
   });
 }
+
+// Mobile Navbar Hide/Show
+const mobileNavbar = document.querySelector('.mobile-navbar');
+
+const handleResize = () => {
+  if (window.innerWidth <= 768) {
+    if (navbar) navbar.style.display = 'none';
+    if (mobileNavbar) mobileNavbar.style.display = 'flex';
+  } else {
+    if (navbar) navbar.style.display = 'flex';
+    if (mobileNavbar) mobileNavbar.style.display = 'none';
+  }
+};
+
+window.addEventListener('resize', handleResize);
+window.addEventListener('load', handleResize);

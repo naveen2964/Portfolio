@@ -1631,7 +1631,7 @@ a:hover {
   .header-content h1 {
     font-size: 1.5rem; /* Smaller font size for mobile */
     margin-bottom: 15px; /* Adjusted margin to reduce space */
-    position: fixed;
+    position: relative;
     overflow: hidden;
     white-space: nowrap;
     display: inline-block; /* Ensure it doesn't cause layout shifts */

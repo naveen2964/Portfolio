@@ -16,18 +16,11 @@ body {
   min-height: 100vh;
   background-color: #1b1b32;
   color: #fff;
-}
-
-body {
   cursor: url('cursorr.png'), auto;
 }
 
 .button {
   cursor: url('clicks.png'), pointer;
-}
-
-#header-content {
-  display: none;
 }
 
 /* Glassmorphic Effect */
@@ -153,12 +146,17 @@ html {
   border-radius: 15px;
   padding: 20px 40px; /* Increase padding for better spacing */
   margin: 20px; /* Adjust margin to reduce space around the box */
-  animation: float 3s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite, colorChange 6s ease-in-out infinite; /* Added color change animation */
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
+}
+
+@keyframes colorChange {
+  0%, 100% { color: #a29bfe; }
+  50% { color: #ff8c00; }
 }
 
 .header-content h1 {
@@ -184,6 +182,12 @@ html {
 .header-content p {
   font-size: 1.2rem;
   margin-bottom: 40px;
+  animation: fadeInOut 5s ease-in-out infinite; /* Added fade in/out animation */
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }
 
 .header-content .btn {
@@ -195,6 +199,7 @@ html {
   border-radius: 25px;
   transition: all 0.3s ease;
   position: relative;
+  overflow: hidden;
 }
 
 .header-content .btn::before {
@@ -220,7 +225,10 @@ html {
 .header-content .btn:hover {
   background-color: #a29bfe;
   color: #1b1b32;
+  transform: translateY(-5px); /* Add subtle lift effect on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add shadow for more depth */
 }
+
 
 
 
@@ -259,7 +267,7 @@ html {
 .text-overlay {
   position: absolute;
   top: 80%;
-  left: 30%;
+  left: 70%;
   transform: translate(-50%, -50%);
   color: #fff;
   font-size: 1.5rem;
@@ -296,6 +304,83 @@ html {
   font-size: 1rem;
 }
 
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+  .img-container img {
+    transform: scale(0.8) translateX(-200px); /* Adjust scaling for smaller screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .img-container img {
+    transform: scale(0.9) translateX(-100px); /* Adjust scaling for medium screens */
+  }
+
+  .text {
+    max-width: 100%; /* Ensure text occupies full width on smaller screens */
+    padding: 10px; /* Reduce padding for better fit */
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center content horizontally */
+    height: auto; /* Adjust height for better fit */
+    margin: 20px; /* Reduce margin for smaller screens */
+  }
+
+  .img-container img {
+    transform: scale(0.7) translateX(0); /* Reset translation for small screens */
+    max-width: 90%; /* Adjust image width for small screens */
+  }
+
+  .text {
+    max-width: 90%; /* Adjust text width for small screens */
+    padding: 20px; /* Adjust padding for small screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .about h2 {
+    font-size: 1.5rem; /* Adjust font size for small screens */
+  }
+
+  .about p {
+    font-size: 0.875rem; /* Adjust font size for small screens */
+  }
+}
+
+
+
+/* Skills Section */
+/* Keyframes for glitch effect */
+@keyframes glitch {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(-10px);
+    opacity: 0.8;
+  }
+  40% {
+    transform: translateX(10px);
+    opacity: 0.6;
+  }
+  60% {
+    transform: translateX(-10px);
+    opacity: 0.8;
+  }
+  80% {
+    transform: translateX(10px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
 /* Skills Section */
 .skills {
@@ -306,7 +391,7 @@ html {
 }
 
 .skills h2 {
-  transform: translateX(70px); 
+  transform: translateX(70px);
   margin-bottom: 20px;
   color: #b05ef7;
   margin-top: 20px;
@@ -342,6 +427,7 @@ html {
   border-radius: 10px;
   margin: 0px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; /* Required for the pseudo-element positioning */
 }
 
 .skill-item img:hover {
@@ -351,8 +437,8 @@ html {
 .skill-item p:hover {
   transform: scale(1.1); /* Slightly enlarge the text on hover */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Add shadow on hover */
+  animation: glitch 1s infinite; /* Apply the glitch animation */
 }
-
 
 
 /* Portfolio Section */
@@ -378,11 +464,13 @@ html {
 }
 
 .portfolio h2 {
+  transform: translateX(70px);
   text-align: center;
-  color: #e6e6fa;
-  font-size: 2.5em;
-  font-family: 'Oswald', sans-serif;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  color: #b05ef7;
+  margin-top: 20px;
+  font-size: 2rem;
+  margin-bottom: 80px;;
 }
 
 .portfolio-grid {
@@ -457,107 +545,36 @@ html {
   flex-direction: row-reverse;
 }
 
-
-
-
 /* Timeline Styles */
-/* Timeline Section */
+/* Heading Styles for Timeline Section */
+.timeline-heading {
+  font-size: 3rem; /* Large font size for prominence */
+  font-weight: bold; /* Bold text for emphasis */
+  color: #8A2BE2; /* Match the color scheme */
+  text-align: center; /* Center align the heading */
+  margin-bottom: 40px; /* Add space below the heading */
+  position: relative; /* Position relative for additional effects */
+  padding: 10px; /* Add some padding */
+  background: linear-gradient(145deg, rgba(138, 43, 226, 0.1), rgba(138, 43, 226, 0.3)); /* Subtle background gradient */
+  border-radius: 10px; /* Rounded corners for the heading */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for a modern effect */
+}
+
+/* Add a decorative underline */
+.timeline-heading::after {
+  content: '';
+  display: block;
+  width: 60px; /* Adjust width of the underline */
+  height: 4px; /* Height of the underline */
+  background-color: #8A2BE2; /* Color of the underline */
+  margin: 10px auto 0; /* Center align the underline */
+  border-radius: 2px; /* Rounded corners for the underline */
+}
+
 .timeline {
-  padding: 40px;
+  padding: 60px 20px; /* Increased padding for better spacing */
   position: relative;
-  margin-top: 50px;
-}
-
-.timeline-container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.timeline-item {
-  display: flex;
-  align-items: center;
-  margin: 20px 0;
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.timeline-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.timeline-item:hover .timeline-content {
-  background: rgba(138, 43, 226, 0.6);
-}
-
-.timeline-icon {
-  width: 20px;
-  height: 20px;
-  background-color: #8A2BE2;
-  border-radius: 50%;
-  margin-right: 20px;
-  position: relative;
-}
-
-.timeline-icon:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200%;
-  height: 200%;
-  background-color: rgba(138, 43, 226, 0.3);
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.4s ease;
-}
-
-.timeline-item:hover .timeline-icon:after {
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.timeline-content {
-  padding: 15px 20px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  transition: background 0.3s ease;
-  position: relative;
-}
-
-.timeline-content h3 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: #8A2BE2;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.timeline-content p {
-  margin: 10px 0 0;
-  color: #ddd;
-  line-height: 1.6;
-  transition: color 0.3s ease;
-}
-
-.timeline-item:hover .timeline-content h3 {
-  color: #fff;
-}
-
-.timeline-item:hover .timeline-content p {
-  color: #eee;
-}
-
-/* Timeline Line */
-/* Timeline Section */
-.timeline {
-  padding: 40px;
-  position: relative;
-  margin-top: 100px;
+  margin-top: 60px;
   margin: 40px;
 }
 
@@ -572,26 +589,26 @@ html {
 .timeline-item {
   display: flex;
   align-items: center;
-  margin: 20px 0;
+  margin: 30px 0; /* Increased margin for better spacing */
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .timeline-item:hover {
-  transform: scale(1.03);
+  transform: translateY(-5px); /* Lift effect on hover */
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .timeline-icon {
-  width: 20px;
-  height: 20px;
+  width: 25px; /* Increased icon size */
+  height: 25px;
   background-color: #8A2BE2;
   border-radius: 50%;
-  margin-right: 20px;
+  margin-right: 25px; /* Increased spacing */
   position: relative;
   flex-shrink: 0;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .timeline-icon:after {
@@ -599,46 +616,51 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 150%;
-  height: 150%;
-  background-color: rgba(138, 43, 226, 0.15);
+  width: 200%;
+  height: 200%;
+  background-color: rgba(138, 43, 226, 0.3);
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0.4s ease, background-color 0.4s ease;
 }
 
+.timeline-item:hover .timeline-icon {
+  background-color: #BA55D3; /* Color change on hover */
+  transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
 .timeline-item:hover .timeline-icon:after {
-  transform: translate(-50%, -50%) scale(1.2);
-  background-color: rgba(138, 43, 226, 0.3);
+  transform: translate(-50%, -50%) scale(1.4);
+  background-color: rgba(138, 43, 226, 0.4);
 }
 
 .timeline-content {
-  padding: 15px 20px;
+  padding: 20px 25px; /* Increased padding for better readability */
   border-radius: 15px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
   transition: background 0.3s ease, box-shadow 0.3s ease;
   position: relative;
 }
 
 .timeline-item:hover .timeline-content {
-  background: linear-gradient(145deg, rgba(138, 43, 226, 0.25), rgba(138, 43, 226, 0.15));
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(145deg, rgba(138, 43, 226, 0.35), rgba(138, 43, 226, 0.2));
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.3);
 }
 
-.timeline-content h3 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: #8A2BE2;
-  font-weight: bold;
-  transition: color 0.3s ease;
+.timeline h2 {
+  transform: translateX(70px);
+  margin-bottom: 20px;
+  color: #b05ef7;
+  margin-top: 20px;
+  font-size: 2rem;
 }
 
 .timeline-content p {
   margin: 10px 0 0;
   color: #ddd;
-  line-height: 1.6;
+  line-height: 1.7; /* Increased line height for better readability */
   transition: color 0.3s ease;
 }
 
@@ -647,7 +669,7 @@ html {
 }
 
 .timeline-item:hover .timeline-content p {
-  color: #f0f0f0;
+  color: #f5f5f5; /* Slightly lighter text color */
 }
 
 /* Timeline Line */
@@ -655,8 +677,8 @@ html {
   content: '';
   position: absolute;
   top: 0;
-  left: 10px;
-  width: 3px;
+  left: 15px; /* Adjusted for better alignment */
+  width: 4px; /* Increased width for a more prominent line */
   height: 100%;
   background: linear-gradient(180deg, #8A2BE2, #BA55D3);
   transition: height 0.4s ease;
@@ -664,19 +686,20 @@ html {
 
 @media (max-width: 768px) {
   .timeline-item {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .timeline-icon {
-      margin: 0 0 10px;
+    margin: 0 0 10px;
   }
 
   .timeline-container:before {
-      left: 0;
-      height: 100%;
+    left: 5px; /* Adjusted for smaller screens */
   }
 }
+
+
 
 
 /* Contact Section */
@@ -695,13 +718,12 @@ html {
 
 .social-media h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 80px;
   color: #e6e6fa; /* Light text color */
   font-size: 2em;
   font-family: 'Oswald', sans-serif; /* Font style */
   letter-spacing: 1px;
 }
-
 
 .social-links {
   display: flex;
@@ -727,6 +749,7 @@ html {
 }
 
 /* Contact Section */
+/* Contact Section */
 .contact {
   padding: 20px;
   background: rgba(255, 255, 255, 0.1); /* Glassmorphic background */
@@ -736,8 +759,24 @@ html {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Glassmorphic border */
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+
+/* Title */
 .contact h2 {
   text-align: center;
   margin-bottom: 30px;
@@ -746,16 +785,22 @@ html {
   font-family: 'Oswald', sans-serif; /* Font style */
   letter-spacing: 1px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Text shadow */
+  position: relative;
+  z-index: 2;
 }
 
+/* Form container */
 .contact .contact-form {
   display: flex;
   flex-direction: column;
   gap: 15px; /* Space between form elements */
   max-width: 600px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
+/* Input and textarea */
 .contact .contact-form input,
 .contact .contact-form textarea {
   padding: 15px;
@@ -765,7 +810,7 @@ html {
   color: #fff;
   font-size: 1em;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .contact .contact-form input:focus,
@@ -773,8 +818,10 @@ html {
   border-color: #8a3ffc;
   box-shadow: 0 0 8px rgba(138, 63, 248, 0.5);
   outline: none;
+  transform: scale(1.02);
 }
 
+/* Button */
 .contact .contact-form button {
   padding: 12px 24px;
   border: none;
@@ -783,13 +830,32 @@ html {
   color: #1b1b32;
   font-size: 1.1em;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 .contact .contact-form button:hover {
   background: linear-gradient(135deg, #8a3ffc, #6a1b9a);
   transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.contact .contact-form button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.contact .contact-form button:hover::before {
+  opacity: 0;
 }
 
 /* Responsive Design */
@@ -811,6 +877,7 @@ html {
     font-size: 1em;
   }
 }
+
 
 
   
@@ -1368,6 +1435,8 @@ a:hover {
 .nav-links a:hover {
   color: #8a3ffc; /* Bright Violet on hover */
 }
+
+
 
 
 

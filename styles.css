@@ -16,12 +16,8 @@ body {
   min-height: 100vh;
   background-color: #1b1b32;
   color: #fff;
-  cursor: url('cursorr.png'), auto;
 }
 
-.button {
-  cursor: url('clicks.png'), pointer;
-}
 
 /* Glassmorphic Effect */
 .glass {
@@ -1054,10 +1050,6 @@ section {
 }
 
 /* Add glassmorphism and other styles here */
-
-
-
-
 body {
   background: linear-gradient(45deg, #1b1b32, #8a3ffc);
   background-size: 400% 400%;
@@ -1440,7 +1432,943 @@ a:hover {
   color: #8a3ffc; /* Bright Violet on hover */
 }
 
+/* Global Styles for Mobile */
+@media only screen and (max-width: 768px) {
+  /* Navbar for Mobile */
+/* Mobile Navbar Styles */
+.mobile-navbar {
+  display: none; /* Hide by default */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mobile-navbar .nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.mobile-navbar .nav-link img {
+  width: 24px; /* Adjust icon size */
+  height: 24px;
+}
+
+/* Display mobile navbar only on small screens */
+@media (max-width: 768px) {
+  .mobile-navbar {
+      display: flex;
+  }
+}
+/* Glassmorphic Floating Bar Styles */
+/* Glassmorphic Floating Bar Styles */
+.glass-floating-bar {
+  position: fixed;
+  bottom: 10px; /* Move the bar slightly up from the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust centering */
+  width: calc(100% - 40px); /* Reduce width to leave space on sides */
+  max-width: 600px; /* Set a maximum width */
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  backdrop-filter: blur(15px); /* Increase blur for a stronger glass effect */
+  border-radius: 15px; /* Rounded corners for a polished look */
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3); /* Shadow for added depth */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 20px; /* Increase padding for a taller bar */
+  z-index: 1000; /* Ensure it is above other content */
+}
+
+/* Style for links and icons */
+.glass-floating-bar .nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.glass-floating-bar .nav-link img {
+  width: 30px; /* Adjust icon size */
+  height: 30px;
+}
 
 
+/* Show the floating bar only on mobile */
+@media (max-width: 768px) {
+  .glass-floating-bar {
+      display: flex;
+  }
+}
+}
+
+/* Mobile Header */
+@media only screen and (max-width: 768px) {
+  /* Header */
+  .header-content {
+    height: 94vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff; /* Text color for dark theme */
+    background: #1b1b32(48, 28, 62, 0.7); /* Dark glassmorphic background */
+    backdrop-filter: blur(8px); /* Glassmorphism effect */
+    border-radius: 15px;
+    padding: 20px; /* Uniform padding for all sides */
+    margin: 20px; /* Remove margin to fit the full screen */
+    position: relative; /* Positioning for animation */
+    overflow: hidden; /* Hide overflow for a cleaner look */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); /* Darker shadow for depth */
+    box-sizing: border-box; /* Include padding and border in the element’s total width and height */
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes colorChange {
+    0%, 100% { color: #ffffff; }
+    50% { color: #ff8c00; }
+  }
+
+  .header-content h1 {
+    font-size: 2rem; /* Smaller font size for mobile */
+    margin-bottom: 15px; /* Adjusted margin to reduce space */
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block; /* Ensure it doesn't cause layout shifts */
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    color: #ffffff; /* Text color for dark theme */
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: rgba(255, 255, 255, 0.75); }
+  }
+
+  .header-content p {
+    font-size: 1rem; /* Smaller font size for mobile */
+    margin-bottom: 15px; /* Adjusted margin to reduce space */
+    animation: fadeInOut 5s ease-in-out infinite;
+    color: #ffffff; /* Text color for dark theme */
+  }
+
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+
+  .header-content .btn {
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding for better button size */
+    color: #ffffff;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+  }
+
+  .header-content .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: width 0.4s ease, height 0.4s ease;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+
+  .header-content .btn:hover::before {
+    width: 250%;
+    height: 250%;
+    opacity: 1;
+  }
+
+  .header-content .btn:hover {
+    background-color: #ffffff;
+    color: #1b1b32;
+    transform: translateY(-5px); /* Add subtle lift effect on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); /* Darker shadow for more depth */
+  }
+
+  /* Add a background animation effect */
+  .header-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(20, 20, 20, 0.5));
+    opacity: 0.3;
+    z-index: -1;
+    animation: gradientAnimation 6s ease-in-out infinite;
+  }
+
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+  }
+  /* About Section */
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 30px;
+  background: #1b1b32(48, 28, 62, 0.7); /* Dark background */
+  margin: 40px;
+  height: 500px; /* Default height */
+  position: relative;
+}
+
+.img-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.img-container img {
+  transform: scale(0.8) translateX(-300px);
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-container:hover img {
+  transform: scale(0.9) ;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+.text-overlay {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.img-container:hover .text-overlay {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.text {
+  flex: 1;
+  max-width: 50%;
+  padding: 0 20px;
+  color: #fff;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 1rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+  .img-container img {
+    transform: scale(0.8) translateX(-200px);
+  }
+}
+
+@media (max-width: 992px) {
+  .img-container img {
+    transform: scale(0.9) translateX(-100px);
+  }
+
+  .text {
+    max-width: 100%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center;
+    height: auto; /* Adjust height */
+    margin: 20px;
+  }
+
+  .img-container img {
+    transform: scale(0.7) translateX(0);
+    max-width: 90%;
+  }
+
+  .text {
+    max-width: 90%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about h2 {
+    font-size: 1.5rem;
+  }
+
+  .about p {
+    font-size: 0.875rem;
+  }
+}
+
+/* Dark theme styles for better contrast */
+.about, .img-container img, .text-overlay, .text {
+  color: #fff; /* White text for dark background */
+  background-color: rgba(0, 0, 0, 0.8); /* Darker background for better contrast */
+}
+
+.about h2, .about p {
+  color: #e0e0e0; /* Slightly lighter text color */
+}
+
+.text-overlay {
+  background-color: rgba(0, 0, 0, 0.6); /* Slightly darker overlay for better readability */
+  border-radius: 10px; /* Rounded corners for overlay */
+  padding: 10px; /* Padding for better spacing */
+}
+
+/* Adjusting the animation for mobile */
+@keyframes glitch {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(-5px); /* Reduced shift for mobile */
+    opacity: 0.8;
+  }
+  40% {
+    transform: translateX(5px); /* Reduced shift for mobile */
+    opacity: 0.6;
+  }
+  60% {
+    transform: translateX(-5px); /* Reduced shift for mobile */
+    opacity: 0.8;
+  }
+  80% {
+    transform: translateX(5px); /* Reduced shift for mobile */
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* Skills Section */
+.skills {
+  padding: 40px 20px; /* Adjusted padding for smaller screens */
+  background-color: #1b1b32; /* Dark background */
+  margin: 20px; /* Reduced margin for better fit on mobile */
+  text-align: center; /* Center text for better mobile layout */
+}
+
+.skills h2 {
+  transform: translateX(0); /* Reset transform for mobile */
+  margin: 20px auto; /* Center heading horizontally with automatic margins */
+  color: #b05ef7; /* Bright color for visibility */
+  font-size: 1.75rem; /* Slightly increased font size */
+  padding: 0 10px; /* Add padding to the left and right for spacing */
+  max-width: 80%; /* Limit the width of the heading to create spacing */
+}
+
+.skills-container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically on smaller screens */
+  align-items: center; /* Center items horizontally */
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item img {
+  width: 80px; /* Adjusted size for mobile */
+  height: 80px; /* Adjusted size for mobile */
+  transition: transform 0.3s ease;
+  margin: 20px; /* Reduced margin for mobile */
+}
+
+.skill-item p {
+  margin-top: 10px;
+  background-color: #4A4A4A; /* Dark background for text */
+  color: #fff; /* White text for contrast */
+  padding: 8px 16px; /* Adjusted padding for mobile */
+  border-radius: 10px;
+  margin: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.skill-item img:hover {
+  transform: scale(1.2); /* Enlarge the logo on hover */
+}
+
+.skill-item p:hover {
+  transform: scale(1.1); /* Slightly enlarge the text on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Add shadow on hover */
+  animation: glitch 1s infinite; /* Apply the glitch animation */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+  .skills-container {
+    flex-direction: row; /* Stack items horizontally on larger tablets */
+    flex-wrap: wrap; /* Allow wrapping of items */
+  }
+
+  .skill-item {
+    margin: 15px; /* Adjust margin */
+  }
+}
+
+@media (max-width: 992px) {
+  .skill-item img {
+    width: 70px; /* Adjust image size */
+    height: 70px; /* Adjust image size */
+  }
+}
+
+@media (max-width: 768px) {
+  .skills {
+    padding: 30px 15px; /* Adjust padding */
+  }
+
+  .skills h2 {
+    font-size: 1.5rem; /* Slightly increased font size for smaller screens */
+    padding: 0 5px; /* Reduced padding for smaller screens */
+    max-width: 90%; /* Adjust width for smaller screens */
+  }
+
+  .skill-item img {
+    width: 60px; /* Adjust image size */
+    height: 60px; /* Adjust image size */
+  }
+}
+
+@media (max-width: 576px) {
+  .skills h2 {
+    font-size: 1.2rem; /* Further increased font size for very small screens */
+    padding: 0 2px; /* Further reduced padding for very small screens */
+    max-width: 100%; /* Allow full width on very small screens */
+  }
+
+  .skill-item img {
+    width: 50px; /* Further reduce image size */
+    height: 50px; /* Further reduce image size */
+  }
+}
+
+/* Dark theme styles for better contrast */
+.skills, .skill-item p {
+  color: #fff; /* White text for dark background */
+  background-color: rgba(0, 0, 0, 0.8); /* Darker background for better contrast */
+}
+
+/* Heading Styles for Timeline Section */
+/* Heading Styles for Timeline Section */
+.timeline-heading {
+  font-size: 1.5rem; /* Slightly larger font size for visibility */
+  font-weight: 700; /* Bold for emphasis */
+  color: #8A2BE2; /* Color matching the theme */
+  text-align: left; /* Align text to the left */
+  margin: 0; /* Remove vertical margins */
+  padding: 12px 16px; /* Increased padding for a more spacious look */
+  background: linear-gradient(145deg, rgba(138, 43, 226, 0.1), rgba(138, 43, 226, 0.3)); /* Subtle gradient */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+  max-width: 90%; /* Limit width for better responsiveness */
+  position: relative; /* Relative positioning for underline */
+  margin-left: 16px; /* Move heading text to the left */
+  margin-bottom: 24px; /* Increased space below the heading */
+}
+
+/* Add a decorative underline */
+.timeline-heading::after {
+  content: '';
+  display: block;
+  width: 50px; /* Adjusted width */
+  height: 3px; /* Height of the underline */
+  background-color: #8A2BE2; /* Color of the underline */
+  margin: 12px 0 0; /* Center align the underline horizontally */
+  border-radius: 2px; /* Rounded corners for the underline */
+  position: absolute;
+  bottom: -8px; /* Position the underline just below the text */
+  left: 0; /* Align underline to the left edge of the heading */
+}
+
+/* Timeline Section */
+.timeline {
+  padding: 40px 20px; /* Increased padding for more space */
+  background-color: #1b1b32; /* Background color to match theme */
+  margin: 20px auto; /* Center and add margin around the section */
+  border-radius: 20px; /* Rounded corners for the section */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+  max-width: 90%; /* Limit width for better responsiveness */
+}
+
+/* Container for Timeline Items */
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Individual Timeline Items */
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin: 20px 0; /* Increased margin for more spacing */
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect for Timeline Items */
+.timeline-item:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Timeline Item Icon */
+.timeline-icon {
+  width: 24px; /* Slightly larger icon size */
+  height: 24px;
+  background-color: #8A2BE2;
+  border-radius: 50%;
+  margin-right: 16px; /* Increased spacing */
+  position: relative;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover Effect for Timeline Icon */
+.timeline-icon:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background-color: rgba(138, 43, 226, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+.timeline-item:hover .timeline-icon {
+  background-color: #BA55D3; /* Color change on hover */
+  transform: scale(1.2); /* Slightly enlarge the icon on hover */
+}
+
+.timeline-item:hover .timeline-icon:after {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: rgba(138, 43, 226, 0.4);
+}
+
+/* Content of Timeline Items */
+.timeline-content {
+  padding: 15px 20px; /* Adjusted padding for better readability */
+  border-radius: 12px; /* Rounded corners */
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect for Timeline Content */
+.timeline-item:hover .timeline-content {
+  background: linear-gradient(145deg, rgba(138, 43, 226, 0.35), rgba(138, 43, 226, 0.2));
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-content h3 {
+  font-size: 1rem; /* Smaller font size for heading */
+  margin-bottom: 8px; /* Space below the heading */
+  color: #fff;
+}
+
+.timeline-content p {
+  margin: 5px 0 0;
+  color: #ddd;
+  line-height: 1.6; /* Adjusted line height */
+  transition: color 0.3s ease;
+}
+
+/* Hover Effect for Timeline Content Text */
+.timeline-item:hover .timeline-content h3 {
+  color: #fff;
+}
+
+.timeline-item:hover .timeline-content p {
+  color: #f5f5f5; /* Slightly lighter text color */
+}
+
+/* Timeline Line */
+.timeline-container:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12px; /* Adjusted for alignment */
+  width: 2px; /* Reduced width */
+  height: 100%;
+  background: linear-gradient(180deg, #8A2BE2, #BA55D3);
+  transition: height 0.4s ease;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .timeline {
+    padding: 20px; /* Reduced padding */
+    margin: 10px auto; /* Adjusted margin */
+  }
+
+  .timeline-heading {
+    font-size: 1.2rem; /* Smaller font size */
+    text-align: center; /* Center align for mobile */
+    margin-left: 0; /* Remove left margin */
+    margin-right: 0; /* Remove right margin */
+  }
+
+  .timeline-item {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .timeline-icon {
+    margin: 0 0 10px; /* Adjusted margin for icon */
+  }
+
+  .timeline-container:before {
+    left: 8px; /* Adjusted for smaller screens */
+  }
+}
+
+/* Portfolio Section */
+.portfolio {
+  padding: 30px 15px; /* Reduced padding for mobile */
+  background: #15002b; /* Dark violet background */
+  margin: 20px; /* Reduced margin */
+  border-radius: 15px; /* Rounded corners */
+  position: relative;
+  overflow: hidden; /* Hide overflow */
+}
+
+.portfolio::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(75, 0, 130, 0.4), rgba(139, 0, 139, 0.4)); /* Gradient overlay */
+  z-index: -1;
+  border-radius: 15px;
+}
+
+.portfolio h2 {
+  text-align: center;
+  color: #b05ef7;
+  font-size: 1.5rem; /* Smaller font size for mobile */
+  margin: 20px 0; /* Margin adjusted for mobile */
+}
+
+.portfolio-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Reduced gap for mobile */
+}
+
+.portfolio-item {
+  display: flex;
+  flex-direction: column; /* Stack items vertically on mobile */
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Reduced gap for mobile */
+  max-width: 100%; /* Full width for mobile */
+  margin: 0 auto;
+  height: auto; /* Adjust height for content */
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.portfolio-item:hover {
+  transform: scale(1.03); /* Slight scale effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-item-content {
+  width: 100%;
+  height: auto; /* Adjust height for content */
+  overflow: hidden;
+}
+
+.portfolio-item-content img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.portfolio-item-content img:hover {
+  transform: scale(1.05);
+  filter: brightness(80%);
+}
+
+.portfolio-item-description {
+  background: rgba(55, 0, 107, 0.4); /* Glassmorphic effect */
+  color: #e6e6fa;
+  padding: 15px; /* Adjusted padding */
+  border-radius: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portfolio-item-description h3 {
+  font-size: 1.4rem; /* Adjusted font size */
+  margin-bottom: 10px; /* Margin adjusted for mobile */
+}
+
+.portfolio-item-description p {
+  font-size: 0.9rem; /* Adjusted font size */
+  line-height: 1.4; /* Adjusted line height */
+}
+
+/* Ensure proper layout for items */
+.portfolio-item:nth-child(odd),
+.portfolio-item:nth-child(even) {
+  flex-direction: column; /* Stack items vertically on mobile */
+}
+
+/* Contact Section */
+/* Container for Social Media and Contact Sections */
+/* Social Media Section */
+.social-media {
+  padding: 40px 15px; /* Adjusted padding for mobile */
+  background: rgba(0, 0, 0, 0.2); /* Darker glassmorphic background */
+  backdrop-filter: blur(10px); /* Glassmorphic blur effect */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Darker shadow for depth */
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto; /* Centered with margin */
+}
+
+.social-media h2 {
+  text-align: center;
+  margin-bottom: 40px; /* Reduced margin for mobile */
+  color: #e6e6fa; /* Light text color */
+  font-size: 1.8em; /* Smaller font size for mobile */
+  font-family: 'Oswald', sans-serif; /* Font style */
+  letter-spacing: 1px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Adjusted space between icons */
+}
+
+.social-links a {
+  display: block;
+  width: 50px; /* Slightly smaller icons for mobile */
+  height: 50px;
+}
+
+.social-links img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+}
+
+.social-links a:hover img {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7); /* Enhanced shadow effect on hover */
+}
+
+/* Contact Section */
+.contact {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2); /* Darker glassmorphic background */
+  backdrop-filter: blur(10px); /* Glassmorphic blur effect */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Darker shadow for depth */
+  width: calc(100% - 40px); /* Trimmed sides */
+  max-width: 1000px;
+  margin: 20px auto; /* Centered with margin */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glassmorphic border */
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3); /* Darker inner shadow */
+  z-index: 1;
+}
+
+/* Title */
+.contact h2 {
+  text-align: center;
+  margin-bottom: 20px; /* Reduced margin for mobile */
+  color: #e6e6fa; /* Light text color */
+  font-size: 1.8em; /* Smaller font size for mobile */
+  font-family: 'Oswald', sans-serif; /* Font style */
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); /* Darker text shadow */
+  position: relative;
+  z-index: 2;
+}
+
+/* Form container */
+.contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between form elements */
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Input and textarea */
+.contact .contact-form input,
+.contact .contact-form textarea {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #444;
+  background-color: #1b1b32;
+  color: #fff;
+  font-size: 0.9em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.contact .contact-form input:focus,
+.contact .contact-form textarea:focus {
+  border-color: #8a3ffc;
+  box-shadow: 0 0 8px rgba(138, 63, 248, 0.5);
+  outline: none;
+  transform: scale(1.02);
+}
+
+/* Button */
+.contact .contact-form button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #a29bfe, #8a3ffc);
+  color: #1b1b32;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.contact .contact-form button:hover {
+  background: linear-gradient(135deg, #8a3ffc, #6a1b9a);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+.contact .contact-form button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.contact .contact-form button:hover::before {
+  opacity: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact {
+    padding: 20px;
+    width: calc(100% - 30px); /* Adjusted trimming */
+  }
+
+  .contact h2 {
+    font-size: 1.6em; /* Slightly smaller font size */
+  }
+
+  .contact .contact-form input,
+  .contact .contact-form textarea {
+    font-size: 0.85em;
+  }
+
+  .contact .contact-form button {
+    font-size: 0.9em;
+  }
+}
+
+
+
+}
 
 

@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
   particlesJS('particles-js', {
     particles: {
       number: {
-        value: 80, // Original number of particles
+        value: 80,
         density: {
           enable: true,
           value_area: 700
@@ -83,14 +83,16 @@ const loader = document.getElementById('loader');
 const mainContent = document.getElementById('main-content');
 
 if (loader && mainContent) {
-  setTimeout(() => {
-    loader.style.transition = 'opacity 0.5s'; // Add transition
-    loader.style.opacity = '0'; // Fade out loader
+  window.addEventListener('load', () => {
     setTimeout(() => {
-      loader.style.display = 'none'; // Hide loader
-      mainContent.style.display = 'block'; // Show main content
-    }, 500); // Match the transition time
-  }, 100); // Small delay to ensure particles.js initializes
+      loader.style.transition = 'opacity 0.5s';
+      loader.style.opacity = '0';
+      setTimeout(() => {
+        loader.style.display = 'none';
+        mainContent.style.display = 'block';
+      }, 500);
+    }, 100);
+  });
 } else {
   console.error('Loader or main content not found');
 }
@@ -102,8 +104,8 @@ const revealSection = () => {
   sections.forEach(section => {
     const sectionTop = section.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
-    if (sectionTop < windowHeight - 150) { // Adjust threshold if needed
-      section.classList.add('fade-in'); // Add the fade-in class
+    if (sectionTop < windowHeight - 150) {
+      section.classList.add('fade-in');
     }
   });
 };
@@ -112,7 +114,7 @@ const revealSection = () => {
 const debounce = (func, wait) => {
   let timeout;
   return () => {
-    clearTimeout(timeout);  
+    clearTimeout(timeout);
     timeout = setTimeout(func, wait);
   };
 };
@@ -138,8 +140,8 @@ const throttle = (func, limit) => {
   };
 };
 
-window.addEventListener('scroll', throttle(revealSection, 50)); // Use throttle for better performance
-window.addEventListener('load', revealSection); // To handle initial load
+window.addEventListener('scroll', throttle(revealSection, 50));
+window.addEventListener('load', revealSection);
 
 // Navbar Hide/Show on Scroll
 let lastScrollTop = 0;
@@ -150,36 +152,17 @@ window.addEventListener('scroll', () => {
 
   if (currentScroll > lastScrollTop) {
     // Scrolling down
-    navbar.style.top = "-80px"; // Adjust this value to hide the navbar
+    if (navbar) {
+      navbar.style.top = "-80px";
+    }
   } else {
     // Scrolling up
-    navbar.style.top = "0px"; // Adjust this value to show the navbar
+    if (navbar) {
+      navbar.style.top = "0px";
+    }
   }
 
-  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-});
-
-// Navigation for Project 1 Images
-document.querySelectorAll('.portfolio-item').forEach(item => {
-    const scrollableImages = item.querySelector('.scrollable-images');
-    const prevBtn = item.querySelector('.prev');
-    const nextBtn = item.querySelector('.next');
-
-    if (scrollableImages && prevBtn && nextBtn) {
-      prevBtn.addEventListener('click', () => {
-        scrollableImages.scrollBy({
-          left: -scrollableImages.clientWidth,
-          behavior: 'smooth'
-        });
-      });
-
-      nextBtn.addEventListener('click', () => {
-        scrollableImages.scrollBy({
-          left: scrollableImages.clientWidth,
-          behavior: 'smooth'
-        });
-      });
-    }
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
 
 // Smooth scrolling for anchor links

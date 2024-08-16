@@ -252,7 +252,7 @@ html {
 }
 
 .img-container img {
-  transform: scale(0.7) translateX(-300px); /* Scale the image down */
+  transform: scale(0.8) translateX(-300px); /* Scale the image down */
   max-width: 100%; /* Ensure the image doesn't exceed the container's width */
   height: auto; /* Maintain the aspect ratio */
   border-radius: 15px;
@@ -260,7 +260,7 @@ html {
 }
 
 .img-container:hover img {
-  transform: scale(0.8) translateX(-200px); /* Slightly enlarge the image on hover */
+  transform: scale(0.9) translateX(-200px); /* Slightly enlarge the image on hover */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Add shadow on hover */
 }
 

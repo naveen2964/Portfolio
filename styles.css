@@ -61,9 +61,6 @@ body {
   visibility: hidden;
   opacity: 0;
 }
-#loader {
-  transition: opacity 0.5s ease;
-}
 
 .spinner {
   border: 5px solid #1b1b32;
@@ -85,18 +82,23 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: transparent;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+  background-size: 200% 200%;
+  animation: gradientAnimation 5s ease infinite;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
   width: 80%; /* Adjust width as needed */
   left: 10%; /* Center the navbar horizontally */
   top: 40px; /* Moves the navbar down from the top */
   z-index: 1000;
+  transition: box-shadow 0.3s ease;
 }
 
-/* Initial hidden state */
-.navbar {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+@keyframes gradientAnimation {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
 }
 
 .navbar:hover {
@@ -112,7 +114,6 @@ html {
   color: #18162f;
 }
 
-
 .navbar .nav-links {
   display: flex;
   gap: 20px;
@@ -123,11 +124,19 @@ html {
   text-decoration: none;
   padding: 10px 15px;
   border-radius: 10px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar .nav-links a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Sticky Navbar */
+.sticky {
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* Header */
@@ -136,7 +145,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center; /* Center horizontally */
   text-align: center;
   color: #a29bfe;
   background: rgba(255, 255, 255, 0.1); /* Glassmorphic background */
@@ -144,12 +153,32 @@ html {
   border-radius: 15px;
   padding: 20px 40px; /* Increase padding for better spacing */
   margin: 20px; /* Adjust margin to reduce space around the box */
+  animation: float 3s ease-in-out infinite;
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 
 .header-content h1 {
   font-size: 3rem;
   margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block; /* Ensure it doesn't cause layout shifts */
+  animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: rgba(255, 255, 255, 0.75); }
 }
 
 .header-content p {
@@ -165,12 +194,35 @@ html {
   border: 2px solid #a29bfe;
   border-radius: 25px;
   transition: all 0.3s ease;
+  position: relative;
+}
+
+.header-content .btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: rgba(162, 155, 254, 0.3);
+  border-radius: 50%;
+  transition: width 0.4s ease, height 0.4s ease;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.header-content .btn:hover::before {
+  width: 200%;
+  height: 200%;
+  opacity: 1;
 }
 
 .header-content .btn:hover {
   background-color: #a29bfe;
   color: #1b1b32;
 }
+
+
 
 /* About Section */
 .about {
@@ -228,8 +280,6 @@ html {
   transform: translate(-50%, -50%) scale(1.05);
 }
 
-
-
 .text {
   flex: 1;
   max-width: 50%; /* Adjust as needed */
@@ -248,17 +298,19 @@ html {
 
 
 /* Skills Section */
-/* Skills Section */
 .skills {
   padding: 40px 30px;
   background-color: #1b1b32;
-  margin: 20px;
-  text-align: center;
+  margin: 40px;
+  text-align: left;
 }
 
 .skills h2 {
+  transform: translateX(70px); 
   margin-bottom: 20px;
-  color: #fff;
+  color: #b05ef7;
+  margin-top: 20px;
+  font-size: 2rem;
 }
 
 .skills-container {
@@ -307,7 +359,7 @@ html {
 .portfolio {
   padding: 60px 30px;
   background: #15002b; /* Dark violet background */
-  margin: 20px auto;
+  margin: 40px;
   border-radius: 20px;
   position: relative;
   overflow: hidden; /* Hide overflow */
@@ -506,7 +558,7 @@ html {
   padding: 40px;
   position: relative;
   margin-top: 100px;
-  margin: 20px;
+  margin: 40px;
 }
 
 .timeline-container {

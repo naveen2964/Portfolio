@@ -181,26 +181,54 @@ html {
   background-color: #1b1b32;
   margin: 40px;
   height: 500px; /* Adjust this value as needed */
+  position: relative; /* Ensure the about section can contain the overlay */
 }
 
 .img-container {
   flex: 1;
   display: flex;
   justify-content: center; /* Center the image horizontally */
+  position: relative; /* Allows the overlay to be positioned relative to this container */
 }
 
 .img-container img {
-  max-width: 60%; /* Set a smaller default size */
-  height: auto; /* Maintain aspect ratio */
+  transform: scale(0.7) translateX(-300px); /* Scale the image down */
+  max-width: 100%; /* Ensure the image doesn't exceed the container's width */
+  height: auto; /* Maintain the aspect ratio */
   border-radius: 15px;
-  transform: translateX(-140px);
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
 }
 
-.img-container img:hover {
-  transform: scale(1.1); /* Slightly enlarge the image on hover */
+.img-container:hover img {
+  transform: scale(0.8) translateX(-200px); /* Slightly enlarge the image on hover */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Add shadow on hover */
 }
+
+.text-overlay {
+  position: absolute;
+  top: 80%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: center;
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  z-index: 10; /* Ensure text is above other elements */
+}
+
+.img-container:hover .text-overlay {
+  opacity: 1; /* Fully visible on hover */
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+
 
 .text {
   flex: 1;
@@ -217,6 +245,7 @@ html {
 .about p {
   font-size: 1rem;
 }
+
 
 /* Skills Section */
 /* Skills Section */

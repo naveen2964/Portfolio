@@ -112,6 +112,10 @@ html {
   gap: 20px;
 }
 
+section {
+  will-change: opacity;
+}
+
 .navbar .nav-links a {
   color: #fff;
   text-decoration: none;

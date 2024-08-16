@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
   particlesJS('particles-js', {
     particles: {
       number: {
-        value: 80,
+        value: 80, // Original number of particles
         density: {
           enable: true,
           value_area: 700
@@ -95,20 +95,20 @@ if (loader && mainContent) {
   console.error('Loader or main content not found');
 }
 
-// Scroll Animation
+// Smooth Scroll Animation
 const sections = document.querySelectorAll('section');
 
 const revealSection = () => {
   sections.forEach(section => {
     const sectionTop = section.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
-    if (sectionTop < windowHeight - 100) { // Adjust threshold if needed
+    if (sectionTop < windowHeight - 150) { // Adjust threshold if needed
       section.classList.add('fade-in'); // Add the fade-in class
     }
   });
 };
 
-// Debounce scroll event to improve performance
+// Debounce and throttle scroll event to improve performance
 const debounce = (func, wait) => {
   let timeout;
   return () => {
@@ -117,7 +117,28 @@ const debounce = (func, wait) => {
   };
 };
 
-window.addEventListener('scroll', debounce(revealSection, 20));
+const throttle = (func, limit) => {
+  let lastFunc;
+  let lastRan;
+  return function() {
+    const context = this;
+    const args = arguments;
+    if (!lastRan) {
+      func.apply(context, args);
+      lastRan = Date.now();
+    } else {
+      if (lastFunc) clearTimeout(lastFunc);
+      lastFunc = setTimeout(function() {
+        if ((Date.now() - lastRan) >= limit) {
+          func.apply(context, args);
+          lastRan = Date.now();
+        }
+      }, limit - (Date.now() - lastRan));
+    }
+  };
+};
+
+window.addEventListener('scroll', throttle(revealSection, 50)); // Use throttle for better performance
 window.addEventListener('load', revealSection); // To handle initial load
 
 // Navbar Hide/Show on Scroll

@@ -512,12 +512,12 @@ html {
 /* Portfolio Section */
 .portfolio {
   padding: 60px 30px;
-  background: rgba(0, 47, 108, 0.7); /* Dark blue background with increased transparency */
+  background: rgba(0, 47, 108, 0.7);
   margin: 40px;
   border-radius: 20px;
   position: relative;
-  overflow: hidden; /* Hide overflow */
-  backdrop-filter: blur(20px); /* Increased blur for a stronger glass effect */
+  overflow: hidden;
+  backdrop-filter: blur(15px); /* Slightly reduced blur for better performance */
 }
 
 /* Glassmorphic Gradient Overlay */
@@ -528,21 +528,18 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 47, 108, 0.5), rgba(0, 21, 51, 0.5)); /* Dark blue gradient overlay */
+  background: linear-gradient(135deg, rgba(0, 47, 108, 0.5), rgba(0, 21, 51, 0.5));
   z-index: -1;
   border-radius: 20px;
-  backdrop-filter: blur(20px); /* Increased blur for more glassy effect */
+  backdrop-filter: blur(15px); /* Slightly reduced blur for better performance */
 }
 
 /* Portfolio Heading */
 .portfolio h2 {
-  transform: translateX(70px);
   text-align: center;
   margin-bottom: 20px;
-  color: #e0e0e0; /* Light gray color for better contrast */
-  margin-top: 20px;
+  color: #e0e0e0;
   font-size: 2rem;
-  margin-bottom: 80px;
 }
 
 /* Portfolio Grid */
@@ -560,20 +557,20 @@ html {
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  height: 400px; /* Increased height to accommodate content */
-  border-radius: 25px; /* Increased border-radius */
+  height: 400px;
+  border-radius: 20px; /* Reduced border-radius */
   overflow: hidden;
   position: relative;
-  transition: transform 0.4s, box-shadow 0.4s;
-  background: rgba(0, 47, 108, 0.4); /* Glassmorphic effect with darker blue transparency */
-  padding: 20px; /* Added padding to create space around the content */
-  backdrop-filter: blur(15px); /* Glassmorphic blur effect */
+  transition: transform 0.3s, box-shadow 0.3s; /* Reduced duration for better performance */
+  background: rgba(0, 47, 108, 0.4);
+  padding: 20px;
+  backdrop-filter: blur(10px); /* Reduced blur for better performance */
 }
 
 /* Hover Effect for Portfolio Item */
 .portfolio-item:hover {
-  transform: scale(1.05); /* Increased scale effect for a bolder look */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+  transform: scale(1.03); /* Reduced scale effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Less pronounced shadow */
 }
 
 /* Portfolio Item Content */
@@ -581,55 +578,45 @@ html {
   flex: 1;
   overflow: hidden;
   position: relative;
-  border-radius: 25px; /* Ensure the image fits well within the border-radius */
+  border-radius: 20px; /* Match reduced border-radius */
 }
 
 /* Image Styling */
 .portfolio-item-content img {
-  width: 100%; /* Ensures the image covers the container width */
-  height: 100%; /* Ensures the image covers the container height */
-  object-fit: cover; /* Ensures the image covers the area while maintaining aspect ratio */
-  border-radius: 25px; /* Match the border-radius of the container */
-  transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px; /* Match reduced border-radius */
+  transition: transform 0.3s ease, filter 0.3s ease; /* Reduced duration for better performance */
 }
 
 .portfolio-item-content img:hover {
-  transform: scale(1.05); /* Slightly scale up on hover for effect */
-  filter: brightness(80%); /* Dim the image on hover */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-}
-
-.portfolio-item-content img:active {
-  filter: grayscale(100%); /* Easter egg effect on click */
+  transform: scale(1.03); /* Reduced scale effect */
+  filter: brightness(85%); /* Slightly dimmer */
 }
 
 /* Portfolio Item Description */
 .portfolio-item-description {
   flex: 1;
-  background: rgba(0, 21, 51, 0.6); /* Glassmorphic effect with more opacity for visibility */
-  color: #e0e0e0; /* Light gray color for text */
-  padding: 30px; /* Increased padding for spacious sides */
-  border-radius: 25px; /* Increased border-radius */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4); /* Added stronger shadow for depth */
+  background: rgba(0, 21, 51, 0.6);
+  color: #e0e0e0;
+  padding: 20px; /* Reduced padding */
+  border-radius: 20px; /* Match reduced border-radius */
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3); /* Reduced shadow for better performance */
   position: relative;
-  z-index: 2; /* Ensure text stays on top */
-  margin: 0 40px; /* Increased side margin for more space */
-  backdrop-filter: blur(15px); /* Glassmorphic blur effect */
+  z-index: 2;
+  margin: 0 20px; /* Reduced side margin */
+  backdrop-filter: blur(10px); /* Reduced blur for better performance */
 }
 
 /* Portfolio Item Description Heading */
 .portfolio-item-description h3 {
-  font-size: 1.8em;
-  margin-bottom: 15px;
+  font-size: 1.6em; /* Slightly smaller font size */
 }
 
 /* Portfolio Item Description Paragraph */
 .portfolio-item-description p {
-  font-size: 1em;
-  line-height: 1.4em;
+  font-size: 0.9em; /* Slightly smaller font size */
 }
 
 /* Ensure proper layout for items */
@@ -641,7 +628,7 @@ html {
   flex-direction: row-reverse;
 }
 
-/* Easter egg - Hidden confetti effect on hover */
+/* Easter egg - Simplified confetti effect */
 .portfolio-item::before {
   content: "";
   position: absolute;
@@ -651,29 +638,11 @@ html {
   bottom: 0;
   background: url('confetti.png') no-repeat center center / cover;
   opacity: 0;
-  transition: opacity 0.4s;
+  transition: opacity 0.3s; /* Reduced duration for better performance */
 }
 
 .portfolio-item:hover::before {
-  opacity: 0.3;
-}
-
-
-/* Easter egg - Hidden confetti effect on hover */
-.portfolio-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('confetti.png') no-repeat center center / cover;
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-
-.portfolio-item:hover::before {
-  opacity: 0.3;
+  opacity: 0.2; /* Reduced opacity for a subtler effect */
 }
 
 /* Timeline Styles */
@@ -690,23 +659,21 @@ html {
   border-radius: 10px; /* Rounded corners for the heading */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for a modern effect */
 }
-
 /* Add a decorative underline */
 .timeline-heading::after {
   content: '';
   display: block;
-  width: 60px; /* Adjust width of the underline */
-  height: 4px; /* Height of the underline */
-  background-color: #8A2BE2; /* Color of the underline */
-  margin: 10px auto 0; /* Center align the underline */
-  border-radius: 2px; /* Rounded corners for the underline */
+  width: 60px;
+  height: 4px;
+  background-color: #8A2BE2;
+  margin: 10px auto 0;
+  border-radius: 2px;
 }
 
 .timeline {
-  padding: 60px 20px; /* Increased padding for better spacing */
+  padding: 60px 20px;
   position: relative;
-  margin-top: 60px;
-  margin: 40px;
+  margin: 60px 40px 0;
 }
 
 .timeline-container {
@@ -720,23 +687,23 @@ html {
 .timeline-item {
   display: flex;
   align-items: center;
-  margin: 30px 0; /* Increased margin for better spacing */
+  margin: 20px 0; /* Reduced margin for better spacing */
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .timeline-item:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px); /* Reduced lift effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Less pronounced shadow */
 }
 
 .timeline-icon {
-  width: 25px; /* Increased icon size */
-  height: 25px;
+  width: 20px; /* Slightly smaller icon size */
+  height: 20px;
   background-color: #8A2BE2;
   border-radius: 50%;
-  margin-right: 25px; /* Increased spacing */
+  margin-right: 15px; /* Reduced spacing */
   position: relative;
   flex-shrink: 0;
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -747,51 +714,49 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 200%;
-  height: 200%;
+  width: 150%;
+  height: 150%;
   background-color: rgba(138, 43, 226, 0.3);
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.4s ease, background-color 0.4s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Reduced duration */
 }
 
 .timeline-item:hover .timeline-icon {
-  background-color: #BA55D3; /* Color change on hover */
-  transform: scale(1.1); /* Slightly enlarge the icon on hover */
+  background-color: #BA55D3;
+  transform: scale(1.05); /* Slightly smaller scale effect */
 }
 
 .timeline-item:hover .timeline-icon:after {
-  transform: translate(-50%, -50%) scale(1.4);
-  background-color: rgba(138, 43, 226, 0.4);
+  transform: translate(-50%, -50%) scale(1.2); /* Reduced scale effect */
+  background-color: rgba(138, 43, 226, 0.35);
 }
 
 .timeline-content {
-  padding: 20px 25px; /* Increased padding for better readability */
+  padding: 15px 20px; /* Reduced padding */
   border-radius: 15px;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-  backdrop-filter: blur(12px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px); /* Reduced blur */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Less pronounced shadow */
   transition: background 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
 }
 
 .timeline-item:hover .timeline-content {
-  background: linear-gradient(145deg, rgba(138, 43, 226, 0.35), rgba(138, 43, 226, 0.2));
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(145deg, rgba(138, 43, 226, 0.3), rgba(138, 43, 226, 0.15));
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Less pronounced shadow */
 }
 
 .timeline h2 {
   transform: translateX(70px);
   margin-bottom: 20px;
   color: #b05ef7;
-  margin-top: 20px;
   font-size: 2rem;
 }
 
 .timeline-content p {
   margin: 10px 0 0;
   color: #ddd;
-  line-height: 1.7; /* Increased line height for better readability */
+  line-height: 1.5; /* Slightly reduced line height */
   transition: color 0.3s ease;
 }
 
@@ -800,7 +765,7 @@ html {
 }
 
 .timeline-item:hover .timeline-content p {
-  color: #f5f5f5; /* Slightly lighter text color */
+  color: #f5f5f5;
 }
 
 /* Timeline Line */
@@ -808,11 +773,11 @@ html {
   content: '';
   position: absolute;
   top: 0;
-  left: 15px; /* Adjusted for better alignment */
-  width: 4px; /* Increased width for a more prominent line */
+  left: 15px;
+  width: 4px;
   height: 100%;
   background: linear-gradient(180deg, #8A2BE2, #BA55D3);
-  transition: height 0.4s ease;
+  transition: height 0.3s ease; /* Reduced duration */
 }
 
 @media (max-width: 768px) {
@@ -826,20 +791,22 @@ html {
   }
 
   .timeline-container:before {
-    left: 5px; /* Adjusted for smaller screens */
+    left: 5px;
   }
 }
 
 
+
+/* Contact Section */
 /* Contact Section */
 /* Container for Social Media and Contact Sections */
 /* Social Media Section */
 .social-media {
-  padding: 80px;
-  background: rgba(255, 255, 255, 0.1); /* Glassmorphic background */
-  backdrop-filter: blur(10px); /* Glassmorphic blur effect */
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  padding: 60px; /* Reduced padding for efficiency */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px); /* Slightly reduced blur effect */
+  border-radius: 12px; /* Slightly smaller border radius */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); /* Reduced shadow for performance */
   width: 100%;
   max-width: 1200px;
   margin: 20px auto;
@@ -847,44 +814,43 @@ html {
 
 .social-media h2 {
   text-align: center;
-  margin-bottom: 80px;
-  color: #e6e6fa; /* Light text color */
-  font-size: 2em;
-  font-family: 'Oswald', sans-serif; /* Font style */
-  letter-spacing: 1px;
+  margin-bottom: 60px; /* Reduced margin for efficiency */
+  color: #e6e6fa;
+  font-size: 1.8em; /* Slightly smaller font size */
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.8px; /* Slightly reduced letter spacing */
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 40px; /* Increase the space between icons */
+  gap: 30px; /* Reduced spacing between icons */
 }
 
 .social-links a {
   display: block;
-  width: 60px; /* Slightly larger icons for better visibility */
-  height: 60px;
+  width: 50px; /* Slightly smaller icons */
+  height: 50px;
 }
 
 .social-links img {
   width: 100%;
   height: auto;
   display: block;
-  transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+  transition: box-shadow 0.2s ease; /* Reduced transition duration */
 }
 
 .social-links a:hover img {
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* Enhanced shadow effect on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Slightly reduced shadow effect */
 }
 
 /* Contact Section */
-/* Contact Section */
 .contact {
   padding: 20px;
-  background: rgba(255, 255, 255, 0.1); /* Glassmorphic background */
-  backdrop-filter: blur(10px); /* Glassmorphic blur effect */
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px); /* Slightly reduced blur effect */
+  border-radius: 12px; /* Slightly smaller border radius */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); /* Reduced shadow for performance */
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
@@ -900,20 +866,20 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 15px;
-  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.2);
+  border-radius: 12px; /* Slightly smaller border radius */
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.15); /* Reduced shadow for performance */
   z-index: 1;
 }
 
 /* Title */
 .contact h2 {
   text-align: center;
-  margin-bottom: 30px;
-  color: #e6e6fa; /* Light text color */
-  font-size: 2.5em;
-  font-family: 'Oswald', sans-serif; /* Font style */
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Text shadow */
+  margin-bottom: 20px; /* Reduced margin for efficiency */
+  color: #e6e6fa;
+  font-size: 2em; /* Slightly smaller font size */
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.8px; /* Slightly reduced letter spacing */
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.2); /* Reduced text shadow */
   position: relative;
   z-index: 2;
 }
@@ -922,7 +888,7 @@ html {
 .contact .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Space between form elements */
+  gap: 10px; /* Reduced gap between form elements */
   max-width: 600px;
   margin: 0 auto;
   position: relative;
@@ -932,42 +898,42 @@ html {
 /* Input and textarea */
 .contact .contact-form input,
 .contact .contact-form textarea {
-  padding: 15px;
-  border-radius: 12px;
+  padding: 12px; /* Slightly reduced padding */
+  border-radius: 10px; /* Slightly smaller border radius */
   border: 1px solid #a29bfe;
   background-color: #1b1b32;
   color: #fff;
-  font-size: 1em;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  font-size: 0.9em; /* Slightly smaller font size */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Reduced shadow for performance */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease; /* Reduced transition duration */
 }
 
 .contact .contact-form input:focus,
 .contact .contact-form textarea:focus {
   border-color: #8a3ffc;
-  box-shadow: 0 0 8px rgba(138, 63, 248, 0.5);
+  box-shadow: 0 0 6px rgba(138, 63, 248, 0.4); /* Reduced shadow */
   outline: none;
-  transform: scale(1.02);
+  transform: scale(1.01); /* Slightly reduced scale effect */
 }
 
 /* Button */
 .contact .contact-form button {
-  padding: 12px 24px;
+  padding: 10px 20px; /* Slightly reduced padding */
   border: none;
-  border-radius: 12px;
+  border-radius: 10px; /* Slightly smaller border radius */
   background: linear-gradient(135deg, #a29bfe, #8a3ffc);
   color: #1b1b32;
-  font-size: 1.1em;
+  font-size: 1em; /* Slightly smaller font size */
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Reduced transition duration */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Reduced shadow for performance */
   position: relative;
 }
 
 .contact .contact-form button:hover {
   background: linear-gradient(135deg, #8a3ffc, #6a1b9a);
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transform: scale(1.03); /* Slightly reduced scale effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Reduced shadow for performance */
 }
 
 .contact .contact-form button::before {
@@ -977,9 +943,9 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 12px;
+  border-radius: 10px; /* Slightly smaller border radius */
   background: rgba(255, 255, 255, 0.1);
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease; /* Reduced transition duration */
   z-index: -1;
 }
 
@@ -994,16 +960,16 @@ html {
   }
 
   .contact h2 {
-    font-size: 2em;
+    font-size: 1.8em; /* Slightly smaller font size */
   }
 
   .contact .contact-form input,
   .contact .contact-form textarea {
-    font-size: 0.9em;
+    font-size: 0.8em; /* Slightly smaller font size */
   }
 
   .contact .contact-form button {
-    font-size: 1em;
+    font-size: 0.9em; /* Slightly smaller font size */
   }
 }
 
@@ -1028,57 +994,6 @@ html {
   font-size: 1.1rem;
   line-height: 1.5;
 }
-
-/* Responsive Styling */
-@media (max-width: 768px) {
-  .navbar .nav-links {
-    flex-direction: column;
-    gap: 15px; /* Increased gap for better spacing */
-    padding: 10px; /* Padding for better touch targets */
-  }
-
-  .header-content h1 {
-    font-size: 2.5rem; /* Slightly larger font size for better visibility */
-  }
-
-  .about .text {
-    max-width: 100%;
-    padding: 15px; /* Padding for mobile readability */
-  }
-
-  .portfolio-item {
-    width: 100%;
-    margin: 10px 0; /* Margin for better spacing on mobile */
-  }
-
-  .signin .content {
-    max-width: 100%;
-    padding: 15px; /* Padding for mobile readability */
-  }
-}
-
-/* Advanced Animations for Scroll Effect */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px); /* Increased translation for a more dramatic effect */
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px); /* Slide in from the left */
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 /* Custom Scrollbar Styles */
 /* Custom Vertical Scrollbar Styles */
 
@@ -1098,121 +1013,19 @@ html {
   transition: background 0.3s ease; /* Smooth transition for color change */
 }
 
-
-/* Prevent horizontal scrolling */
+/* General Styles */
 body {
-  overflow-x: hidden;
+  background: linear-gradient(45deg, #1b1b32, #8a3ffc);
+  background-size: 400% 400%;
+  animation: gradient-animation 15s ease infinite;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Ensure no unintended overflow in the main content area */
 #main-content {
-  overflow-x: hidden;
+  display: none; /* Hidden by default, shown when loaded */
+  overflow-x: hidden; /* Ensure no horizontal overflow */
 }
 
-
-::-webkit-scrollbar-thumb:hover {
-  background: #004080; /* Darker color on hover */
-}
-
-/* For Firefox */
-.scrollbar-container {
-  scrollbar-width: thin; /* Thin scrollbar */
-  scrollbar-color: #003366 #1b1b32; /* Thumb and track color */
-}
-
-/* Ensure horizontal scrollbar is hidden and vertical scrollbar is visible */
-.scrollbar-container {
-  max-height: 100vh; /* Adjust height as needed */
-  overflow-y: auto; /* Enable vertical scrolling */
-  overflow-x: hidden; /* Hide horizontal scrollbar */
-}
-
-/* For Edge and Internet Explorer */
-body {
-  -ms-overflow-style: scrollbar; /* Use native scrollbar */
-}
-
-
-.section {
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards; /* Increased duration for a smoother effect */
-}
-
-.section-visible {
-  opacity: 1;
-}
-
-/* Fun, interactive scroll effect */
-.section-visible {
-  animation: slideInFromLeft 1s ease forwards; /* Adding slide-in effect when visible */
-}
-
-  /* Toggle Button */
-.toggle-button {
-    position: fixed;
-    bottom: 20px; /* Distance from the bottom edge */
-    right: 20px;  /* Distance from the right edge */
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50px;
-    padding: 10px 20px;
-    color: #a29bfe;
-    cursor: pointer;
-    z-index: 1001; /* Ensure it's above other elements */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .toggle-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #6d28d9;
-  }
-  
-  /* Dark Mode Toggle Button */
-  body.dark-mode .toggle-button {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #bb86fc;
-  }
-  
-/* Add spacing between sections */
-section {
-  margin-bottom: 40px; /* Adds space below each section */
-}
-
-/* About Section */
-.about {
-  margin-bottom: 60px; /* Increased space below the About section */
-}
-
-/* Portfolio Section */
-.portfolio {
-  margin-bottom: 60px; /* Increased space below the Portfolio section */
-}
-
-/* Contact Section */
-.contact {
-  margin-bottom: 60px; /* Increased space below the Contact section */
-}
-
-/* Sign-In Section */
-.signin {
-  margin-bottom: 60px; /* Increased space below the Sign-In section */
-}
-
-/* Footer */
-.footer {
-  margin-top: 40px; /* Adds space above the footer */
-}
-
-/* Background gradient animation */
-@keyframes gradient-animation {
-  0% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
-}
-/* Ensure that the particles background is always behind other content */
-/* Container for particles.js */
 #particles-js {
   position: fixed;
   top: 0;
@@ -1223,8 +1036,136 @@ section {
   background: linear-gradient(135deg, #0d1b2a, #3d3d6b); /* Dark blue to violet gradient */
 }
 
+.scrollbar-container {
+  max-height: 100vh; /* Adjust height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
 
-/* Basic styling for the loader */
+::-webkit-scrollbar-thumb {
+  background: #003366; /* Thumb color */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #004080; /* Darker color on hover */
+}
+
+.scrollbar-container {
+  scrollbar-width: thin; /* Thin scrollbar for Firefox */
+  scrollbar-color: #003366 #1b1b32; /* Thumb and track color for Firefox */
+}
+
+body {
+  -ms-overflow-style: scrollbar; /* Use native scrollbar for Edge/IE */
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gradient-animation {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+.section {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.section-visible {
+  opacity: 1;
+  animation: slideInFromLeft 1s ease forwards;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .navbar .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .header-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .about .text,
+  .signin .content {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .portfolio-item {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+/* Toggle Button */
+.toggle-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 10px 20px;
+  color: #a29bfe;
+  cursor: pointer;
+  z-index: 1001;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toggle-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #6d28d9;
+}
+
+body.dark-mode .toggle-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #bb86fc;
+}
+
+/* Section Spacing */
+section {
+  margin-bottom: 40px;
+}
+
+.about,
+.portfolio,
+.contact,
+.signin {
+  margin-bottom: 60px;
+}
+
+.footer {
+  margin-top: 40px;
+}
+
+/* Loader */
 .loader {
   position: fixed;
   top: 0;
@@ -1235,10 +1176,9 @@ section {
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.8);
-  z-index: 9999; /* Ensure loader is above all content */
+  z-index: 9999;
 }
 
-/* Loader animation */
 .spinner {
   border: 8px solid #f3f3f3;
   border-top: 8px solid #3498db;
@@ -1253,24 +1193,39 @@ section {
   100% { transform: rotate(360deg); }
 }
 
-/* Basic styling for main content */
-#main-content {
-  display: none; /* Hidden by default, shown when loaded */
-}
-
-/* Add glassmorphism and other styles here */
-body {
-  background: linear-gradient(45deg, #1b1b32, #8a3ffc);
-  background-size: 400% 400%;
-  animation: gradient-animation 15s ease infinite;
-}
 
 /* For a more advanced effect, consider using a library like particles.js */
 
   /* Glassmorphic Effect for All Sections */
 /* Glassmorphic Effect for All Sections */
 
-section {
+/* General Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  height: 100%;
+}
+
+/* Backgrounds */
+body {
+  background: linear-gradient(45deg, #1b1b32, #8a3ffc);
+  background-size: 400% 400%;
+  animation: gradient-animation 15s ease infinite;
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure it's behind other content */
+  background: linear-gradient(135deg, #0d1b2a, #3d3d6b); /* Dark blue to violet gradient */
+}
+
+/* Glassmorphic Effect */
+section, .header-content {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -1278,55 +1233,14 @@ section {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 40px 30px;
-  margin-bottom: 60px; /* Space below each section */
-}
-
-/* Adjust individual section styles if needed */
-.about, .portfolio, .contact, .signin {
-  padding: 40px 30px;
-}
-
-/* Remove extra margin from sections if needed */
-footer {
-  margin-top: 40px; /* Adds space above the footer */
-}
-
-
-/* Navbar and Footer remain unchanged */
-.navbar,
-.footer {
-  background-color: transparent;
-}
-
-/* Adjusting spacing and margin if needed */
-.footer {
-  margin-top: 40px; /* Adds space above the footer */
-}
-
-/* Example of the main content styling */
-#main-content {
-  display: none; /* Hidden by default, shown when loaded */
-}
-
-/* Ensure all sections are visible */
-section {
-  opacity: 1; /* Ensure sections are visible by default */
 }
 
 /* Header */
 .header-content {
-  background: rgba(255, 255, 255, 0.1); /* Glassmorphic background */
-  border-radius: 15px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Glassmorphic shadow */
-  backdrop-filter: blur(10px); /* Glassmorphic blur effect */
-  -webkit-backdrop-filter: blur(10px); /* For WebKit browsers */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Glassmorphic border */
-  padding: 40px 30px;
   color: #a29bfe; /* Text color */
   text-align: center;
 }
 
-/* Header text and button styling */
 .header-content h1 {
   font-size: 3rem;
   margin-bottom: 20px;
@@ -1351,62 +1265,30 @@ section {
   background-color: #a29bfe;
   color: #1b1b32;
 }
-.about {
-  margin-top: 60px; /* Adjust this value to create the desired gap */
+
+/* Section Styling */
+section {
   padding: 40px 30px;
+  margin-bottom: 60px; /* Space below each section */
+}
+
+/* Specific Section Styles */
+.about, .portfolio, .contact, .signin {
   background-color: rgba(27, 27, 50, 0.6); /* Glassmorphic effect */
-  border-radius: 15px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Example of GPU-accelerated animation */
-.element {
-  transform: translateZ(0);
-  transition: transform 0.3s ease-in-out;
-}
-body, html {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* Prevents horizontal overflow */
+.footer {
+  margin-top: 40px; /* Adds space above the footer */
 }
 
-.container {
-  min-height: 100vh; /* Ensures container always covers full viewport height */
-}
-@media (max-width: 600px) {
-  .section {
-    padding: 20px;
-    font-size: 1em;
-  }
-}
-.fixed-element {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
+/* Main Content Styling */
+#main-content {
+  position: relative;
+  z-index: 1;
+  display: none; /* Hidden by default, shown when loaded */
 }
 
-.flex-container {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-.layer {
-  z-index: 10;
-}
-.background {
-  background-size: cover;
-  background-position: center;
-}
-
-#particles-js {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Make sure it's behind other content */
-}
-
+/* Loader */
 #loader {
   position: fixed;
   top: 0;
@@ -1418,43 +1300,10 @@ body, html {
   align-items: center;
   background: rgba(255, 255, 255, 0.9); /* Background to cover the content */
   z-index: 1000; /* Ensure it's on top of other content */
-}
-
-#loader {
   transition: opacity 0.5s ease;
 }
 
-/* Ensure body and html take full height */
-html, body {
-  height: 100%;
-  margin: 0;
-  overflow: auto; /* Allow scrolling */
-}
-
-/* Particles background */
-#particles-js {
-  position: fixed; /* Fixed to ensure it stays in place */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Ensure it is behind other content */
-}
-
-/* Main content styling */
-#main-content {
-  position: relative;
-  z-index: 1;
-}
-
-/* Ensure sections have appropriate background */
-section {
-  background: rgba(255, 255, 255, 0.8); /* Example background */
-  padding: 20px;
-  margin: 10px 0;
-}
-
-
+/* Scroll Effects */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1466,6 +1315,12 @@ section {
   }
 }
 
+@keyframes gradient-animation {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
 .section {
   opacity: 0;
   animation: fadeInUp 0.6s ease forwards;
@@ -1475,17 +1330,46 @@ section {
   opacity: 1;
 }
 
-/* Define the fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .section {
+    padding: 20px;
+    font-size: 1em;
   }
 }
+
+/* GPU-Accelerated Animation */
+.element {
+  transform: translateZ(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Utility Classes */
+.container {
+  min-height: 100vh; /* Ensures container always covers full viewport height */
+}
+
+.fixed-element {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.layer {
+  z-index: 10;
+}
+
+.background {
+  background-size: cover;
+  background-position: center;
+}
+
 
 /* Typing Effect */
 .typing {

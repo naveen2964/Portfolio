@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
         value: 80,
         density: {
           enable: true,
-          value_area: 700
+          value_area: 800
         }
       },
       color: {
@@ -25,13 +25,13 @@ window.addEventListener('load', () => {
         }
       },
       opacity: {
-        value: 0.5,
+        value: 0.3,
         anim: {
           enable: false
         }
       },
       size: {
-        value: 3,
+        value: 2,
         random: true,
         anim: {
           enable: false
@@ -41,12 +41,12 @@ window.addEventListener('load', () => {
         enable: true,
         distance: 150,
         color: '#ffffff',
-        opacity: 0.4,
+        opacity: 0.2,
         width: 1
       },
       move: {
         enable: true,
-        speed: 6,
+        speed: 3,
         direction: 'none',
         out_mode: 'out'
       }
@@ -84,14 +84,12 @@ const mainContent = document.getElementById('main-content');
 
 if (loader && mainContent) {
   window.addEventListener('load', () => {
+    loader.style.transition = 'opacity 0.5s ease';
+    loader.style.opacity = '0';
     setTimeout(() => {
-      loader.style.transition = 'opacity 0.5s';
-      loader.style.opacity = '0';
-      setTimeout(() => {
-        loader.style.display = 'none';
-        mainContent.style.display = 'block';
-      }, 500);
-    }, 100);
+      loader.style.display = 'none';
+      mainContent.style.display = 'block';
+    }, 500);
   });
 } else {
   console.error('Loader or main content not found');
@@ -100,7 +98,7 @@ if (loader && mainContent) {
 // Smooth Scroll Animation
 const sections = document.querySelectorAll('section');
 
-const revealSection = () => {
+const updateSections = () => {
   sections.forEach(section => {
     const sectionTop = section.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
@@ -110,59 +108,37 @@ const revealSection = () => {
   });
 };
 
-// Debounce and throttle scroll event to improve performance
-const debounce = (func, wait) => {
-  let timeout;
-  return () => {
-    clearTimeout(timeout);
-    timeout = setTimeout(func, wait);
-  };
+const onScroll = () => {
+  window.requestAnimationFrame(updateSections);
 };
 
-const throttle = (func, limit) => {
-  let lastFunc;
-  let lastRan;
-  return function() {
-    const context = this;
-    const args = arguments;
-    if (!lastRan) {
-      func.apply(context, args);
-      lastRan = Date.now();
-    } else {
-      if (lastFunc) clearTimeout(lastFunc);
-      lastFunc = setTimeout(function() {
-        if ((Date.now() - lastRan) >= limit) {
-          func.apply(context, args);
-          lastRan = Date.now();
-        }
-      }, limit - (Date.now() - lastRan));
-    }
-  };
-};
-
-window.addEventListener('scroll', throttle(revealSection, 50));
-window.addEventListener('load', revealSection);
+window.addEventListener('scroll', onScroll);
+window.addEventListener('load', updateSections);
 
 // Navbar Hide/Show on Scroll
 let lastScrollTop = 0;
 const navbar = document.querySelector('.navbar');
 
-window.addEventListener('scroll', () => {
+const handleNavbar = () => {
   let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
   if (currentScroll > lastScrollTop) {
     // Scrolling down
     if (navbar) {
-      navbar.style.top = "-80px";
+      navbar.style.transform = "translateY(-80px)";
     }
   } else {
     // Scrolling up
     if (navbar) {
-      navbar.style.top = "0px";
+      navbar.style.transform = "translateY(0px)";
     }
   }
 
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+};
+
+window.addEventListener('scroll', () => {
+  window.requestAnimationFrame(handleNavbar);
 });
 
 // Smooth scrolling for anchor links

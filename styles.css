@@ -18,6 +18,25 @@ body {
   color: #fff;
 }
 
+/* optimizations*/
+
+.element {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.element.animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.animated-element {
+  will-change: transform, opacity;
+}
+
 
 /* Glassmorphic Effect */
 .glass {
@@ -1078,6 +1097,7 @@ body {
   border-radius: 5px; /* Rounded corners for the thumb */
   transition: background 0.3s ease; /* Smooth transition for color change */
 }
+
 
 /* Prevent horizontal scrolling */
 body {

@@ -187,14 +187,15 @@ if (navToggle && navLinks) {
 }
 
 // Mobile Navbar Hide/Show
-const mobileNavbar = document.querySelector('.mobile-navbar');
+const mobileNavbar = document.querySelector('.glass-floating-bar');
+const desktopNavbar = document.querySelector('.navbar');
 
 const handleResize = () => {
   if (window.innerWidth <= 768) {
-    if (navbar) navbar.style.display = 'none';
+    if (desktopNavbar) desktopNavbar.style.display = 'none';
     if (mobileNavbar) mobileNavbar.style.display = 'flex';
   } else {
-    if (navbar) navbar.style.display = 'flex';
+    if (desktopNavbar) desktopNavbar.style.display = 'flex';
     if (mobileNavbar) mobileNavbar.style.display = 'none';
   }
 };

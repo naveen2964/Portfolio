@@ -8,10 +8,10 @@ window.addEventListener('load', () => {
   particlesJS('particles-js', {
     particles: {
       number: {
-        value: 80,
+        value: 50, // Reduced particle count
         density: {
           enable: true,
-          value_area: 800
+          value_area: 600 // Reduced density
         }
       },
       color: {
@@ -46,13 +46,13 @@ window.addEventListener('load', () => {
       },
       move: {
         enable: true,
-        speed: 3,
+        speed: 2, // Reduced speed for smoother animations
         direction: 'none',
         out_mode: 'out'
       }
     },
     interactivity: {
-      detect_on: 'window',
+      detect_on: 'canvas',
       events: {
         onhover: {
           enable: true,
@@ -70,7 +70,7 @@ window.addEventListener('load', () => {
           duration: 0.4
         },
         push: {
-          particles_nb: 4
+          particles_nb: 3 // Slightly reduced number of particles pushed on click
         }
       }
     },
@@ -78,7 +78,17 @@ window.addEventListener('load', () => {
   });
 });
 
-// Hide loader and show main content
+// Smooth Scroll Animation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
+// Hide loader and display main content
 const loader = document.getElementById('loader');
 const mainContent = document.getElementById('main-content');
 
@@ -95,7 +105,23 @@ if (loader && mainContent) {
   console.error('Loader or main content not found');
 }
 
-// Smooth Scroll Animation
+// Debounce function to limit scroll event execution
+function debounce(func, wait = 20, immediate = true) {
+  let timeout;
+  return function () {
+    const context = this, args = arguments;
+    const later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    const callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
+// Smooth Scroll Animation with Debounce
 const sections = document.querySelectorAll('section');
 
 const updateSections = () => {
@@ -108,9 +134,9 @@ const updateSections = () => {
   });
 };
 
-const onScroll = () => {
+const onScroll = debounce(() => {
   window.requestAnimationFrame(updateSections);
-};
+});
 
 window.addEventListener('scroll', onScroll);
 window.addEventListener('load', updateSections);
@@ -137,19 +163,9 @@ const handleNavbar = () => {
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 };
 
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', debounce(() => {
   window.requestAnimationFrame(handleNavbar);
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-});
+}));
 
 // Navbar Toggle Functionality for Mobile
 const navToggle = document.querySelector('.nav-toggle');
@@ -176,5 +192,5 @@ const handleResize = () => {
   }
 };
 
-window.addEventListener('resize', handleResize);
+window.addEventListener('resize', debounce(handleResize));
 window.addEventListener('load', handleResize);

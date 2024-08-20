@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="loading.css">
     <link rel="stylesheet" href="particles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="images/n.png" type="image/png">
+    <link rel="icon" href="images/n.ico" type="image/png">
 </head>
 <body>
     <!-- Particles Background -->
@@ -24,28 +24,27 @@
     <!-- Main Content -->
     <div id="main-content" style="display: none;">
         <!-- Desktop Navbar -->
-        <nav class="navbar glass shadow-effect">
+        <nav class="navbar glass shadow-effect fade-in">
             <div class="logo">
                 <img src="images/n.png" alt="Naveen's Logo">
             </div>
             <div class="nav-links">
-                <a href="#home">&lt;/Home&gt;</a>
+                <a href="#header">&lt;/Home&gt;</a>
                 <a href="#about">&lt;/About me&gt;</a>
                 <a href="#portfolio">&lt;/Projects&gt;</a>
                 <a href="#contact">&lt;/Contact&gt;</a>
             </div>
         </nav>
         
-
         <!-- Header -->
-        <header class="header-content glass shadow-effect">
+        <header id="header" class="header-content glass shadow-effect fade-in">
             <h1>Welcome to My Website</h1>
             <p>My Name is Naveen and this is my very own portfolio</p>
             <a href='Resume.pdf' class="btn">My Resume</a>
         </header>
 
         <!-- About Section -->
-        <section id="about" class="about glass shadow-effect">
+        <section id="about" class="about glass shadow-effect fade-in">
             <div class="img-container">
                 <img src="images/imageone.png" alt="Sample Image">
                 <div class="text-overlay">
@@ -60,7 +59,7 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="skills glass shadow-effect">
+        <section id="skills" class="skills glass shadow-effect fade-in">
             <h2>&lt;/My skills&gt;</h2>
             <div class="skills-container">
                 <div class="skill-item">
@@ -91,7 +90,7 @@
         </section>
 
         <!-- Timeline Section -->
-        <section id="timeline" class="timeline glass shadow-effect">
+        <section id="timeline" class="timeline glass shadow-effect fade-in">
             <h2>&lt;/My Journey&gt;</h2>
             <div class="timeline-container">
                 <div class="timeline-item">
@@ -126,7 +125,7 @@
         </section>
 
         <!-- Portfolio Section -->
-        <section id="portfolio" class="portfolio glass shadow-effect">
+        <section id="portfolio" class="portfolio glass shadow-effect fade-in">
             <h2>&lt;/My Projects&gt;</h2>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
@@ -168,7 +167,7 @@
         <!-- Contact and Social Media Container -->
         <div class="contact-social-container">
             <!-- Social Media Section -->
-            <section id="social-media" class="social-media glass shadow-effect">
+            <section id="social-media" class="social-media glass shadow-effect fade-in">
                 <h2>Connect With Me</h2>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/naveenvanga" target="_blank" aria-label="LinkedIn"><img src="images/linkedin.png" alt="LinkedIn Logo"></a>
@@ -179,7 +178,7 @@
             </section>
 
             <!-- Contact Section -->
-            <section id="contact" class="contact glass shadow-effect">
+            <section id="contact" class="contact glass shadow-effect fade-in">
                 <h2>Contact Me</h2>
                 <form class="contact-form" aria-labelledby="contact-form">
                     <input type="text" placeholder="Your Name" required aria-label="Your Name">
@@ -191,7 +190,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer glass shadow-effect">
+        <footer class="footer glass shadow-effect fade-in">
             <p>&copy; 2024 My Website. All rights reserved.</p>
         </footer>
 
@@ -200,7 +199,7 @@
 
     <!-- Mobile Navbar -->
     <nav class="glass-floating-bar">
-        <a href="#home" class="nav-link">
+        <a href="#header" class="nav-link">
             <img src="images/home.png" alt="Home">
         </a>
         <a href="#about" class="nav-link">

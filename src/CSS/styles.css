@@ -200,8 +200,8 @@ h1 {
     letter-spacing: 1px; /* Keep letter spacing as needed */
     color: #000; /* Black color for the text */
     margin: 0;
-    position: absolute; /* Position it at the top right */
-    top: 140px; /* Adjust vertical position */
+    position: fixed; /* Position it at the top right */
+    top: 90px; /* Adjust vertical position */
     right: 20px; /* Align text with the right edge */
     transform: translateX(150px) scaleX(1); /* Move text out to the right initially */
     overflow-wrap: break-word; /* Ensure text wraps if necessary */
@@ -217,7 +217,6 @@ h1 {
         1px -1px 0 #fff,
         -1px 1px 0 #fff; /* White thick border effect */
 }
-
 /* Keyframes for slide up, squeeze in and out, and settle animation */
 @keyframes slideUpSqueezeInOut {
     0% {
@@ -273,7 +272,7 @@ h1 {
 /* Navigation */
 /* Navigation Container */
 nav {
-    position: absolute;
+    position: fixed;
     bottom: 300px;
     margin-top: 0; /* Adjusted from 350px *//* Space from the bottom of the viewport */
     width: 100%;

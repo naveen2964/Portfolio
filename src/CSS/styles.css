@@ -1,0 +1,960 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+/* Ensure there's no default color override */
+body, h1, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera, and Edge */
+    min-height: 100vh;
+    margin: 0;
+    justify-content: center;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Hide scrollbars to keep background effect full screen */
+}
+#particles-js {
+    position: absolute; /* Ensures the particle container is positioned absolutely */
+    width: 100%;
+    height: 100%;
+    background-image: url('background.jpg'); /* Replace 'background.jpg' with your local image path */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; /* Center the background image */
+    z-index: 0; /* Ensures it stays behind other content */
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('background.jpg'); /* Replace with your local image path */
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Behind the particles effect */
+}
+  /* ---- stats.js styles ---- */
+  .count-particles {
+    background: #000022;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 80px;
+    color: #13E8E9;
+    font-size: 0.8em;
+    text-align: left;
+    text-indent: 4px;
+    line-height: 14px;
+    padding-bottom: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    z-index: 1; /* Ensures it stays above other content */
+  }
+  
+  .js-count-particles {
+    font-size: 1.1em;
+  }
+  
+  #stats,
+  .count-particles {
+    user-select: none;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+  
+  #stats {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+  }
+  
+  .count-particles {
+    border-radius: 0 0 3px 3px;
+  }
+
+body {
+    font-family: 'Titillium Web', sans-serif; /* Apply Titillium Web font */
+    line-height: 1.6;
+    color: #fff; /* Text color for better contrast with background */
+    background-color: #000000; /* Initial blue color */
+    text-align: center; /* Center-align text */
+    position: relative;
+    transition: background-color 1s ease-out, opacity 1s ease-out; /* Smooth transition */
+}
+#page-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    transform: translateY(100%);
+    transition: transform 0.6s ease-out;
+}
+
+/* Animation to slide up */
+.page-slide-up {
+    transform: translateY(0);
+}
+
+.quote {
+    position: fixed;
+    bottom: 40px;
+    left: 33%;
+    transform: translateX(-50%);
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 40px;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    opacity: 0; /* Initially hidden */
+    animation: slideUpFadeIn 0.5s ease-out 0.6s forwards; /* Add the animation with a delay */
+}
+
+.quote p {
+    margin: 0;
+}
+
+.quote .author {
+    display: block;
+    font-size: 14px; /* Smaller font size for the author */
+    font-weight: normal; /* Normal weight for the author */
+    margin-top: 5px;
+    margin-right: -400px;
+}
+
+/* Transition effect for fading out */
+@keyframes slideUpFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(60px); /* Start below the final position */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Slide up to the final position */
+    }
+}
+
+/* General Slide-Up Fade-In Class */
+.slide-up-fade-in {
+    opacity: 0; /* Initially hidden */
+    animation: slideUpFadeIn 1s ease-out forwards; /* Slide up and fade in */
+}
+
+.background-black {
+    background-color: #000; /* Transition to black background */
+    transition: background-color 1s ease-out; /* Smooth transition to black */
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.6s ease-in; /* Smooth fade-in */
+}
+
+.fade-in.show {
+    opacity: 1;
+}
+
+/* Header */
+.wrapper.four {
+    background-color: #9ba5b4;
+    font-size: 5.5rem;
+    font-family: "Play", sans-serif;
+    text-align: right;
+    padding: 2rem;
+    margin-left: 200px;
+    height: 100vh;
+    display: flex;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+}
+h1 {
+    font-family: 'Titillium Web', sans-serif;
+    margin-bottom: 50px;
+    font-weight: 900;
+    letter-spacing: 1px; /* Keep letter spacing as needed */
+    color: #000; /* Black color for the text */
+    margin: 0;
+    position: absolute; /* Position it at the top right */
+    top: 140px; /* Adjust vertical position */
+    right: 20px; /* Align text with the right edge */
+    transform: translateX(150px) scaleX(1); /* Move text out to the right initially */
+    overflow-wrap: break-word; /* Ensure text wraps if necessary */
+    white-space: normal; /* Allow text to wrap */
+    text-align: left; /* Align text to the left edge */
+    line-height: 1.2; /* Adjust the gap between lines */
+    transform-origin: left; /* Start animation from the left side of the text */
+    padding-bottom: 40px;
+    animation: slideUpSqueezeInOut 1.2s ease-out forwards; /* Slide up, squeeze in and out, and settle */
+    text-shadow: 
+        1px 1px 0 #fff, 
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff; /* White thick border effect */
+}
+
+/* Keyframes for slide up, squeeze in and out, and settle animation */
+@keyframes slideUpSqueezeInOut {
+    0% {
+        opacity: 0.2;
+        transform: translateX(40px) scaleX(0.9); /* Start with text out of view to the right and no squeezing */
+        right: 20px; /* Ensure initial position */
+    }
+    30% {
+        opacity: 0.4;
+        transform: translateX(40px) scaleX(0.85); /* Slide text into view and squeeze in */
+        right: 20px; /* Ensure text moves to the final position */
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateX(40px) scaleX(0.8); /* Slide text into view and squeeze in */
+        right: 20px; /* Ensure text moves to the final position */
+    }
+    70% {
+        opacity: 0.9;
+        transform: translateX(40px) scaleX(0.85); /* Squeeze out slightly */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(40px) scaleX(0.9); /* Settle to normal scale */
+        right: 20px; /* Ensure text stays in final position */
+    }
+}
+
+
+
+
+
+/* Keyframes for typing effect */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%; /* Adjust to the width of the text */
+    }
+}
+
+/* Keyframes for caret blinking effect */
+@keyframes blink-caret {
+    0%, 100% {
+        border-color: transparent; /* Start and end with transparent */
+    }
+    50% {
+        border-color: #fff; /* Blink effect */
+    }
+}
+
+/* Navigation */
+/* Navigation Container */
+nav {
+    position: absolute;
+    bottom: 300px;
+    margin-top: 0; /* Adjusted from 350px *//* Space from the bottom of the viewport */
+    width: 100%;
+    display: flex;
+    left: 20px;
+    justify-content: left;
+    z-index: 0; /* Ensure nav is above background effect */
+    opacity: 0; /* Initially hidden */
+    animation: fadeInNav 1s ease-out forwards; /* Fade in nav */
+}
+
+/* Keyframes for fading in the nav container */
+@keyframes fadeInNav {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Navigation list */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Remove default margin */
+    display: flex;
+}
+
+/* Navigation items */
+nav ul li {
+    margin: 0 30px; /* Space between nav items */
+    padding-top: 20px;
+    opacity: 0; /* Initially hidden */
+    animation: slideUpFadeIn 0.6s ease-out forwards; /* Slide up and fade in */
+    animation-delay: var(--animation-delay); /* Custom animation delay */
+}
+
+/* Keyframes for sliding and fading in nav items */
+@keyframes slideUpFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start below the final position */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Slide up to the final position */
+    }
+}
+
+/* Navigation links */
+nav ul li a {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 15px 30px;
+    color: #000; /* Black text color for better visibility */
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.9); /* More opaque white background for buttons */
+    border-radius: 5px; /* Rounded corners */
+    border: 2px solid rgba(255, 255, 255, 0.9); /* Initial border color */
+    font-size: 1.2em; /* Ensure button text is visible */
+    font-weight: bold; /* Make button text stand out */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    position: relative; /* For pseudo-element positioning */
+    overflow: hidden; /* Hide overflowing text */
+    white-space: nowrap; /* Ensure text stays on one line */
+}
+
+/* Custom CSS to dynamically set animation delays */
+nav ul li:nth-child(1) {
+    --animation-delay: 0.5s;
+}
+
+nav ul li:nth-child(2) {
+    --animation-delay: 0.9s;
+}
+
+nav ul li:nth-child(3) {
+    --animation-delay: 1.2s;
+}
+
+nav ul li:nth-child(4) {
+    --animation-delay: 1.6s;
+}
+
+nav ul li:nth-child(5) {
+    --animation-delay: 1.9s;
+}
+
+/* General button styling */
+.resume-button {
+    display: inline-block; /* Makes the link behave like a button */
+    position: fixed; /* Fixed position relative to the viewport */
+    bottom: 30px; /* 30px from the bottom */
+    right: 30px; /* 30px from the left */
+    border: unset;
+    color: #ffffff;
+    z-index: 1;
+    height: auto; /* Adjusts height automatically */
+    background: #212121;
+    transition: all 250ms;
+    overflow: hidden;
+    text-decoration: none; /* Remove underline from links */
+    border-radius: 5px;
+    padding: 15px 25px; /* Adds padding for better touch target size */
+    font-size: 17px; /* Font size */
+}
+
+
+/* Before pseudo-element for hover effect */
+.resume-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: #e8e8e8;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+}
+
+/* Hover effect for button text color */
+.resume-button:hover {
+    color: #212121;
+}
+
+/* Hover effect for background fill */
+.resume-button:hover::before {
+    width: 100%;
+}
+
+
+/* Typing effect for navigation links */
+.typing-effect span {
+    display: inline-block;
+    overflow: hidden; /* Hide overflowing text */
+    white-space: nowrap; /* Ensure text stays on one line */
+    border-right: px solid #000; /* Create a typing cursor effect */
+    animation: typing-nav 2.5s steps(40, end) forwards, blink-caret-nav 0.75s step-end infinite; /* Typing animation finishes first */
+}
+
+@keyframes typing-nav {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%; /* Adjust to the width of the text */
+    }
+}
+
+/* Keyframes for caret blinking effect */
+@keyframes blink-caret-nav {
+    0%, 100% {
+        border-color: transparent; /* Start and end with transparent */
+    }
+    50% {
+        border-color: #000000; /* Blink effect */
+    }
+}
+
+/* Stop blinking caret after typing is complete */
+.typing-effect span.typed {
+    border-right: none; /* Remove blinking cursor */
+    animation: none; /* Stop the animation */
+}
+
+
+/* Matrix effect on hover */
+.about-me-button {
+    overflow: hidden; /* Ensures the pseudo-element doesn't overflow */
+    position: relative; /* For pseudo-element positioning */
+}
+
+.about-me-button:hover {
+    color: #00ff00; /* Matrix green text color */
+    background: #000; /* Black background */
+    border-color: #00ff00; /* Green border */
+}
+
+.about-me-button:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 200% 200%; /* Scale up the background for effect */
+    z-index: -1; /* Ensure the matrix effect is behind the button text */
+    animation: matrixEffect 0.5s linear forwards; /* Apply the animation */
+}
+
+/* Keyframes for the matrix effect */
+@keyframes matrixEffect {
+    0% {
+        background-size: 200% 200%; /* Scale up the background for effect */
+    }
+    100% {
+        background-size: 100% 100%; /* Scale down the background */
+    }
+}
+
+/* Glitch effect for button text */
+.about-me-button:hover span {
+    display: inline-block;
+    position: relative;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0, 0);
+        text-shadow: 1px 0 red, -1px 0 blue;
+    }
+    10% {
+        transform: translate(-2px, -2px);
+        text-shadow: -1px 0 red, 1px 0 blue;
+    }
+    20% {
+        transform: translate(2px, 2px);
+        text-shadow: 1px 0 red, -1px 0 blue;
+    }
+    30% {
+        transform: translate(-2px, 2px);
+        text-shadow: -1px 0 red, 1px 0 blue;
+    }
+    40% {
+        transform: translate(2px, -2px);
+        text-shadow: 1px 0 red, -1px 0 blue;
+    }
+    50% {
+        transform: translate(0, 0);
+        text-shadow: -1px 0 red, 1px 0 blue;
+    }
+    60% {
+        transform: translate(-1px, -1px);
+        text-shadow: 1px 0 red, -1px 0 blue;
+    }
+    70% {
+        transform: translate(1px, 1px);
+        text-shadow: -1px 0 red, 1px 0 blue;
+    }
+    80% {
+        transform: translate(-1px, 1px);
+        text-shadow: 1px 0 red, -1px 0 blue;
+    }
+    90% {
+        transform: translate(1px, -1px);
+        text-shadow: -1px 0 red, 1px 0 blue;
+    }
+    100% {
+        transform: translate(0, 0);
+        text-shadow: 1px 0 red, -1px 0 blue;
+    }
+}
+
+.skills-button {
+    overflow: hidden; /* Necessary for special effect */
+    position: relative;
+    display: flex;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s ease; /* Smooth transition */
+}
+
+/* Hide specific elements by default for the Skills button */
+.skills-button .hidden {
+    display: none;
+}
+
+/* Special hover effect for the Skills button */
+.skills-button:hover {
+    width:3rem; /* Ensure the width stays consistent */
+    height: 2rem; /* Ensure the height stays consistent */
+    background-size: 300% 300%;
+    cursor: pointer;
+    backdrop-filter: blur(1rem);
+    border-radius: 5px;
+    animation: gradient_301 10s ease infinite; /* Extended animation duration */
+    border: double 5px transparent;
+    background-image: linear-gradient(#212121, #212121),
+        linear-gradient(137.48deg, #ffdb3b 10%, #fe53bb 45%, #8f51ea 67%, #0044ff 87%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    color: #ffffff; /* Ensure the text is visible against the new background */
+}
+
+/* Show hidden elements on hover for the Skills button */
+.skills-button:hover .hidden {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Full width to center content */
+    height: 100%; /* Full height to center content */
+    position: relative; /* Overlay the content */
+    top: 0;
+    left: 0;
+}
+
+/* Additional styling for the Skills button animation */
+#container-stars, #glow {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 1s ease; /* Smooth transition */
+    backdrop-filter: blur(1rem);
+    border-radius: 5px;
+}
+
+.skills-button strong {
+    z-index: 2;
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #ffffff;
+    text-shadow: 0 0 4px white;
+}
+
+/* Update for centered glow effect */
+#glow {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.circle {
+    width: 100%;
+    height: 30px;
+    filter: blur(2rem);
+    animation: pulse_3011 8s infinite; /* Slower pulse animation */
+    z-index: -1;
+}
+
+.circle:nth-of-type(1) {
+    background: rgba(254, 83, 186, 0.636);
+}
+
+.circle:nth-of-type(2) {
+    background: rgba(142, 81, 234, 0.704);
+}
+
+.skills-button:hover #container-stars {
+    z-index: 1;
+    background-color: #212121;
+}
+
+.skills-button:active {
+    border: double 4px #fe53bb;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    animation: none;
+}
+
+.skills-button:active .circle {
+    background: #fe53bb;
+}
+
+#stars {
+    position: relative;
+    background: transparent;
+    width: 200rem;
+    height: 200rem;
+}
+
+#stars::after {
+    content: "";
+    position: absolute;
+    top: -10rem;
+    left: -100rem;
+    width: 50%;
+    height: 80%;
+    animation: animStarRotate 180s linear infinite; /* Slower star rotation */
+}
+
+#stars::after {
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+}
+
+#stars::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 170%;
+    height: 500%;
+    animation: animStar 120s linear infinite; /* Slower star movement */
+}
+
+#stars::before {
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+    opacity: 0.5;
+}
+
+@keyframes animStar {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-34rem);
+    }
+    50% {
+        transform: translateY(-68rem);
+    }
+    75% {
+        transform: translateY(-102rem);
+    }
+    100% {
+        transform: translateY(-135rem);
+    }
+}
+
+@keyframes animStarRotate {
+    0% {
+        transform: rotate(360deg);
+    }
+    25% {
+        transform: rotate(270deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    75% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+@keyframes gradient_301 {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 50% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pulse_3011 {
+    0% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+    35% {
+        transform: scale(0.85);
+        box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+    100% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+
+/* Keyframes for smoother fade out of other nav buttons */
+@keyframes navButtonsFadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    25% {
+        opacity: 0.75;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+    75% {
+        opacity: 0.25;
+        transform: scale(0.7);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+/* Transitioning class for body, buttons, and nav links */
+body.transitioning {
+    animation: backgroundTransition 1s forwards;
+}
+
+nav ul li a.fade-out {
+    animation: navButtonsFadeOut 0.5s forwards; /* Fade out remaining nav buttons */
+}
+
+/* Vanta.js container */
+#vanta-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Ensure it’s behind other content */
+    transform: scale(1.4);
+    transition: opacity 0.6s ease-out; /* Smooth fade-out effect */
+}
+
+/* Content */
+.content {
+    position: relative;
+    z-index: 1; /* Ensure content is above background effect */
+    padding: 20px;
+}
+
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: -60px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+    opacity: 0; /* Initially hidden */
+    animation: slideUpFadeIn 1.5s ease-out 1.5s forwards; /* Add the animation with a delay */
+}
+
+
+/* Ensure the social media container is positioned at the top left */
+/* Position the social media container at the top right */
+.social-media {
+    position: fixed;
+    top: 20px; /* Adjust as needed */
+    right: 30px; /* Position on the right side */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust the space between icons as needed */
+}
+
+
+/* Style for each social icon */
+.social-icon {
+    width: 30px; /* Size of the icons container */
+    height: 30px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    justify-content: center;
+    background-color: transparent; /* Background color of the icon */
+    border-radius: 50%;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* Smooth transition for hover effects */
+    text-decoration: none;
+    position: relative; /* Needed for positioning the pop-up text */
+    overflow: hidden; /* Hide any overflow of the icon */
+    animation: slideUpFade 0.6s ease-out forwards; /* Slide up and fade in */
+    animation-delay: var(--animation-delay); /* Use custom property for animation delay */
+}
+
+/* Add different background images for each social media icon and ensure they fit */
+.social-icon.github {
+    background: url('git.png') no-repeat center;
+    background-size: contain;
+    --animation-delay: 0.1s; /* Set animation delay for GitHub icon */
+}
+
+.social-icon.linkedin {
+    background: url('linked.png') no-repeat center;
+    background-size: contain;
+    --animation-delay: 0.4s; /* Set animation delay for LinkedIn icon */
+}
+
+.social-icon.instagram {
+    background: url('insta.png') no-repeat center;
+    background-size: contain;
+    --animation-delay: 0.7s; /* Set animation delay for Instagram icon */
+}
+
+.social-icon.twitter {
+    background: url('twitte.png') no-repeat center center;
+    background-size: contain; /* Ensure the entire image fits within the container */
+    transform-origin: center; /* Ensure scaling happens from the center */
+    overflow: hidden; /* Hide any overflow of the image */
+    --animation-delay: 1s; /* Set animation delay for Twitter icon */
+}
+
+.social-icon.email {
+    background: url('email.png') no-repeat center;
+    background-size: contain;
+    --animation-delay: 1.3s; /* Set animation delay for Email icon */
+}
+.social-media.line {
+    background: url('line.png') no-repeat center;
+    background-size: contain;
+    --animation-delay: 1.3s; /* Set animation delay for Line icon */
+}
+
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start below the final position */
+    }
+    100% {
+        opacity: 0.6;
+        transform: translateY(0); /* Slide up to the final position */
+    }
+}
+
+/* Responsive design */
+/* Mobile Styles */
+
+/* Ensure proper scaling and layout */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Adjust font size for better readability on mobile */
+        padding: 10px; /* Add padding to avoid edge-to-edge content */
+        background-size: cover; /* Ensure background covers the viewport */
+        background-position: center; /* Center background image */
+        background-position: tranform(scale(1.4));
+    }
+    
+    .wrapper.four {
+        font-size: 3rem; /* Reduce font size for smaller screens */
+        margin-left: 0; /* Remove margin for mobile view */
+        height: auto; /* Allow the container to adjust height as needed */
+        padding: 1rem; /* Adjust padding for better spacing */
+    }
+    
+    h1 {
+        font-size: 3rem; /* Scale down the heading font size */
+        right: 10px; /* Adjust right alignment */
+        top: 140px; /* Adjust vertical position */
+        transform: translateX(0) scaleX(1); /* Adjust transform for better visibility */
+    }
+    
+    nav {
+        bottom: 270px; /* Adjust the position from the bottom for better visibility */
+        left: 50px; /* Align to the left with appropriate spacing */
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+    
+    nav ul li .skills-button {
+        height: 80%;
+        font-size: 1.2em;
+    }
+    
+    nav ul {
+        flex-direction: column; /* Stack navigation items vertically */
+    }
+    
+    nav ul li {
+        margin: 10px 0; /* Add spacing between navigation items */
+    }
+    
+    .quote {
+        font-size: 24px; /* Adjust font size for better readability */
+        bottom: 20px; /* Adjust position from the bottom */
+        left: 10%; /* Center the quote horizontally */
+    }
+    
+    /* Adjusting particles container and star effects for mobile */
+    #particles-js, .background {
+        background-size: cover; /* Ensure background image covers container */
+        background-position: center; /* Center background image */
+    }
+    
+    .skills-button {
+        height: 3rem; /* Increase height for easier tapping */
+        font-size: 14px; /* Adjust font size */
+    }
+    
+    /* Ensure text in skills button remains readable */
+    .skills-button strong {
+        font-size: 10px; /* Scale down font size */
+    }
+    
+    #stars {
+        width: 100vw; /* Ensure stars container fills the viewport width */
+        height: 100vh; /* Ensure stars container fills the viewport height */
+    }
+    
+}
+
+

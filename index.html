@@ -3,218 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#4A4A4A">
-    <meta name="description" content="Welcome to my modern website featuring a sleek design, glassmorphic elements, and interactive animations. Explore my portfolio and get in touch!">
-    <title>Naveen's Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="loading.css">
-    <link rel="stylesheet" href="particles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="images/n.ico" type="image/png">
+    <title>Naveen Kumar | Portfolio</title>
+    <link rel="stylesheet" href="src/CSS/styles.css">
+    <!-- Vanta.js and Three.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
-    <!-- Particles Background -->
-    <div id="particles-js"></div>
-
-    <!-- Loader -->
-    <div id="loader" class="loader">
-        <div class="spinner"></div>
-    </div>
-
+    <div id="particles-js"></div> 
+    <!-- Container for Particles.js -->
     <!-- Main Content -->
-    <div id="main-content" style="display: none;">
-        <!-- Desktop Navbar -->
-        <nav class="navbar glass shadow-effect fade-in">
-            <div class="logo">
-                <img src="images/n.png" alt="Naveen's Logo">
-            </div>
-            <div class="nav-links">
-                <a href="#header">&lt;/Home&gt;</a>
-                <a href="#about">&lt;/About me&gt;</a>
-                <a href="#portfolio">&lt;/Projects&gt;</a>
-                <a href="#contact">&lt;/Contact&gt;</a>
-            </div>
-        </nav>
-        
-        <!-- Header -->
-        <header id="header" class="header-content glass shadow-effect fade-in">
-            <h1>Welcome to My Website</h1>
-            <p>My Name is Naveen and this is my very own portfolio</p>
-            <a href='Resume.pdf' class="btn">My Resume</a>
-        </header>
-
-        <!-- About Section -->
-        <section id="about" class="about glass shadow-effect fade-in">
-            <div class="img-container">
-                <img src="images/imageone.png" alt="Sample Image">
-                <div class="text-overlay">
-                    <p>Naveen Kumar Reddy</p>
-                    <p>20 Years Old</p>
-                </div>
-            </div>
-            <div class="text">
-                <h2>&lt;/About Me&gt;</h2>
-                <p>As a graduate with a Bachelor’s degree in Computer Science, I am eager to kickstart my career in software development. With a strong foundation in programming languages and a passion for technology, I am excited to contribute to impactful projects and continue growing as a professional in the field.</p>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="skills glass shadow-effect fade-in">
-            <h2>&lt;/My skills&gt;</h2>
-            <div class="skills-container">
-                <div class="skill-item">
-                    <img src="images/java.png" alt="Java Logo">
-                    <p class="skill-name">Java</p>
-                </div>
-                <div class="skill-item">
-                    <img src="images/python.png" alt="Python Logo">
-                    <p class="skill-name">Python</p>
-                </div>
-                <div class="skill-item">
-                    <img src="images/html.png" alt="HTML Logo">
-                    <p class="skill-name">HTML</p>
-                </div>
-                <div class="skill-item">
-                    <img src="images/css.png" alt="CSS Logo">
-                    <p class="skill-name">CSS</p>
-                </div>
-                <div class="skill-item">
-                    <img src="images/sql.png" alt="SQL Logo">
-                    <p class="skill-name">SQL</p>
-                </div>
-                <div class="skill-item">
-                    <img src="images/DSA.png" alt="DSA Logo">
-                    <p class="skill-name">DSA</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Timeline Section -->
-        <section id="timeline" class="timeline glass shadow-effect fade-in">
-            <h2>&lt;/My Journey&gt;</h2>
-            <div class="timeline-container">
-                <div class="timeline-item">
-                    <div class="timeline-icon"></div>
-                    <div class="timeline-content">
-                        <h3>Bachelor of Computer Science, Vellore Institute of Technology</h3>
-                        <p>CGPA: 8.77<br>Expected 2025</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon"></div>
-                    <div class="timeline-content">
-                        <h3>BHEL Internship</h3>
-                        <p>Provided by BHEL<br>Nov 2023 - Dec 2023</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon"></div>
-                    <div class="timeline-content">
-                        <h3>Board of Intermediate Education, Sri Chaitanya Co-Ed Junior College</h3>
-                        <p>Percentage: 92<br>2019 - 2021</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon"></div>
-                    <div class="timeline-content">
-                        <h3>Board of Secondary Education, Sri Chaitanya School</h3>
-                        <p>CGPA: 9.8<br>2018 - 2019</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="portfolio glass shadow-effect fade-in">
-            <h2>&lt;/My Projects&gt;</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-item-content scrollable-images">
-                        <a href="https://github.com/naveen2964/Portfolio" target="_blank" aria-label="Project 1">
-                            <img src="images/project1a.png" alt="Project 1 Image 1">
-                        </a>
-                    </div>
-                    <div class="portfolio-item-description">
-                        <h3><a href="https://github.com/naveen2964/Portfolio" target="_blank" aria-label="Portfolio Project">Portfolio</a></h3>
-                        <p>I developed this modern website using a combination of HTML, CSS, and JavaScript. The website showcases a sleek design with glassmorphic elements and interactive animations, crafted to offer an engaging user experience. HTML provided the structure, CSS delivered the stylish glassmorphic effects and responsive design, while JavaScript brought dynamic interactivity, including smooth animations and a functional theme toggle feature. The result is a visually appealing and user-friendly portfolio that highlights my skills and projects effectively.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-item-content">
-                        <a href="https://github.com/naveen2964/Movie-Recommendation-System" target="_blank" aria-label="Movie Recommendation System">
-                            <img src="images/project2.jpeg" alt="Project 2">
-                        </a>
-                    </div>
-                    <div class="portfolio-item-description">
-                        <h3><a href="https://github.com/naveen2964/Movie-Recommendation-System" target="_blank" aria-label="Movie Recommendation System">Movie Recommendation System</a></h3>
-                        <p>This project is a Movie Recommender System built with Python and Streamlit. It uses BERT embeddings and cosine similarity to recommend movies that are similar to a selected movie. Recommender systems are tools used in applications to suggest products, movies, music, and more to users based on their past behavior or behavior of similar users. They play a crucial role in the field of personalized content delivery and are widely used in various domains such as e-commerce, entertainment, and social media platforms.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-item-content">
-                        <a href="https://naveen2964.github.io/Random-Quote-Generator/" target="_blank" aria-label="Random Quote Generator">
-                            <img src="images/project3.jpeg" alt="Project 3">
-                        </a>
-                    </div>
-                    <div class="portfolio-item-description">
-                        <h3><a href="https://naveen2964.github.io/Random-Quote-Generator/" target="_blank" aria-label="Random Quote Generator">Random Quote Generator</a></h3>
-                        <p>The Random Quote Generator is a simple web application that displays a new inspirational or motivational quote every time you click a button. This application uses JavaScript to randomly select a quote from a predefined array and display it on the page.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact and Social Media Container -->
-        <div class="contact-social-container">
-            <!-- Social Media Section -->
-            <section id="social-media" class="social-media glass shadow-effect fade-in">
-                <h2>Connect With Me</h2>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/naveenvanga" target="_blank" aria-label="LinkedIn"><img src="images/linkedin.png" alt="LinkedIn Logo"></a>
-                    <a href="https://github.com/naveen2964" target="_blank" aria-label="GitHub"><img src="images/github.png" alt="GitHub Logo"></a>
-                    <a href="https://twitter.com/naveen_foreal" target="_blank" aria-label="Twitter"><img src="images/twitter.png" alt="Twitter Logo"></a>
-                    <a href="https://www.instagram.com/naveen_foreal?igsh=NTc4MTIwNjQ2YQ==" target="_blank" aria-label="Instagram"><img src="images/instagram.png" alt="Instagram Logo"></a>
-                </div>
-            </section>
-
-            <!-- Contact Section -->
-            <section id="contact" class="contact glass shadow-effect fade-in">
-                <h2>Contact Me</h2>
-                <form class="contact-form" aria-labelledby="contact-form">
-                    <input type="text" placeholder="Your Name" required aria-label="Your Name">
-                    <input type="email" placeholder="Your Email" required aria-label="Your Email">
-                    <textarea placeholder="Your Message" required aria-label="Your Message"></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </section>
-        </div>
-
-        <!-- Footer -->
-        <footer class="footer glass shadow-effect fade-in">
-            <p>&copy; 2024 My Website. All rights reserved.</p>
-        </footer>
-
-        <!-- Theme Toggle Button -->
+    <div class="wrapper four text-container">
+        <h1>WELCOME TO MY WEBSITE</h1>
+    </div>
+    <nav>
+        <ul>
+            <li class="nav-item" data-delay="0"><a href="about.html" class="btn about-me-button typing-effect button-container" data-text="About Me"><span>About Me</span></a></li>
+            <li class="nav-item" data-delay="0.3"><a href="skills.html" class="btn skills-button typing-effect button-container"><span>Skills</span> <!-- Default text visible initially --><strong class="hidden">SKILLS</strong><div id="container-stars" class="hidden"><div id="stars"></div></div><div id="glow" class="hidden"><div class="circle"></div><div class="circle"></div></div></a></li>            
+            <li class="nav-item" data-delay="0.6"><a href="projects.html" class="btn typing-effect button-container"><span>Projects</span></a></li>
+            <li class="nav-item" data-delay="0.9"><a href="timeline.html" class="btn typing-effect button-container"><span>Timeline</span></a></li>
+        </ul>
+    </nav>
+    <!-- Quote Section -->
+    <div class="quote">
+        <p>"Don't judge a book by its cover" <span class="author">— George Eliot</span></p>
     </div>
 
-    <!-- Mobile Navbar -->
-    <nav class="glass-floating-bar">
-        <a href="#header" class="nav-link">
-            <img src="images/home.png" alt="Home">
+    <!-- Social Media Links -->
+    <div class="social-media">
+        <a href="https://github.com/naveen2964" target="_blank" class="social-icon github">
         </a>
-        <a href="#about" class="nav-link">
-            <img src="images/about.png" alt="About">
+        <a href="https://www.linkedin.com/in/naveenvanga/" target="_blank" class="social-icon linkedin">
         </a>
-        <a href="#portfolio" class="nav-link">
-            <img src="images/project.png" alt="Projects">
+        <a href="https://instagram.com/naveen_foreal" target="_blank" class="social-icon instagram">
         </a>
-        <a href="#contact" class="nav-link">
-            <img src="images/contact.png" alt="Contact">
+        <a href="https://x.com/naveen_foreal" target="_blank" class="social-icon twitter">
         </a>
-    </nav>
+        <a href="mailto:vanganaveenkumarreddy@gmail.com" class="social-icon email">
+        </a>
+    </div>
 
-    <!-- Include particles.js library -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="scripts.js"></script>
+    <ul>
+    <li class="nav-item" data-delay="1.2"><a href="src/Resume.pdf" class="resume-button"><span>Resume</span></a></li>
+    </ul>
+    
+    
+
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 All Rights Reserved
+    </footer>
+
+    <script src="src/scripts.js"></script>
+    <script src="src/particles.js"></script>
 </body>
 </html>

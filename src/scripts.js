@@ -23,10 +23,17 @@ const handlePageTransition = (event) => {
         fill: 'forwards' // Keep the final state of the animation
     });
 
-    // Wait for the transition to complete before navigating
+    // Show and animate the loading bar
+    const loadingBarContainer = document.getElementById('loading-bar-container');
+    const loadingBar = document.getElementById('loading-bar');
+    loadingBarContainer.style.display = 'block';
+    loadingBar.style.width = '100%';
+
+    // Wait for 3 seconds before navigating
     setTimeout(() => {
+        loadingBarContainer.style.display = 'none';
         window.location.href = href;
-    }, 800); // Duration should match the animation
+    }, 3000); // 3 seconds loading time
 };
 
 // Function to remove the cursor after typing animation is done

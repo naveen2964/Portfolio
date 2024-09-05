@@ -6,6 +6,24 @@ body, h1, ul, li {
     padding: 0;
 }
 
+/* Loading Bar Styles */
+#loading-bar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+
+#loading-bar {
+    width: 0;
+    height: 100%;
+    background: #3498db; /* Change this color to fit your theme */
+    transition: width 0.4s ease;
+}
+
 body {
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */

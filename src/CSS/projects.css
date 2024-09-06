@@ -329,8 +329,8 @@ body {
 /* Heading style */
 h1#main-heading {
     position: absolute;
-    top: 300px;
-    right: -300px;
+    top: 100px;
+    right: -100px;
     transform: rotate(90deg);
     font-size: 5rem;
     font-weight: 900; /* Set font weight to 900 for boldness */

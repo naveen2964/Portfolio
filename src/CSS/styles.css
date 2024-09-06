@@ -6,24 +6,6 @@ body, h1, ul, li {
     padding: 0;
 }
 
-/* Loading Bar Styles */
-#loading-bar-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: rgba(0, 0, 0, 0.1);
-    z-index: 9999;
-}
-
-#loading-bar {
-    width: 0;
-    height: 100%;
-    background: #3498db; /* Change this color to fit your theme */
-    transition: width 0.4s ease;
-}
-
 body {
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
@@ -33,6 +15,91 @@ body {
     margin: 0;
     justify-content: center;
 }
+/* Honeycomb Loader */
+@-webkit-keyframes honeycomb {
+    0%, 20%, 80%, 100% {
+      opacity: 0;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    30%, 70% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes honeycomb {
+    0%, 20%, 80%, 100% {
+      opacity: 0;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    30%, 70% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .honeycomb {
+    display: flex;
+    flex-wrap: wrap;
+    width: 96px;
+    height: 96px;
+    position: relative;
+  }
+  
+  .honeycomb div {
+    -webkit-animation: honeycomb 2.1s infinite backwards;
+    animation: honeycomb 2.1s infinite backwards;
+    background: #ffffff;
+    height: 12px;
+    margin-top: 6px;
+    position: absolute;
+    width: 24px;
+  }
+  
+  .honeycomb div:after, .honeycomb div:before {
+    content: '';
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  
+  .honeycomb div:after {
+    top: -6px;
+    border-bottom: 6px solid #ffffff;
+  }
+  
+  .honeycomb div:before {
+    bottom: -6px;
+    border-top: 6px solid #ffffff;
+  }
+  
+  .honeycomb div:nth-child(1) { -webkit-animation-delay: 0s; animation-delay: 0s; left: -28px; top: 0; }
+  .honeycomb div:nth-child(2) { -webkit-animation-delay: 0.1s; animation-delay: 0.1s; left: -14px; top: 22px; }
+  .honeycomb div:nth-child(3) { -webkit-animation-delay: 0.2s; animation-delay: 0.2s; left: 14px; top: 22px; }
+  .honeycomb div:nth-child(4) { -webkit-animation-delay: 0.3s; animation-delay: 0.3s; left: 28px; top: 0; }
+  .honeycomb div:nth-child(5) { -webkit-animation-delay: 0.4s; animation-delay: 0.4s; left: 14px; top: -22px; }
+  .honeycomb div:nth-child(6) { -webkit-animation-delay: 0.5s; animation-delay: 0.5s; left: -14px; top: -22px; }
+  .honeycomb div:nth-child(7) { -webkit-animation-delay: 0.6s; animation-delay: 0.6s; left: 0; top: 0; }
+  
 
 html, body {
     height: 100%;
@@ -595,6 +662,59 @@ nav ul li:nth-child(5) {
     color: #ffffff;
     text-shadow: 0 0 4px white;
 }
+/* Base style for the Projects button */
+.projects-button {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 15px 30px;
+    color: #000; /* Black text color for better visibility */
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.9); /* More opaque white background for buttons */
+    border: 2px solid rgba(255, 255, 255, 0.9); /* Initial border color */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1.2em; /* Ensure button text is visible */
+    font-weight: bold; /* Make button text stand out */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    position: relative; /* For pseudo-element positioning */
+    overflow: hidden; /* Hide overflowing text */
+    white-space: nowrap; /* Ensure text stays on one line */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Before pseudo-element for hover effect */
+.projects-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.7));
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: all 0.5s ease;
+    z-index: 0;
+}
+
+/* Ensure text is above the pseudo-element */
+.projects-button span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover effect for button */
+.projects-button:hover {
+    color: #ffffff;
+    background-color: #212121;
+    border-color: #212121;
+}
+
+/* Hover effect for pseudo-element */
+.projects-button:hover::before {
+    width: 0;
+    height: 0;
+}
+
 
 /* Update for centered glow effect */
 #glow {

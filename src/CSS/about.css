@@ -18,6 +18,51 @@ html, body {
     cursor: pointer;
     color: #00ff00; /* Matrix green */
 }
+#preloader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #000; /* Background for preloader */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Keep it on top */
+}
+
+.honeycomb {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+}
+
+.honeycomb div {
+    width: 30px;
+    height: 30px;
+    background-color: #00ff00;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    margin: 5px;
+    animation: honeycomb 1.5s ease-in-out infinite;
+}
+
+.honeycomb div:nth-child(odd) {
+    background-color: #00cc00;
+}
+
+@keyframes honeycomb {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
 
 

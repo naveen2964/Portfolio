@@ -5,9 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects</title>
   <link rel="stylesheet" href="src/CSS/projects.css">
+  <link rel="stylesheet" href="src/CSS/honeycomb.css"> <!-- Add this line to include honeycomb CSS -->
   <link rel="icon" href="src/images/nn.png" type="image/x-icon">
 </head>
 <body>
+  <div class="honeycomb-loader">
+    <div class="honeycomb">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
   <div id="vanta-background"></div>
   <h1 id="main-heading">PROJECTS -------------</h1>
   <button class="back-to-home" onclick="window.location.href='index.html';">
@@ -114,29 +127,31 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       // Initialize VANTA effect
-      var setVanta = () => {
-        if (window.VANTA) window.VANTA.GLOBE({
-          el: "#vanta-background",
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00
-        });
+      const setVanta = () => {
+        if (window.VANTA) {
+          window.VANTA.GLOBE({
+            el: "#vanta-background",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00
+          });
+        }
       };
-
+  
       setVanta();
-
+  
       // Show the selected project and hide others
       const navButtons = document.querySelectorAll('.nav-btn');
       const projectWrappers = document.querySelectorAll('.project-box-wrapper');
-
+  
       navButtons.forEach(button => {
         button.addEventListener('click', () => {
           const targetProject = button.getAttribute('data-target');
-
+  
           projectWrappers.forEach(wrapper => {
             if (wrapper.getAttribute('data-project') === targetProject) {
               wrapper.classList.add('visible');
@@ -148,10 +163,20 @@
           });
         });
       });
-
+  
       // Default to showing the first project
       navButtons[0].click();
+  
+      // Keep honeycomb loader for a constant 2 seconds
+      setTimeout(() => {
+        const loader = document.querySelector('.honeycomb-loader');
+        if (loader) {
+          loader.style.display = 'none'; // or loader.remove() if you prefer to remove it completely
+        }
+      }, 2000); // 2000 milliseconds = 2 seconds
     });
   </script>
+  
+  
 </body>
 </html>

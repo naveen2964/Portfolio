@@ -249,7 +249,7 @@ body {
 /* Header */
 .wrapper.four {
     background-color: #9ba5b4;
-    font-size: 5.5rem;
+    font-size: 4.5rem;
     font-family: "Play", sans-serif;
     text-align: right;
     padding: 2rem;
@@ -268,7 +268,7 @@ h1 {
     color: #000; /* Black color for the text */
     margin: 0;
     position: fixed; /* Position it at the top right */
-    top: 50px; /* Adjust vertical position */
+    top: 100px; /* Adjust vertical position */
     right: 20px; /* Align text with the right edge */
     transform: translateX(150px) scaleX(1); /* Move text out to the right initially */
     overflow-wrap: break-word; /* Ensure text wraps if necessary */

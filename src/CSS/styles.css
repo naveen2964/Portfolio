@@ -247,9 +247,14 @@ body {
 }
 
 /* Header */
+:root {
+    --constant-space: 250px; /* Adjust this value as needed */
+}
+
+/* Header */
 .wrapper.four {
     background-color: #9ba5b4;
-    font-size: 4.5rem;
+    font-size: 5.5rem;
     font-family: "Play", sans-serif;
     text-align: right;
     padding: 2rem;
@@ -260,98 +265,73 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 h1 {
     font-family: 'Titillium Web', sans-serif;
     margin-bottom: 50px;
     font-weight: 900;
-    letter-spacing: 1px; /* Keep letter spacing as needed */
-    color: #000; /* Black color for the text */
+    letter-spacing: 1px;
+    color: #000;
     margin: 0;
-    position: fixed; /* Position it at the top right */
-    top: 100px; /* Adjust vertical position */
-    right: 20px; /* Align text with the right edge */
-    transform: translateX(150px) scaleX(1); /* Move text out to the right initially */
-    overflow-wrap: break-word; /* Ensure text wraps if necessary */
-    white-space: normal; /* Allow text to wrap */
-    text-align: left; /* Align text to the left edge */
-    line-height: 1.2; /* Adjust the gap between lines */
-    transform-origin: left; /* Start animation from the left side of the text */
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    transform: translateX(150px) scaleX(1);
+    overflow-wrap: break-word;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.2;
+    transform-origin: left;
     padding-bottom: 40px;
-    animation: slideUpSqueezeInOut 1.2s ease-out forwards; /* Slide up, squeeze in and out, and settle */
+    animation: slideUpSqueezeInOut 1.2s ease-out forwards;
     text-shadow: 
         1px 1px 0 #fff, 
         -1px -1px 0 #fff,
         1px -1px 0 #fff,
-        -1px 1px 0 #fff; /* White thick border effect */
+        -1px 1px 0 #fff;
 }
-/* Keyframes for slide up, squeeze in and out, and settle animation */
+
 @keyframes slideUpSqueezeInOut {
     0% {
         opacity: 0.2;
-        transform: translateX(40px) scaleX(0.9); /* Start with text out of view to the right and no squeezing */
-        right: 20px; /* Ensure initial position */
+        transform: translateX(40px) scaleX(0.9);
+        right: 20px;
     }
     30% {
         opacity: 0.4;
-        transform: translateX(40px) scaleX(0.85); /* Slide text into view and squeeze in */
-        right: 20px; /* Ensure text moves to the final position */
+        transform: translateX(40px) scaleX(0.85);
+        right: 20px;
     }
     50% {
         opacity: 0.7;
-        transform: translateX(40px) scaleX(0.8); /* Slide text into view and squeeze in */
-        right: 20px; /* Ensure text moves to the final position */
+        transform: translateX(40px) scaleX(0.8);
+        right: 20px;
     }
     70% {
         opacity: 0.9;
-        transform: translateX(40px) scaleX(0.85); /* Squeeze out slightly */
+        transform: translateX(40px) scaleX(0.85);
     }
     100% {
         opacity: 1;
-        transform: translateX(40px) scaleX(0.9); /* Settle to normal scale */
-        right: 20px; /* Ensure text stays in final position */
-    }
-}
-
-
-
-
-
-/* Keyframes for typing effect */
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%; /* Adjust to the width of the text */
-    }
-}
-
-/* Keyframes for caret blinking effect */
-@keyframes blink-caret {
-    0%, 100% {
-        border-color: transparent; /* Start and end with transparent */
-    }
-    50% {
-        border-color: #fff; /* Blink effect */
+        transform: translateX(40px) scaleX(0.9);
+        right: 20px;
     }
 }
 
 /* Navigation */
-/* Navigation Container */
 nav {
     position: fixed;
-    bottom: 300px;
-    margin-top: 0; /* Adjusted from 350px *//* Space from the bottom of the viewport */
+    bottom: var(--constant-space); /* Use CSS variable */
+    margin-top: 0;
     width: 100%;
     display: flex;
     left: 20px;
     justify-content: left;
-    z-index: 0; /* Ensure nav is above background effect */
-    opacity: 0; /* Initially hidden */
-    animation: fadeInNav 1s ease-out forwards; /* Fade in nav */
+    z-index: 0;
+    opacity: 0;
+    animation: fadeInNav 1s ease-out forwards;
 }
 
-/* Keyframes for fading in the nav container */
 @keyframes fadeInNav {
     0% {
         opacity: 0;
@@ -361,22 +341,21 @@ nav {
     }
 }
 
-/* Navigation list */
 nav ul {
     list-style: none;
     padding: 0;
-    margin: 0; /* Remove default margin */
+    margin: 0;
     display: flex;
 }
 
-/* Navigation items */
 nav ul li {
-    margin: 0 30px; /* Space between nav items */
+    margin: 0 30px;
     padding-top: 20px;
-    opacity: 0; /* Initially hidden */
-    animation: slideUpFadeIn 0.6s ease-out forwards; /* Slide up and fade in */
-    animation-delay: var(--animation-delay); /* Custom animation delay */
+    opacity: 0;
+    animation: slideUpFadeIn 0.6s ease-out forwards;
+    animation-delay: var(--animation-delay);
 }
+
 
 /* Keyframes for sliding and fading in nav items */
 @keyframes slideUpFadeIn {

@@ -629,6 +629,94 @@ nav ul li:nth-child(5) {
     top: 0;
     left: 0;
 }
+/* Timeline Button Styles */
+/* Timeline Button Styles */
+.timeline-button {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    transform: scale(1.1); /* Slightly enlarge the button */
+    padding: 15px 30px;
+    color: #000; /* Black text color for better visibility */
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.9); /* More opaque white background for buttons */
+    border-radius: 5px; /* Rounded corners */
+    border: 2px solid rgba(255, 255, 255, 0.9); /* Initial border color */
+    font-size: 1.2em; /* Ensure button text is visible */
+    font-weight: bold; /* Make button text stand out */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    position: relative; /* For pseudo-element positioning */
+    overflow: hidden; /* Hide overflowing text */
+    white-space: nowrap; /* Ensure text stays on one line */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Timeline Button Hover Effect */
+.timeline-button:hover {
+    background: rgba(255, 255, 255, 1); /* Solid white background on hover */
+    border: 2px solid #ffffff; /* White border on hover */
+    color: transparent; /* Hide the text color on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+    transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+/* Scrolling Years Container */
+.scrolling-years {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100px; /* Adjust height as needed */
+    width: 100%; /* Full width of the button */
+    display: none; /* Hidden by default */
+    overflow: hidden; /* Hide overflowing content */
+    white-space: nowrap; /* Prevent wrapping of content */
+    background: rgba(255, 255, 255, 0.9); /* Same background as button */
+}
+
+/* Years Wrapper */
+.scrolling-years-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 2000%; /* Increase height to cover all years */
+    animation: scroll-years 10s linear infinite; /* Faster scrolling animation */
+}
+
+/* Ensure years are visible and centered */
+.year {
+    font-size: 1.2em; /* Ensure years are visible */
+    color: #000; /* Black text color */
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+
+/* Show scrolling years on hover */
+.timeline-button:hover .scrolling-years {
+    display: block; /* Show the scrolling years */
+}
+
+/* Animation for Scrolling Years */
+@keyframes scroll-years {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-25%);
+    }
+    50% {
+        transform: translateY(-50%);
+    }
+    75% {
+        transform: translateY(-75%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+
+
 
 /* Additional styling for the Skills button animation */
 #container-stars, #glow {

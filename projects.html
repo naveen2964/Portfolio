@@ -128,70 +128,61 @@
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-    // Initialize VANTA effect
-    const setVanta = () => {
-      if (window.VANTA) {
-        window.VANTA.GLOBE({
-          el: "#vanta-background",
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00
-        });
-      }
-    };
-
-    setVanta();
-
-    // Show the selected project and hide others
-    const navButtons = document.querySelectorAll('.nav-btn');
-    const projectWrappers = document.querySelectorAll('.project-box-wrapper');
-
-    navButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const targetProject = button.getAttribute('data-target');
-
-        projectWrappers.forEach(wrapper => {
-          if (wrapper.getAttribute('data-project') === targetProject) {
-            wrapper.classList.add('visible');
-            wrapper.classList.remove('fade-out');
-          } else {
-            wrapper.classList.add('fade-out');
-            wrapper.classList.remove('visible');
-          }
+      // Initialize VANTA effect
+      const setVanta = () => {
+        if (window.VANTA) {
+          window.VANTA.GLOBE({
+            el: "#vanta-background",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00
+          });
+        }
+      };
+  
+      setVanta();
+  
+      // Show the selected project and hide others
+      const navButtons = document.querySelectorAll('.nav-btn');
+      const projectWrappers = document.querySelectorAll('.project-box-wrapper');
+  
+      navButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const targetProject = button.getAttribute('data-target');
+  
+          projectWrappers.forEach(wrapper => {
+            if (wrapper.getAttribute('data-project') === targetProject) {
+              wrapper.classList.add('visible');
+              wrapper.classList.remove('fade-out');
+            } else {
+              wrapper.classList.add('fade-out');
+              wrapper.classList.remove('visible');
+            }
+          });
         });
       });
+  
+      // Default to showing the first project
+      navButtons[0].click();
+  
+      // Hide the honeycomb loader after the page has fully loaded
+      window.addEventListener('load', function() {
+        const loader = document.querySelector('.honeycomb-loader');
+        if (loader) {
+          loader.style.transition = 'opacity 0.5s'; // Smooth transition
+          loader.style.opacity = 0;
+          setTimeout(() => {
+            loader.style.display = 'none'; // Hide loader completely after transition
+          }, 500); // Match the timeout with the transition duration
+        }
+      });
     });
-
-    // Default to showing the first project
-    navButtons[0].click();
-
-    // Keep honeycomb loader for a constant 2 seconds
-    setTimeout(() => {
-      const loader = document.querySelector('.honeycomb-loader');
-      if (loader) {
-        loader.style.display = 'none'; // or loader.remove() if you prefer to remove it completely
-      }
-    }, 2000); // 2000 milliseconds = 2 seconds
-
-    // Add fade-out effect and redirection on "Back to Home" button click
-    const backToHomeButton = document.querySelector('.back-to-home');
-    const fadeOutDiv = document.getElementById('fade-out');
-
-    backToHomeButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      fadeOutDiv.classList.add('active');
-      setTimeout(() => {
-        window.location.href = backToHomeButton.href;
-      }, 500); // Match this delay with the fade-out transition duration
-    });
-  });
-
-
   </script>
+  
   
   
 </body>

@@ -418,6 +418,7 @@ nav ul li:nth-child(5) {
     border: unset;
     color: #ffffff;
     z-index: 1;
+    font-weight: bold;
     height: auto; /* Adjusts height automatically */
     background: #212121;
     transition: all 250ms;

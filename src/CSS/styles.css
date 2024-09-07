@@ -274,7 +274,7 @@ h1 {
     color: #000;
     margin: 0;
     position: fixed;
-    top: 100px;
+    top: 30px;
     right: 20px;
     transform: translateX(150px) scaleX(1);
     overflow-wrap: break-word;
@@ -374,6 +374,7 @@ nav ul li a {
     display: flex; /* Use flexbox for alignment */
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
+    transform: scale(1.1);
     padding: 15px 30px;
     color: #000; /* Black text color for better visibility */
     text-decoration: none;
@@ -580,12 +581,22 @@ nav ul li:nth-child(5) {
 }
 
 .skills-button {
-    overflow: hidden; /* Necessary for special effect */
-    position: relative;
-    display: flex;
-    height: 2rem;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    transform: scale(1.1);
+    padding: 15px 30px;
+    color: #000; /* Black text color for better visibility */
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.9); /* More opaque white background for buttons */
+    border-radius: 5px; /* Rounded corners */
+    border: 2px solid rgba(255, 255, 255, 0.9); /* Initial border color */
+    font-size: 1.2em; /* Ensure button text is visible */
+    font-weight: bold; /* Make button text stand out */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    position: relative; /* For pseudo-element positioning */
+    overflow: hidden; /* Hide overflowing text */
+    white-space: nowrap;
     transition: all 1s ease; /* Smooth transition */
 }
 
@@ -596,18 +607,16 @@ nav ul li:nth-child(5) {
 
 /* Special hover effect for the Skills button */
 .skills-button:hover {
-    width:3rem; /* Ensure the width stays consistent */
+    width: 3rem; /* Ensure the width stays consistent */
     height: 2rem; /* Ensure the height stays consistent */
     background-size: 300% 300%;
     cursor: pointer;
     backdrop-filter: blur(1rem);
     border-radius: 5px;
     animation: gradient_301 10s ease infinite; /* Extended animation duration */
-    border: double 5px transparent;
-    background-image: linear-gradient(#212121, #212121),
-        linear-gradient(137.48deg, #ffdb3b 10%, #fe53bb 45%, #8f51ea 67%, #0044ff 87%);
     background-origin: border-box;
     background-clip: content-box, border-box;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b, #ff416c); /* Your existing hover background effect */
     color: #ffffff; /* Ensure the text is visible against the new background */
 }
 
@@ -642,6 +651,7 @@ nav ul li:nth-child(5) {
     color: #ffffff;
     text-shadow: 0 0 4px white;
 }
+
 /* Base style for the Projects button */
 .projects-button {
     display: flex; /* Use flexbox for alignment */

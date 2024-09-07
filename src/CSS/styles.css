@@ -588,7 +588,7 @@ nav ul li:nth-child(5) {
     padding: 15px 30px;
     color: #000; /* Black text color for better visibility */
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.9); /* More opaque white background for buttons */
+    background-color: #ffffff !important; /* Ensure a plain white background */
     border-radius: 5px; /* Rounded corners */
     border: 2px solid rgba(255, 255, 255, 0.9); /* Initial border color */
     font-size: 1.2em; /* Ensure button text is visible */
@@ -600,12 +600,6 @@ nav ul li:nth-child(5) {
     transition: all 1s ease; /* Smooth transition */
 }
 
-/* Hide specific elements by default for the Skills button */
-.skills-button .hidden {
-    display: none;
-}
-
-/* Special hover effect for the Skills button */
 .skills-button:hover {
     width: 3rem; /* Ensure the width stays consistent */
     height: 2rem; /* Ensure the height stays consistent */
@@ -616,10 +610,14 @@ nav ul li:nth-child(5) {
     animation: gradient_301 10s ease infinite; /* Extended animation duration */
     background-origin: border-box;
     background-clip: content-box, border-box;
-    background: linear-gradient(45deg, #ff416c, #ff4b2b, #ff416c); /* Your existing hover background effect */
     color: #ffffff; /* Ensure the text is visible against the new background */
 }
 
+
+/* Hide specific elements by default for the Skills button */
+.skills-button .hidden {
+    display: none;
+}
 /* Show hidden elements on hover for the Skills button */
 .skills-button:hover .hidden {
     display: flex;
@@ -725,11 +723,11 @@ nav ul li:nth-child(5) {
 }
 
 .circle:nth-of-type(1) {
-    background: rgba(254, 83, 186, 0.636);
+    background: rgba(255, 255, 255, 0.636);
 }
 
 .circle:nth-of-type(2) {
-    background: rgba(142, 81, 234, 0.704);
+    background: rgba(255, 255, 255, 0.704);
 }
 
 .skills-button:hover #container-stars {
@@ -738,14 +736,14 @@ nav ul li:nth-child(5) {
 }
 
 .skills-button:active {
-    border: double 4px #fe53bb;
+    border: double 4px #ffffff;
     background-origin: border-box;
     background-clip: content-box, border-box;
     animation: none;
 }
 
 .skills-button:active .circle {
-    background: #fe53bb;
+    background: #ffffff;
 }
 
 #stars {

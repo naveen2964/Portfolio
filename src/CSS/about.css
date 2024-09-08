@@ -85,7 +85,6 @@ canvas#matrix {
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background: rgba(0, 0, 0, 0.7); /* Darker background for intro */
     color: #00ff00; /* Matrix green color */
     z-index: 1;
     position: absolute;
@@ -490,3 +489,115 @@ footer.visible {
     from { width: 0; }
     to { width: 100%; }
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+
+    /* General layout adjustments */
+    body {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    #sound-toggle {
+        bottom: 10px; /* Adjust position */
+        right: 10px; /* Adjust position */
+    }
+
+    .honeycomb {
+        width: 80px; /* Adjust size */
+        height: 80px; /* Adjust size */
+    }
+
+    .honeycomb div {
+        width: 20px; /* Adjust size */
+        height: 20px; /* Adjust size */
+        margin: 3px; /* Adjust spacing */
+    }
+
+    #intro-screen {
+        top: 10px;        
+        padding: 10px; /* Add some padding */
+    }
+
+    #typing-effect {
+        font-size: 1em; /* Adjust font size */
+        padding: 10px; /* Adjust padding */
+    }
+
+
+    .target-container {
+        flex-direction: column; /* Stack label and box vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    footer {
+        font-size: 12px; /* Adjust font size */
+        padding: 5px 0; /* Adjust padding */
+    }
+}
+/* Mobile Styles */
+@media (max-width: 768px) {
+
+    /* Profile container - no card, just a section */
+    .profile-section {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center content */
+        width: 100%; /* Full width */
+        padding: 20px; /* Add padding */
+        box-sizing: border-box; /* Include padding in width */
+        background: rgba(0, 0, 0, 0.9); /* Darker background */
+    }
+
+    /* Profile picture adjustments */
+    .profile-picture {
+        width: 150px; /* Adjust width */
+        height: 150px; /* Adjust height */
+        border-radius: 10px; /* Rounded corners */
+        border: 2px solid #00ff00; /* Matrix green border */
+        overflow: hidden; /* Clip image within container */
+        margin-bottom: 20px; /* Space below picture */
+    }
+
+    .profile-picture img {
+        width: 100%; /* Full width of container */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Crop and fit the image */
+    }
+
+    /* Profile info adjustments */
+    .profile-info {
+        width: 100%; /* Full width */
+        padding: 0 20px; /* Add horizontal padding */
+        box-sizing: border-box; /* Include padding in width */
+        color: #00ff00; /* Matrix green text */
+        text-align: center; /* Center text */
+    }
+
+    .profile-info h1 {
+        font-size: 1.8em; /* Adjust heading size */
+        margin-bottom: 10px; /* Space below heading */
+    }
+
+    .info-item {
+        display: flex; /* Flex layout */
+        justify-content: space-between; /* Space between label and value */
+        margin-bottom: 10px; /* Space between items */
+        font-size: 1.2em; /* Adjust font size */
+    }
+
+    .info-label {
+        font-weight: bold; /* Bold labels */
+    }
+
+    .info-value {
+        font-weight: normal; /* Regular weight for values */
+    }
+
+    .bio {
+        margin-top: 20px; /* Space above bio */
+        font-size: 1.1em; /* Adjust font size */
+        line-height: 1.5; /* Improve readability */
+    }
+}
+

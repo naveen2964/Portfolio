@@ -1114,9 +1114,9 @@ footer {
     }
     
     h1 {
-        font-size: 3.2rem;
+        font-size: 3rem;
         right: 5px;
-        top: 240px;
+        top: 220px;
         transform: translateX(0) scaleX(1);
     }
     

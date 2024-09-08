@@ -1092,77 +1092,83 @@ footer {
 /* Responsive design */
 /* Mobile Styles */
 
-/* Ensure proper scaling and layout */
+/* Mobile Styles */
+/* Mobile Styles */
 @media (max-width: 768px) {
     body {
-        font-size: 14px; /* Adjust font size for better readability on mobile */
-        padding: 10px; /* Add padding to avoid edge-to-edge content */
-        background-size: cover; /* Ensure background covers the viewport */
-        background-position: center; /* Center background image */
-        background-position: tranform(scale(1.4));
+        font-size: 14px;
+        padding: 0px;
+        min-height: 100vh; /* Ensures background fills the screen */
+        background-image: url('background.jpg'); /* Ensure this is the correct image path */
+        background-size: cover; /* Ensures the image covers the entire screen */
+        background-position: center; /* Centers the background image */
+        background-attachment: fixed; /* Keeps the background fixed while scrolling */
+        overflow: hidden; /* Prevents scrolling issues */
     }
     
     .wrapper.four {
-        font-size: 3rem; /* Reduce font size for smaller screens */
-        margin-left: 0; /* Remove margin for mobile view */
-        height: auto; /* Allow the container to adjust height as needed */
-        padding: 1rem; /* Adjust padding for better spacing */
+        font-size: 3rem;
+        margin-left: 0;
+        height: auto;
+        padding: 1rem;
     }
     
     h1 {
-        font-size: 3rem; /* Scale down the heading font size */
-        right: 10px; /* Adjust right alignment */
-        top: 140px; /* Adjust vertical position */
-        transform: translateX(0) scaleX(1); /* Adjust transform for better visibility */
+        font-size: 3.2rem;
+        right: 5px;
+        top: 240px;
+        transform: translateX(0) scaleX(1);
     }
     
     nav {
-        bottom: 270px; /* Adjust the position from the bottom for better visibility */
-        left: 50px; /* Align to the left with appropriate spacing */
-        flex-direction: column; /* Stack navigation items vertically */
-        align-items: flex-start; /* Align items to the start */
-    }
-    
-    nav ul li .skills-button {
-        height: 80%;
-        font-size: 1.2em;
+        bottom: 180px; /* Adjusted to move nav buttons slightly up */
+        left: 50px;
+        flex-direction: column;
+        align-items: flex-start;
     }
     
     nav ul {
-        flex-direction: column; /* Stack navigation items vertically */
+        flex-direction: column;
     }
     
     nav ul li {
-        margin: 10px 0; /* Add spacing between navigation items */
+        margin: 10px 0;
     }
     
-    .quote {
-        font-size: 24px; /* Adjust font size for better readability */
-        bottom: 20px; /* Adjust position from the bottom */
-        left: 10%; /* Center the quote horizontally */
-    }
-    
-    /* Adjusting particles container and star effects for mobile */
-    #particles-js, .background {
-        background-size: cover; /* Ensure background image covers container */
-        background-position: center; /* Center background image */
+    /* Make nav buttons even in size */
+    nav ul li a {
+        padding: 12px 0;
+        font-size: 16px;
+        text-align: center;
     }
     
     .skills-button {
-        height: 3rem; /* Increase height for easier tapping */
-        font-size: 14px; /* Adjust font size */
+        width: 65px; /* Match size of other buttons */
+        height: 1rem;
+        font-size: 18px;
     }
     
-    /* Ensure text in skills button remains readable */
-    .skills-button strong {
-        font-size: 10px; /* Scale down font size */
+    .quote {
+        font-size: 20px;
+        bottom: 10px; /* Allow more space for better visibility */
+        left: 15%;
     }
     
+    .quote .author {
+        margin-left: -200px;
+    }
+    .resume-button {
+        bottom: 90px; /* Move resume button slightly up */
+        transform: scale(0.9);
+    }
+
     #stars {
-        width: 100vw; /* Ensure stars container fills the viewport width */
-        height: 100vh; /* Ensure stars container fills the viewport height */
+        width: 100vw;
+        height: 100vh;
     }
-    
 }
+
+
+
 
 

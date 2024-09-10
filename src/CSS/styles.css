@@ -449,7 +449,7 @@ nav ul li:nth-child(5) {
 /* Hover effect for button text color */
 .resume-button:hover {
     color: #000000;
-    transform: scale(1.2);
+    transform: scale(1.05);
     font-size: 19px;
 }
 

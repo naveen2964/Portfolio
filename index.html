@@ -1,111 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naveen Kumar | Portfolio</title>
-    <link rel="canonical" href="https://naveenvanga.onrender.com/">
-    <meta name="description" content="Hello! This is Naveen Kumar, this is my portfolio showcasing projects in web development, machine learning, and more.">
-    <link rel="stylesheet" href="src/CSS/styles.css">
-    <link rel="icon" href="src/images/profile.png" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naveen Terminal</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="src/Pictures/terminal.webp" type="image/png" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 </head>
-<!--Hello-->
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="honeycomb">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+  <!-- Background -->
+  <div id="tsparticles"></div>
+
+  <!-- Mac-style Terminal -->
+  <div id="terminal-wrapper">
+    <div class="terminal-header">
+      <span class="window-button red"></span>
+      <span class="window-button yellow"></span>
+      <span class="window-button green"></span>
     </div>
-
-    <!-- Main Content -->
-    <div id="particles-js"></div>
-    <div class="wrapper four text-container">
-        <h1>WELCOME TO MY PORTFOLIO</h1>
+    <div class="terminal-body">
+      <div id="terminal-output">
+        <p class="welcome">Welcome to Naveen's Terminal Portfolio</p>
+        <p class="instruction">Type <span class="cmd">help</span> to see available commands.</p>
+      </div>
+      <div id="terminal-input-line">
+        <span class="prompt">guest@portfolio:~$</span>
+        <div id="terminal-input" contenteditable="true" spellcheck="false"></div>
+        <span id="cursor" class="blink">█</span>
+      </div>
     </div>
-    
-    <nav>
-        <ul>
-            <li class="nav-item" data-delay="0"><a href="about.html" class="btn about-me-button typing-effect button-container" data-text="About Me"><span>About Me</span></a></li>
-            <li class="nav-item" data-delay="0.3"><a href="skills.html" class="btn skills-button typing-effect button-container"><span>Skills</span><strong class="hidden">SKILLS</strong><div id="container-stars" class="hidden"><div id="stars"></div></div><div id="glow" class="hidden"><div class="circle"></div><div class="circle"></div></div></a></li>
-            <li class="nav-item" data-delay="0.6"><a href="projects.html" class="btn projects-button typing-effect button-container"><span>Projects</span></a></li>
-            <li class="nav-item" data-delay="0.9"><a href="timeline.html" class="btn timeline-button typing-effect button-container"><span>Timeline</span>
-                <div class="scrolling-years">
-                    <div class="scrolling-years-wrapper">
-                        <div class="year">2004</div>
-                        <div class="year">2005</div>
-                        <div class="year">2006</div>
-                        <div class="year">2007</div>
-                        <div class="year">2008</div>
-                        <div class="year">2009</div>
-                        <div class="year">2010</div>
-                        <div class="year">2011</div>
-                        <div class="year">2012</div>
-                        <div class="year">2013</div>
-                        <div class="year">2014</div>
-                        <div class="year">2015</div>
-                        <div class="year">2016</div>
-                        <div class="year">2017</div>
-                        <div class="year">2018</div>
-                        <div class="year">2019</div>
-                        <div class="year">2020</div>
-                        <div class="year">2021</div>
-                        <div class="year">2022</div>
-                        <div class="year">2023</div>
-                        <div class="year">2024</div>
-                        <div class="year">2004</div>
-                        <div class="year">2005</div>
-                        <div class="year">2006</div>
-                        <div class="year">2007</div>
-                        <div class="year">2008</div>
-                        <div class="year">2009</div>
-                        <div class="year">2010</div>
-                        <div class="year">2011</div>
-                        <div class="year">2012</div>
-                        <div class="year">2013</div>
-                        <div class="year">2014</div>
-                        <div class="year">2015</div>
-                        <div class="year">2016</div>
-                        <div class="year">2017</div>
-                        <div class="year">2018</div>
-                        <div class="year">2019</div>
-                        <div class="year">2020</div>
-                        <div class="year">2021</div>
-                        <div class="year">2022</div>
-                        <div class="year">2023</div>
-                        <div class="year">2024</div>
-                    </div>
-                </div>
-            </a></li>
-        </ul>
-    </nav>
+  </div>
 
-    <div class="quote">
-        <p>"Don't judge a book by its cover" <span class="author">— George Eliot</span></p>
-    </div>
+  <!-- Hover Trigger -->
+  <div id="photo-panel-hover-zone"></div>
 
-    <div class="social-media">
-        <a href="https://github.com/naveen2964" target="_blank" class="social-icon github" aria-label="GitHub profile of Naveen Kumar"></a>
-        <a href="https://www.linkedin.com/in/naveenvanga/" target="_blank" class="social-icon linkedin" aria-label="LinkedIn profile of Naveen Kumar"></a>
-        <a href="https://www.instagram.com/naveen_foreal/" target="_blank" class="social-icon instagram" aria-label="Instagram profile of Naveen Kumar"></a>
-        <a href="https://x.com/naveen_foreal" target="_blank" class="social-icon twitter" aria-label="Twitter profile of Naveen Kumar"></a>
-        <a href="mailto:vanganaveenkumarreddy@gmail.com" class="social-icon email" aria-label="Email Naveen Kumar"></a>
-    </div>
+  <!-- Profile Photo Panel -->
+  <div id="photo-panel">
+    <img src="src/Pictures/naveen.jpg" alt="Naveen Kumar" />
+    <p>Naveen Kumar</p>
+  </div>
 
-    <ul>
-        <li class="nav-item"><a href="src/Resume.pdf" class="resume-button" aria-label="Resume of Naveen Kumar"><span>Resume</span></a></li>
-    </ul>
+  <!-- ZS Logo Slide Panel -->
+  <div id="zs-panel">
+    <img src="src/Pictures/zs.png" alt="ZS Associates" />
+  </div>
 
-    <footer>&copy; 2024 All Rights Reserved</footer>
+  <!-- Templates -->
+  <template id="profile-template">
+<pre>
+┌───────────────────────────────┐
+│           PROFILE             │
+└───────────────────────────────┘
 
-    <script src="src/JS/scripts.js"></script>
-    <script src="src/JS/particles.js"></script>
+Name         : Naveen Kumar
+Age          : 20
+Status       : 4th Year B.Tech Student @ VIT, Vellore
+
+Bio:
+  As a Computer Science undergrad, I'm eager to build cool, meaningful things.
+  I enjoy blending code and creativity to craft great user experiences
+  and smart systems.
+
+Specialization:
+  - Data Science
+  - Web Development
+  - Machine Learning
+
+[🖼️  Photo loaded above if supported]
+</pre>
+  </template>
+
+  <template id="location-template">
+<pre>
+┌───────────────────────────────┐
+│           LOCATION            │
+└───────────────────────────────┘
+
+📍 Naveen was last seen roaming the streets of Hebbal, Bengaluru.
+Intel suggests he's sipping chai near a roadside momo stall...
+
+GPS Coordinates:
+Latitude  : 13.0461
+Longitude : 77.5913
+
+⛔ Surveillance drone failed to lock target. Proceed with caution.
+</pre>
+  </template>
+
+  <template id="skills-template">
+<pre>
+┌───────────────────────────────┐
+│            SKILLS             │
+└───────────────────────────────┘
+
++-------------+--------------+-------------+
+| Python      | Java         | HTML        |
+| CSS         | JavaScript   | React       |
+| SQL         | DSA          | C           |
+| C++         | OS           | Networks    |
++-------------+--------------+-------------+
+</pre>
+  </template>
+
+  <template id="projects-template">
+<pre>
+┌───────────────────────────────┐
+│           PROJECTS            │
+└───────────────────────────────┘
+
+📽️ Movie Recommendation System
+  - Used PCA & anomaly detection to boost logistic regression.
+  - Balanced data to improve fraud pattern recognition.
+  - Used ensembles to boost accuracy and minimize false positives.
+
+💳 Credit Card Fraud Detection
+  - PCA + anomaly detection improved cross-validation scores.
+  - Balanced fraud/non-fraud ratio improved recognition.
+  - Optimized for low false positives, higher reliability.
+</pre>
+  </template>
+
+  <template id="experience-template">
+<pre>
+┌───────────────────────────────┐
+│          EXPERIENCE           │
+└───────────────────────────────┘
+
+🛠️  ZS Associates (Jan 2025 – Present)
+     Role: Data Analyst
+     - Working on real-world data pipelines & insights
+     - Collaborating cross-functionally in a fast-paced environment
+
+🧪 BHEL (Sept 2024 – Oct 2024)
+     Role: Web Developer Intern
+     - Developed web apps using modern technologies
+     - Focused on enhancing user experience and internal tools
+</pre>
+  </template>
+
+  <template id="education-template">
+<pre>
+┌───────────────────────────────┐
+│           EDUCATION           │
+└───────────────────────────────┘
+
+🎓 VIT Vellore – B.Tech Computer Science
+    - Expected May 2025
+    - CGPA: 8.76
+    - Specialization in Data Science, ML, Web Dev, Software Engg
+
+🏫 Board of Intermediate Education – Sri Chaitanya Co-Ed College
+    - 2019 – 2021
+    - Percentage: 92%
+    - Science Stream: PCM focus, strong foundation in analytics
+
+🏫 Board of Secondary Education – Sri Chaitanya School
+    - 2018 – 2019
+    - CGPA: 9.8
+    - Focused on academics and leadership activities
+
+🏫 Sri Chaitanya School – Guntur
+    - 2009 – 2018
+    - Studied from 1st to 9th standard
+    - Developed a strong foundation in core subjects, esp. Science
+</pre>
+  </template>
+
+  <!-- Scripts -->
+  <script src="JS/script.js"></script>
+  <script src="JS/background.js"></script>
 </body>
 </html>

@@ -1,0 +1,273 @@
+/* Full screen layout */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", sans-serif;
+    height: 100vh;
+    background: transparent;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Terminal container like Mac window */
+  #terminal-wrapper {
+    width: 90%;
+    max-width: 900px;
+    height: 500px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    font-family: "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    display: flex;
+    flex-direction: column;
+    resize: both;
+    min-width: 300px;
+    min-height: 300px;
+  }
+
+  /* Responsive terminal scaling */
+  @media (max-width: 768px) {
+    #terminal-wrapper {
+      width: 95%;
+      height: 90vh;
+    }
+
+    #photo-panel,
+    #zs-panel {
+      display: none; /* Hide panels on small screens for clarity */
+    }
+
+    #music-toggle {
+      bottom: 10px;
+      right: 10px;
+      padding: 5px 10px;
+      font-size: 0.8em;
+    }
+
+    #terminal-input-line {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .prompt {
+      margin-bottom: 4px;
+    }
+  }
+
+  /* Mac-style window bar */
+  .terminal-header {
+    background-color: rgba(31, 31, 31, 0.8);
+    padding: 10px;
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #333;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    cursor: move;
+    user-select: none;
+  }
+
+  .window-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.3);
+  }
+
+  .window-button.red {
+    background-color: #ff5f57;
+  }
+  .window-button.yellow {
+    background-color: #ffbd2e;
+  }
+  .window-button.green {
+    background-color: #28c840;
+  }
+
+  /* Terminal content */
+  .terminal-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+
+  .welcome,
+  .instruction {
+    margin: 0;
+    line-height: 1.5em;
+  }
+
+  #terminal-output {
+    flex: 1;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    margin-bottom: 16px;
+    font-family: "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    color: #ffffff;
+  }
+
+  #terminal-input-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    color: #ffffff;
+    padding-top: 6px;
+  }
+
+  .prompt {
+    margin-right: 10px;
+    white-space: nowrap;
+    color: #ffffff;
+  }
+
+  #terminal-input {
+    flex: 1;
+    min-height: 1em;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    font-size: 1em;
+    outline: none;
+    white-space: pre-wrap;
+    caret-color: #ffffff;
+  }
+
+  .cmd {
+    color: #0ff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .cmd-link a {
+    color: cyan;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .cmd-link a:hover {
+    text-decoration: underline;
+  }
+
+  /* Mac-like Scrollbar */
+  #terminal-output::-webkit-scrollbar {
+    width: 10px;
+  }
+  #terminal-output::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  #terminal-output::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  #terminal-output::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Music Toggle Button */
+  #music-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #1c1c1e;
+    color: #f5f5f7;
+    border: 1px solid #3a3a3c;
+    padding: 6px 12px;
+    border-radius: 999px;
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+  }
+  #music-toggle:hover {
+    background: #2c2c2e;
+  }
+
+  /* Hide blinking cursor */
+  #cursor {
+    display: none;
+  }
+
+  /* Profile photo panel */
+  #photo-panel {
+    position: fixed;
+    top: 50%;
+    right: -240px;
+    transform: translateY(-50%);
+    width: 220px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    text-align: center;
+    transition: right 0.4s ease-in-out;
+    font-family: "SF Mono", monospace;
+    z-index: 100;
+    color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  #photo-panel-hover-zone {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100vh;
+    z-index: 99;
+  }
+  #photo-panel:hover,
+  #photo-panel-hover-zone:hover ~ #photo-panel {
+    right: 20px;
+  }
+  #photo-panel.show {
+    right: 20px;
+  }
+  #photo-panel img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+  #photo-panel p {
+    margin: 0;
+    font-size: 1em;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  /* ZS logo slide panel */
+  #zs-panel {
+    position: fixed;
+    top: 50%;
+    left: -160px;
+    transform: translateY(-50%);
+    width: 140px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    text-align: center;
+    transition: left 0.4s ease-in-out;
+    font-family: "SF Mono", monospace;
+    z-index: 101;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  }
+  #zs-panel img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  #zs-panel.show {
+    left: 20px;
+  }

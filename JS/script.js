@@ -14,7 +14,7 @@ bgMusic.volume = 0.3;
 bgMusic.loop = true;
 
 const decryptSound = new Audio("src/Audio/decrypt.mp3");
-decryptSound.volume = 0.01;
+decryptSound.volume = 0.1;
 decryptSound.loop = true;
 
 let isMusicPlaying = false;
@@ -76,12 +76,14 @@ const commands = {
   whoami: `You are an awesome visitor exploring Naveen's portfolio 👨‍🚀`,
   ls: `Documents  Projects  readme.txt  crewmates.md`,
   "cat readme.txt": `Welcome to my interactive terminal portfolio.\nType 'help' to see available commands.`,
-  sus: `😳 You seem a little *sus*. Are you the imposter? 👀`
+  sus: `😳 You seem a little *sus*. Are you the imposter? 👀`,
 };
 
 function formatLoginTime() {
   const date = new Date();
-  return `Last login: ${date.toDateString().replace(/\s+/g, " ")} ${date.toTimeString().split(" ")[0]} on console`;
+  return `Last login: ${date.toDateString().replace(/\s+/g, " ")} ${
+    date.toTimeString().split(" ")[0]
+  } on console`;
 }
 
 function getTemplateText(id) {
@@ -135,18 +137,24 @@ function updatePrompt() {
 function resetIdleTimer() {
   clearTimeout(idleTimer);
   idleTimer = setTimeout(() => {
-    typeOutput("\n[Idle] Type 'help' to get started or explore with 'ls'.\n", null, { silent: true });
+    typeOutput(
+      "\n[Idle] Type 'help' to get started or explore with 'ls'.\n",
+      null,
+      { silent: true }
+    );
   }, 30000);
 }
 
 let isDragging = false;
 let dragOffset = { x: 0, y: 0 };
 
-document.querySelector(".terminal-header").addEventListener("mousedown", (e) => {
-  isDragging = true;
-  dragOffset.x = e.clientX - terminalWrapper.offsetLeft;
-  dragOffset.y = e.clientY - terminalWrapper.offsetTop;
-});
+document
+  .querySelector(".terminal-header")
+  .addEventListener("mousedown", (e) => {
+    isDragging = true;
+    dragOffset.x = e.clientX - terminalWrapper.offsetLeft;
+    dragOffset.y = e.clientY - terminalWrapper.offsetTop;
+  });
 
 window.addEventListener("mousemove", (e) => {
   if (!isDragging) return;
@@ -165,7 +173,7 @@ window.addEventListener("DOMContentLoaded", () => {
     "guest@portfolio:~$ decrypting secure layers...",
     "guest@portfolio:~$ loading modules ███████████████████ 100%",
     "guest@portfolio:~$ access granted. welcome back, operator.",
-    "naveen@Naveens-MacBook-Air:~$ type 'help' to get started."
+    "naveen@Naveens-MacBook-Air:~$ type 'help' to get started.",
   ];
 
   decryptSound.play();
@@ -173,10 +181,14 @@ window.addEventListener("DOMContentLoaded", () => {
   let lineIndex = 0;
   function typeNextLine() {
     if (lineIndex < bootLines.length) {
-      typeOutput(bootLines[lineIndex] + "\n", () => {
-        lineIndex++;
-        setTimeout(typeNextLine, 1000);
-      }, { silent: true, speed: 50 });
+      typeOutput(
+        bootLines[lineIndex] + "\n",
+        () => {
+          lineIndex++;
+          setTimeout(typeNextLine, 1000);
+        },
+        { silent: true, speed: 50 }
+      );
     } else {
       decryptSound.pause();
       decryptSound.currentTime = 0;
@@ -260,7 +272,14 @@ input.addEventListener("keydown", function (e) {
     } else if (commands[command]) {
       typeOutput(commands[command] + "\n");
     } else if (
-      ["profile", "location", "skills", "projects", "experience", "education"].includes(command)
+      [
+        "profile",
+        "location",
+        "skills",
+        "projects",
+        "experience",
+        "education",
+      ].includes(command)
     ) {
       if (command === "profile" && photoPanel) {
         photoPanel.classList.add("show");
@@ -272,7 +291,9 @@ input.addEventListener("keydown", function (e) {
       }
       typeOutput(getTemplateText(command) + "\n");
     } else {
-      typeOutput(`Command not found: ${command}\nType "help" to see a list of valid commands.\n`);
+      typeOutput(
+        `Command not found: ${command}\nType "help" to see a list of valid commands.\n`
+      );
     }
 
     input.innerText = "";

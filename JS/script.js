@@ -5,11 +5,11 @@ const terminalWrapper = document.getElementById("terminal-wrapper");
 const photoPanel = document.getElementById("photo-panel");
 const zsPanel = document.getElementById("zs-panel");
 
-const typingSound = new Audio("src/audio/typing.mp3");
+const typingSound = new Audio("src/Audio/typing.mp3");
 typingSound.volume = 0.4;
 typingSound.loop = true;
 
-const bgMusic = new Audio("src/audio/among-us.mp3");
+const bgMusic = new Audio("src/Audio/among-us.mp3");
 bgMusic.volume = 0.5;
 bgMusic.loop = true;
 

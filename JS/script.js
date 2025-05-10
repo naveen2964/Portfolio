@@ -14,7 +14,7 @@ bgMusic.volume = 0.3;
 bgMusic.loop = true;
 
 const decryptSound = new Audio("src/Audio/decrypt.mp3");
-decryptSound.volume = 0.1;
+decryptSound.volume = 0.5;
 decryptSound.loop = true;
 
 let isMusicPlaying = false;

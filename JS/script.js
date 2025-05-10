@@ -6,12 +6,16 @@ const photoPanel = document.getElementById("photo-panel");
 const zsPanel = document.getElementById("zs-panel");
 
 const typingSound = new Audio("src/Audio/typing.mp3");
-typingSound.volume = 0.4;
+typingSound.volume = 0.6;
 typingSound.loop = true;
 
 const bgMusic = new Audio("src/Audio/among-us.mp3");
-bgMusic.volume = 0.5;
+bgMusic.volume = 0.3;
 bgMusic.loop = true;
+
+const decryptSound = new Audio("src/Audio/decrypt.mp3");
+decryptSound.volume = 0.01;
+decryptSound.loop = true;
 
 let isMusicPlaying = false;
 let idleTimer;
@@ -68,7 +72,7 @@ musicToggle.addEventListener("click", () => {
 });
 
 const commands = {
-  help: `Available commands:\n  1. profile\n  2. skills\n  3. projects\n  4. education\n  5. experience\n  6. location\n  7. contact\n  8. resume\n  - clear\n  - sus\n  - whoami\n  - ls\n  - cat readme.txt`,
+  help: `available details:\n  1. profile\n  2. skills\n  3. projects\n  4. education\n  5. experience\n  6. location\n  7. contact\n  8. resume\n  - clear\n  - sus\n  - whoami\n  - ls\n  - cat readme.txt`,
   whoami: `You are an awesome visitor exploring Naveen's portfolio 👨‍🚀`,
   ls: `Documents  Projects  readme.txt  crewmates.md`,
   "cat readme.txt": `Welcome to my interactive terminal portfolio.\nType 'help' to see available commands.`,
@@ -77,9 +81,7 @@ const commands = {
 
 function formatLoginTime() {
   const date = new Date();
-  return `Last login: ${date.toDateString().replace(/\s+/g, " ")} ${
-    date.toTimeString().split(" ")[0]
-  } on console`;
+  return `Last login: ${date.toDateString().replace(/\s+/g, " ")} ${date.toTimeString().split(" ")[0]} on console`;
 }
 
 function getTemplateText(id) {
@@ -90,12 +92,10 @@ function getTemplateText(id) {
   );
 }
 
-function typeOutput(text, callback, { silent = false } = {}) {
+function typeOutput(text, callback, { silent = false, speed = 40 } = {}) {
   let i = 0;
   isTyping = true;
   const len = text.length;
-  let delay =
-    len > 800 ? 3 : len > 600 ? 6 : len > 400 ? 12 : len > 200 ? 20 : 40;
 
   if (!silent) {
     typingSound.currentTime = 0;
@@ -115,7 +115,7 @@ function typeOutput(text, callback, { silent = false } = {}) {
       typingSound.currentTime = 0;
       callback?.();
     }
-  }, delay);
+  }, speed);
 }
 
 function skipTyping() {
@@ -135,24 +135,18 @@ function updatePrompt() {
 function resetIdleTimer() {
   clearTimeout(idleTimer);
   idleTimer = setTimeout(() => {
-    typeOutput(
-      "\n[Idle] Type 'help' to get started or explore with 'ls'.\n",
-      null,
-      { silent: true }
-    );
+    typeOutput("\n[Idle] Type 'help' to get started or explore with 'ls'.\n", null, { silent: true });
   }, 30000);
 }
 
 let isDragging = false;
 let dragOffset = { x: 0, y: 0 };
 
-document
-  .querySelector(".terminal-header")
-  .addEventListener("mousedown", (e) => {
-    isDragging = true;
-    dragOffset.x = e.clientX - terminalWrapper.offsetLeft;
-    dragOffset.y = e.clientY - terminalWrapper.offsetTop;
-  });
+document.querySelector(".terminal-header").addEventListener("mousedown", (e) => {
+  isDragging = true;
+  dragOffset.x = e.clientX - terminalWrapper.offsetLeft;
+  dragOffset.y = e.clientY - terminalWrapper.offsetTop;
+});
 
 window.addEventListener("mousemove", (e) => {
   if (!isDragging) return;
@@ -165,11 +159,34 @@ window.addEventListener("mouseup", () => {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-  output.innerHTML = `${formatLoginTime()}\n\nType 'help' to get started.\n`;
-  updatePrompt();
-  resetIdleTimer();
+  output.innerHTML = "";
+  const bootLines = [
+    "guest@portfolio:~$ attempting breach...",
+    "guest@portfolio:~$ decrypting secure layers...",
+    "guest@portfolio:~$ loading modules ███████████████████ 100%",
+    "guest@portfolio:~$ access granted. welcome back, operator.",
+    "naveen@Naveens-MacBook-Air:~$ type 'help' to get started."
+  ];
 
-  // ✅ Mobile-specific enhancements
+  decryptSound.play();
+
+  let lineIndex = 0;
+  function typeNextLine() {
+    if (lineIndex < bootLines.length) {
+      typeOutput(bootLines[lineIndex] + "\n", () => {
+        lineIndex++;
+        setTimeout(typeNextLine, 1000);
+      }, { silent: true, speed: 50 });
+    } else {
+      decryptSound.pause();
+      decryptSound.currentTime = 0;
+      updatePrompt();
+      resetIdleTimer();
+    }
+  }
+
+  typeNextLine();
+
   input.addEventListener("click", () => input.focus());
   input.addEventListener("focus", () => {
     setTimeout(() => {
@@ -213,7 +230,7 @@ input.addEventListener("keydown", function (e) {
     output.innerHTML += `\n<span class="prompt">(base) naveen@Naveens-MacBook-Air ~ %</span> ${command}\n`;
 
     if (command === "clear") {
-      output.innerHTML = `${formatLoginTime()}\n\nType 'help' to get started.\n`;
+      output.innerHTML = "";
     } else if (command === "resume") {
       output.innerHTML += `<div class='cmd-link'><a href='src/resume.pdf' download>📄 Click here to download my resume</a></div>\n`;
     } else if (command === "contact") {
@@ -243,14 +260,7 @@ input.addEventListener("keydown", function (e) {
     } else if (commands[command]) {
       typeOutput(commands[command] + "\n");
     } else if (
-      [
-        "profile",
-        "location",
-        "skills",
-        "projects",
-        "experience",
-        "education",
-      ].includes(command)
+      ["profile", "location", "skills", "projects", "experience", "education"].includes(command)
     ) {
       if (command === "profile" && photoPanel) {
         photoPanel.classList.add("show");
@@ -262,9 +272,7 @@ input.addEventListener("keydown", function (e) {
       }
       typeOutput(getTemplateText(command) + "\n");
     } else {
-      typeOutput(
-        `Command not found: ${command}\nType "help" to see a list of valid commands.\n`
-      );
+      typeOutput(`Command not found: ${command}\nType "help" to see a list of valid commands.\n`);
     }
 
     input.innerText = "";

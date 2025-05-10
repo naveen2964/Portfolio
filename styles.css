@@ -139,6 +139,35 @@ body {
     padding-top: 6px;
   }
 
+  /* Sus (Among Us) Popup */
+#sus-popup {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  z-index: 150;
+  transition: transform 0.4s ease-in-out;
+}
+
+#sus-popup img {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+#sus-popup.show {
+  transform: translateX(-50%) scale(1);
+}
   .prompt {
     margin-right: 10px;
     white-space: nowrap;

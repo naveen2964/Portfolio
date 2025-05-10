@@ -72,6 +72,7 @@ const commands = {
   whoami: `You are an awesome visitor exploring Naveen's portfolio 👨‍🚀`,
   ls: `Documents  Projects  readme.txt  crewmates.md`,
   "cat readme.txt": `Welcome to my interactive terminal portfolio.\nType 'help' to see available commands.`,
+  sus: `😳 You seem a little *sus*. Are you the imposter? 👀`
 };
 
 function formatLoginTime() {
@@ -226,6 +227,17 @@ input.addEventListener("keydown", function (e) {
           📸 <a href='https://www.instagram.com/naveen_foreal/' target='_blank'>Instagram</a>
         `;
         output.appendChild(links);
+        output.scrollTop = output.scrollHeight;
+      });
+    } else if (command === "sus") {
+      typeOutput(commands[command] + "\n", () => {
+        const img = document.createElement("img");
+        img.src = "https://particles.js.org/images/amongus_red.png";
+        img.alt = "Among Us";
+        img.style.maxWidth = "120px";
+        img.style.marginTop = "10px";
+        img.style.borderRadius = "10px";
+        output.appendChild(img);
         output.scrollTop = output.scrollHeight;
       });
     } else if (commands[command]) {

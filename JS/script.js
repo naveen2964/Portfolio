@@ -21,31 +21,35 @@ let isTyping = false;
 let typingInterval = null;
 
 const shortcuts = {
-  "1": "profile",
-  "2": "skills",
-  "3": "projects",
-  "4": "education",
-  "5": "experience",
-  "6": "location",
-  "7": "contact",
-  "8": "resume"
+  1: "profile",
+  2: "skills",
+  3: "projects",
+  4: "education",
+  5: "experience",
+  6: "location",
+  7: "contact",
+  8: "resume",
 };
 
 const commandCorrections = {
-  "profle": "profile",
-  "resum": "resume",
-  "helo": "help",
-  "contat": "contact",
-  "loction": "location",
-  "educaton": "education",
-  "experince": "experience"
+  profle: "profile",
+  resum: "resume",
+  helo: "help",
+  contat: "contact",
+  loction: "location",
+  educaton: "education",
+  experince: "experience",
 };
 
-window.addEventListener("click", () => {
-  if (isMusicPlaying) {
-    bgMusic.play().catch(() => {});
-  }
-}, { once: true });
+window.addEventListener(
+  "click",
+  () => {
+    if (isMusicPlaying) {
+      bgMusic.play().catch(() => {});
+    }
+  },
+  { once: true }
+);
 
 const musicToggle = document.createElement("button");
 musicToggle.textContent = "🔇 Music Off";
@@ -67,24 +71,30 @@ const commands = {
   help: `Available commands:\n  1. profile\n  2. skills\n  3. projects\n  4. education\n  5. experience\n  6. location\n  7. contact\n  8. resume\n  - clear\n  - sus\n  - whoami\n  - ls\n  - cat readme.txt`,
   whoami: `You are an awesome visitor exploring Naveen's portfolio 👨‍🚀`,
   ls: `Documents  Projects  readme.txt  crewmates.md`,
-  "cat readme.txt": `Welcome to my interactive terminal portfolio.\nType 'help' to see available commands.`
+  "cat readme.txt": `Welcome to my interactive terminal portfolio.\nType 'help' to see available commands.`,
 };
 
 function formatLoginTime() {
   const date = new Date();
-  return `Last login: ${date.toDateString().replace(/\s+/g, ' ')} ${date.toTimeString().split(' ')[0]} on console`;
+  return `Last login: ${date.toDateString().replace(/\s+/g, " ")} ${
+    date.toTimeString().split(" ")[0]
+  } on console`;
 }
 
 function getTemplateText(id) {
   const template = document.getElementById(`${id}-template`);
-  return template?.content?.textContent.trim() || `Error: No data found for command '${id}'.`;
+  return (
+    template?.content?.textContent.trim() ||
+    `Error: No data found for command '${id}'.`
+  );
 }
 
 function typeOutput(text, callback, { silent = false } = {}) {
   let i = 0;
   isTyping = true;
   const len = text.length;
-  let delay = len > 800 ? 3 : len > 600 ? 6 : len > 400 ? 12 : len > 200 ? 20 : 40;
+  let delay =
+    len > 800 ? 3 : len > 600 ? 6 : len > 400 ? 12 : len > 200 ? 20 : 40;
 
   if (!silent) {
     typingSound.currentTime = 0;
@@ -124,18 +134,24 @@ function updatePrompt() {
 function resetIdleTimer() {
   clearTimeout(idleTimer);
   idleTimer = setTimeout(() => {
-    typeOutput("\n[Idle] Type 'help' to get started or explore with 'ls'.\n", null, { silent: true });
+    typeOutput(
+      "\n[Idle] Type 'help' to get started or explore with 'ls'.\n",
+      null,
+      { silent: true }
+    );
   }, 30000);
 }
 
 let isDragging = false;
 let dragOffset = { x: 0, y: 0 };
 
-document.querySelector(".terminal-header").addEventListener("mousedown", (e) => {
-  isDragging = true;
-  dragOffset.x = e.clientX - terminalWrapper.offsetLeft;
-  dragOffset.y = e.clientY - terminalWrapper.offsetTop;
-});
+document
+  .querySelector(".terminal-header")
+  .addEventListener("mousedown", (e) => {
+    isDragging = true;
+    dragOffset.x = e.clientX - terminalWrapper.offsetLeft;
+    dragOffset.y = e.clientY - terminalWrapper.offsetTop;
+  });
 
 window.addEventListener("mousemove", (e) => {
   if (!isDragging) return;
@@ -151,6 +167,14 @@ window.addEventListener("DOMContentLoaded", () => {
   output.innerHTML = `${formatLoginTime()}\n\nType 'help' to get started.\n`;
   updatePrompt();
   resetIdleTimer();
+
+  // ✅ Mobile-specific enhancements
+  input.addEventListener("click", () => input.focus());
+  input.addEventListener("focus", () => {
+    setTimeout(() => {
+      input.scrollIntoView({ behavior: "smooth", block: "end" });
+    }, 100);
+  });
 });
 
 input.addEventListener("keydown", function (e) {
@@ -206,7 +230,16 @@ input.addEventListener("keydown", function (e) {
       });
     } else if (commands[command]) {
       typeOutput(commands[command] + "\n");
-    } else if (["profile", "location", "skills", "projects", "experience", "education"].includes(command)) {
+    } else if (
+      [
+        "profile",
+        "location",
+        "skills",
+        "projects",
+        "experience",
+        "education",
+      ].includes(command)
+    ) {
       if (command === "profile" && photoPanel) {
         photoPanel.classList.add("show");
         setTimeout(() => photoPanel.classList.remove("show"), 5000);
@@ -217,7 +250,9 @@ input.addEventListener("keydown", function (e) {
       }
       typeOutput(getTemplateText(command) + "\n");
     } else {
-      typeOutput(`Command not found: ${command}\nType "help" to see a list of valid commands.\n`);
+      typeOutput(
+        `Command not found: ${command}\nType "help" to see a list of valid commands.\n`
+      );
     }
 
     input.innerText = "";
